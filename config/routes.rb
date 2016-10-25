@@ -4,6 +4,6 @@ Rails.application.routes.draw do
     resources :reports
   end
 
-  root 'tests#index'
+  root 'application#index'
 
 end
