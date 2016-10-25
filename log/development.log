@@ -1086,3 +1086,18 @@ Processing by TestsController#new as HTML
 Completed 200 OK in 201ms (Views: 94.4ms | ActiveRecord: 12.7ms)
 
 
+Started GET "/" for ::1 at 2016-10-25 17:15:13 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.haml within layouts/application
+  Rendered application/index.html.haml within layouts/application (27.3ms)
+Completed 200 OK in 12325ms (Views: 12267.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-10-25 17:15:32 +0100
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.haml within layouts/application
+  Rendered application/index.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 471ms (Views: 461.9ms | ActiveRecord: 0.0ms)
+
+
