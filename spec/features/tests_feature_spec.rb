@@ -9,5 +9,15 @@ feature 'Tests' do
       visit "/tests/#{test.id}"
       expect(page).to have_content("Thanks for participating in the test for Youtube")
     end
+
+    scenario 'user sees iframe url when starting test' do
+      visit "/tests/#{test.id}"
+      click_button 'Start'
+      expect(current_path).to eq "/tests/#{test.id}"
+      save_and_open_page
+      within('#frame') do
+        expect(page).to eq page
+      end
+    end
   end
 end
