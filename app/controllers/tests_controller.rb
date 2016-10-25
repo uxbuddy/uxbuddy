@@ -4,6 +4,8 @@ class TestsController < ApplicationController
     @test = Test.new
   end
 
-
+  def show
+    @test = Test.find(params[:id])
+  end
 
 end

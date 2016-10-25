@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 feature 'creating tests' do
+
+  let!(:type) { TestType.create(description: "product")}
+  let!(:q1) { DefaultQuestion.create(type: "Rating", text: "How would you rate the information available about the product?(1-5)")}
+  let!(:q2) { DefaultQuestion.create(type: "Rating", text: "How easy would you find it to buy these?(1-5)" )}
+  let!(:q3) { DefaultQuestion.create(type: "Rating", text: "How easy is it to compare this product against other options?(1-5)")}
+
   scenario 'homepage has link to get started' do
     visit '/'
     click_button 'Get started'
