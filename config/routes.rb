@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :tests, :reports
+  resources :tests do
+    resources :reports
+  end
 
 end
