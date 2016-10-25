@@ -1,8 +1,15 @@
 require 'rails_helper'
 
 feature 'homepage' do
-  context 'am I working?' do
+  scenario 'homepage has link to get started' do
     visit '/'
-    expect(page.status_code).to equal(200)
+    click_button "Get started"
+    expect(current_path).to eq('/tests/new')
   end
+
+  # scenario 'can choose Product page in test choice' do
+  #
+  # end
+
+
 end
