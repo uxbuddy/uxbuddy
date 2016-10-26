@@ -1101,3 +1101,496 @@ Processing by ApplicationController#index as HTML
 Completed 200 OK in 471ms (Views: 461.9ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (19.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6804076403253530100);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTests (20161025105911)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (25.0ms)[0m  [1m[35mCREATE TABLE "tests" ("id" serial primary key, "name" character varying, "test_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (25.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161025105911"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTestTypes (20161025110145)
+  [1m[35m (5.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (14.5ms)[0m  [1m[35mCREATE TABLE "test_types" ("id" serial primary key, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161025110145"]]
+  [1m[35m (4.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateQuestions (20161025110302)
+  [1m[35m (5.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "questions" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161025110302"]]
+  [1m[35m (9.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAnswers (20161025110452)
+  [1m[35m (5.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (19.4ms)[0m  [1m[35mCREATE TABLE "answers" ("id" serial primary key, "type" character varying, "response" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161025110452"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTypeToQuestions (20161025133619)
+  [1m[35m (7.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (13.3ms)[0m  [1m[35mALTER TABLE "questions" ADD "type" character varying[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161025133619"]]
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTextToQuestions (20161025133701)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "questions" ADD "text" text[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161025133701"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTestTypeRefToTests (20161025134243)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "tests" ADD "test_type_id" integer[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE  INDEX  "index_tests_on_test_type_id" ON "tests"  ("test_type_id")[0m
+  [1m[35m (13.1ms)[0m  [1m[35mALTER TABLE "tests" ADD CONSTRAINT "fk_rails_1a99ab3dcd"
+FOREIGN KEY ("test_type_id")
+  REFERENCES "test_types" ("id")
+[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161025134243"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddQuestionRefToAnswers (20161025134458)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "answers" ADD "question_id" integer[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE  INDEX  "index_answers_on_question_id" ON "answers"  ("question_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "answers" ADD CONSTRAINT "fk_rails_3d5ed4418f"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161025134458"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateQuestionsTestTypes (20161025140204)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "questions_test_types" ("id" serial primary key, "test_type_id" integer, "question_id" integer, CONSTRAINT "fk_rails_c4ae62b4a4"
+FOREIGN KEY ("test_type_id")
+  REFERENCES "test_types" ("id")
+, CONSTRAINT "fk_rails_d6bd7664f1"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+)[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE  INDEX  "index_questions_test_types_on_test_type_id" ON "questions_test_types"  ("test_type_id")[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE  INDEX  "index_questions_test_types_on_question_id" ON "questions_test_types"  ("question_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161025140204"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTestsQuestions (20161025140620)
+  [1m[35m (6.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "tests_questions" ("id" serial primary key, "question_id" integer, "test_id" integer, CONSTRAINT "fk_rails_d1880dc7ef"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+, CONSTRAINT "fk_rails_bfc686535a"
+FOREIGN KEY ("test_id")
+  REFERENCES "tests" ("id")
+)[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE  INDEX  "index_tests_questions_on_question_id" ON "tests_questions"  ("question_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_tests_questions_on_test_id" ON "tests_questions"  ("test_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161025140620"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameTypeColumnNames (20161025150223)
+  [1m[35m (6.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.3ms)[0m  [1m[35mALTER TABLE "questions" RENAME COLUMN "type" TO "format"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "answers" RENAME COLUMN "type" TO "format"[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161025150223"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-10-26 08:10:03 UTC], ["updated_at", 2016-10-26 08:10:03 UTC]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6804076403253530100)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'answers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'questions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'questions_test_types'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'test_types'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tests'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tests_questions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "questions" ("id", "created_at", "updated_at", "format", "text") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["created_at", 2016-10-26 08:10:28 UTC], ["updated_at", 2016-10-26 08:10:28 UTC], ["format", "Range"], ["text", "How would you rate the information available about the product?"]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("id", "created_at", "updated_at", "format", "text") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 2], ["created_at", 2016-10-26 08:10:28 UTC], ["updated_at", 2016-10-26 08:10:28 UTC], ["format", "Range"], ["text", "How easy would you find it to buy these?"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("id", "created_at", "updated_at", "format", "text") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 3], ["created_at", 2016-10-26 08:10:28 UTC], ["updated_at", 2016-10-26 08:10:28 UTC], ["format", "Range"], ["text", "How easy is it to know if this product is available?"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("id", "created_at", "updated_at", "format", "text") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 4], ["created_at", 2016-10-26 08:10:28 UTC], ["updated_at", 2016-10-26 08:10:28 UTC], ["format", "Range"], ["text", "How easy is it to compare this product against other options?"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("id", "created_at", "updated_at", "format", "text") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 5], ["created_at", 2016-10-26 08:10:28 UTC], ["updated_at", 2016-10-26 08:10:28 UTC], ["format", "Range"], ["text", "How clear is the pricing?"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("id", "created_at", "updated_at", "format", "text") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 6], ["created_at", 2016-10-26 08:10:28 UTC], ["updated_at", 2016-10-26 08:10:28 UTC], ["format", "Range"], ["text", "How easy would it be to return to this item later?"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("id", "created_at", "updated_at", "format", "text") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 7], ["created_at", 2016-10-26 08:10:28 UTC], ["updated_at", 2016-10-26 08:10:28 UTC], ["format", "Range"], ["text", "How comfortable would you be to purchase a product from this site?"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("id", "created_at", "updated_at", "format", "text") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 8], ["created_at", 2016-10-26 08:10:28 UTC], ["updated_at", 2016-10-26 08:10:28 UTC], ["format", "Range"], ["text", "How easy is it to assess whether others have found this product useful??"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "questions" ("id", "created_at", "updated_at", "format", "text") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["created_at", 2016-10-26 08:12:07 UTC], ["updated_at", 2016-10-26 08:12:07 UTC], ["format", "Range"], ["text", "How would you rate the information available about the product?"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6804076403253530100);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6804076403253530100)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'answers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'questions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'questions_test_types'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'test_types'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tests'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tests_questions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (5040.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "uxbuddy_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (823.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "uxbuddy_development"[0m
+  [1m[35m (126.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "uxbuddy_test"[0m
+  [1m[35m (238.3ms)[0m  [1m[35mCREATE DATABASE "uxbuddy_development" ENCODING = 'unicode'[0m
+  [1m[35m (240.8ms)[0m  [1m[35mCREATE DATABASE "uxbuddy_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "answers" ("id" serial primary key, "format" character varying, "response" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "question_id" integer)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_answers_on_question_id" ON "answers" USING btree ("question_id")[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "questions" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "format" character varying, "text" text)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "questions_test_types" ("id" serial primary key, "test_type_id" integer, "question_id" integer)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_questions_test_types_on_question_id" ON "questions_test_types" USING btree ("question_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_questions_test_types_on_test_type_id" ON "questions_test_types" USING btree ("test_type_id")[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "test_types" ("id" serial primary key, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "tests" ("id" serial primary key, "name" character varying, "test_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "test_type_id" integer)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_tests_on_test_type_id" ON "tests" USING btree ("test_type_id")[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "tests_questions" ("id" serial primary key, "question_id" integer, "test_id" integer)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_tests_questions_on_question_id" ON "tests_questions" USING btree ("question_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_tests_questions_on_test_id" ON "tests_questions" USING btree ("test_id")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "answers" ADD CONSTRAINT "fk_rails_3d5ed4418f"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "questions_test_types" ADD CONSTRAINT "fk_rails_d6bd7664f1"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "questions_test_types" ADD CONSTRAINT "fk_rails_c4ae62b4a4"
+FOREIGN KEY ("test_type_id")
+  REFERENCES "test_types" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "tests" ADD CONSTRAINT "fk_rails_1a99ab3dcd"
+FOREIGN KEY ("test_type_id")
+  REFERENCES "test_types" ("id")
+[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "tests_questions" ADD CONSTRAINT "fk_rails_d1880dc7ef"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "tests_questions" ADD CONSTRAINT "fk_rails_bfc686535a"
+FOREIGN KEY ("test_id")
+  REFERENCES "tests" ("id")
+[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20161025150223')[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES ('20161025105911'), ('20161025110145'), ('20161025110302'), ('20161025110452'), ('20161025133619'), ('20161025133701'), ('20161025134243'), ('20161025134458'), ('20161025140204'), ('20161025140620');
+
+[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-10-26 08:16:21 UTC], ["updated_at", 2016-10-26 08:16:21 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "answers" ("id" serial primary key, "format" character varying, "response" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "question_id" integer)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_answers_on_question_id" ON "answers" USING btree ("question_id")[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "questions" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "format" character varying, "text" text)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "questions_test_types" ("id" serial primary key, "test_type_id" integer, "question_id" integer)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_questions_test_types_on_question_id" ON "questions_test_types" USING btree ("question_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_questions_test_types_on_test_type_id" ON "questions_test_types" USING btree ("test_type_id")[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "test_types" ("id" serial primary key, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "tests" ("id" serial primary key, "name" character varying, "test_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "test_type_id" integer)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_tests_on_test_type_id" ON "tests" USING btree ("test_type_id")[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "tests_questions" ("id" serial primary key, "question_id" integer, "test_id" integer)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_tests_questions_on_question_id" ON "tests_questions" USING btree ("question_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_tests_questions_on_test_id" ON "tests_questions" USING btree ("test_id")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "answers" ADD CONSTRAINT "fk_rails_3d5ed4418f"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "questions_test_types" ADD CONSTRAINT "fk_rails_d6bd7664f1"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "questions_test_types" ADD CONSTRAINT "fk_rails_c4ae62b4a4"
+FOREIGN KEY ("test_type_id")
+  REFERENCES "test_types" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "tests" ADD CONSTRAINT "fk_rails_1a99ab3dcd"
+FOREIGN KEY ("test_type_id")
+  REFERENCES "test_types" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "tests_questions" ADD CONSTRAINT "fk_rails_d1880dc7ef"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "tests_questions" ADD CONSTRAINT "fk_rails_bfc686535a"
+FOREIGN KEY ("test_id")
+  REFERENCES "tests" ("id")
+[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20161025150223')[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES ('20161025105911'), ('20161025110145'), ('20161025110302'), ('20161025110452'), ('20161025133619'), ('20161025133701'), ('20161025134243'), ('20161025134458'), ('20161025140204'), ('20161025140620');
+
+[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-10-26 08:16:21 UTC], ["updated_at", 2016-10-26 08:16:21 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6804076403253530100);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(6804076403253530100)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'answers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'questions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'questions_test_types'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'test_types'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tests'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tests_questions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "questions" ("id", "created_at", "updated_at", "format", "text") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["created_at", 2016-10-26 08:16:57 UTC], ["updated_at", 2016-10-26 08:16:57 UTC], ["format", "Range"], ["text", "How would you rate the information available about the product?"]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("id", "created_at", "updated_at", "format", "text") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 2], ["created_at", 2016-10-26 08:16:57 UTC], ["updated_at", 2016-10-26 08:16:57 UTC], ["format", "Range"], ["text", "How easy would you find it to buy these?"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("id", "created_at", "updated_at", "format", "text") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 3], ["created_at", 2016-10-26 08:16:57 UTC], ["updated_at", 2016-10-26 08:16:57 UTC], ["format", "Range"], ["text", "How easy is it to know if this product is available?"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("id", "created_at", "updated_at", "format", "text") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 4], ["created_at", 2016-10-26 08:16:57 UTC], ["updated_at", 2016-10-26 08:16:57 UTC], ["format", "Range"], ["text", "How easy is it to compare this product against other options?"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("id", "created_at", "updated_at", "format", "text") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 5], ["created_at", 2016-10-26 08:16:57 UTC], ["updated_at", 2016-10-26 08:16:57 UTC], ["format", "Range"], ["text", "How clear is the pricing?"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("id", "created_at", "updated_at", "format", "text") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 6], ["created_at", 2016-10-26 08:16:57 UTC], ["updated_at", 2016-10-26 08:16:57 UTC], ["format", "Range"], ["text", "How easy would it be to return to this item later?"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("id", "created_at", "updated_at", "format", "text") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 7], ["created_at", 2016-10-26 08:16:57 UTC], ["updated_at", 2016-10-26 08:16:57 UTC], ["format", "Range"], ["text", "How comfortable would you be to purchase a product from this site?"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("id", "created_at", "updated_at", "format", "text") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 8], ["created_at", 2016-10-26 08:16:57 UTC], ["updated_at", 2016-10-26 08:16:57 UTC], ["format", "Range"], ["text", "How easy is it to assess whether others have found this product useful??"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m

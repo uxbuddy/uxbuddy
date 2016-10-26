@@ -24,20 +24,11 @@ ActiveRecord::Schema.define(version: 20161025150223) do
     t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
   end
 
-  create_table "default_questions", force: :cascade do |t|
-    t.string   "type"
-    t.text     "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "questions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "test_id"
     t.string   "format"
     t.text     "text"
-    t.index ["test_id"], name: "index_questions_on_test_id", using: :btree
   end
 
   create_table "questions_test_types", force: :cascade do |t|
@@ -70,7 +61,6 @@ ActiveRecord::Schema.define(version: 20161025150223) do
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "questions", "tests"
   add_foreign_key "questions_test_types", "questions"
   add_foreign_key "questions_test_types", "test_types"
   add_foreign_key "tests", "test_types"
