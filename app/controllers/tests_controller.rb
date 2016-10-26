@@ -11,6 +11,7 @@ class TestsController < ApplicationController
   def create
     @test = Test.new(name: params[:name], test_url: params[:test_url], test_type_id: params[:test_type])
     @test.questions << Question.find(1)
+    puts @test.questions
     @test.save
   end
 

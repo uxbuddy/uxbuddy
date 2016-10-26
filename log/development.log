@@ -1477,3 +1477,134 @@ Processing by TestsController#new as HTML
 Completed 200 OK in 724ms (Views: 617.4ms | ActiveRecord: 13.5ms)
 
 
+Started GET "/tests/new" for ::1 at 2016-10-26 15:17:00 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TestsController#new as HTML
+  [1m[36mTestType Load (0.7ms)[0m  [1m[34mSELECT  "test_types".* FROM "test_types" ORDER BY "test_types"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (96.0ms)
+  Rendered layouts/_nav.html.haml (4.7ms)
+Completed 200 OK in 747ms (Views: 657.3ms | ActiveRecord: 10.4ms)
+
+
+Started POST "/tests" for ::1 at 2016-10-26 15:17:21 +0100
+Processing by TestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q6YA3y17ULNsjLqfAGaqivtn8K9bS64KuDVMJQ6OcpCdDjdyXHaGFmgRMQdaCHHMfQV/7+CeTVU+iSBQCTHuzA==", "test"=>{"name"=>"MyTest", "test_url"=>"google.com", "test_type"=>"1", "questions"=>"1"}, "commit"=>"Create Test"}
+  [1m[36mQuestion Load (1.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 8.7ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  relation "questions_tests" does not exist
+LINE 8:                WHERE a.attrelid = '"questions_tests"'::regcl...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod,
+             (SELECT c.collname FROM pg_collation c, pg_type t
+               WHERE c.oid = a.attcollation AND t.oid = a.atttypid AND a.attcollation <> t.typcollation),
+                     col_description(a.attrelid, a.attnum) AS comment
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"questions_tests"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+):
+  
+app/controllers/tests_controller.rb:13:in `create'
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.3ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (79.3ms)
+Started GET "/" for ::1 at 2016-10-26 15:19:57 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.haml within layouts/application
+  Rendered application/index.html.haml within layouts/application (7.5ms)
+  Rendered layouts/_nav.html.haml (6.0ms)
+Completed 200 OK in 555ms (Views: 539.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tests/new" for ::1 at 2016-10-26 15:19:59 +0100
+Processing by TestsController#new as HTML
+  [1m[36mTestType Load (0.6ms)[0m  [1m[34mSELECT  "test_types".* FROM "test_types" ORDER BY "test_types"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (62.8ms)
+  Rendered layouts/_nav.html.haml (3.9ms)
+Completed 200 OK in 249ms (Views: 160.6ms | ActiveRecord: 10.5ms)
+
+
+Started POST "/tests" for ::1 at 2016-10-26 15:20:11 +0100
+Processing by TestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fZbnltjLbLee5S9SIe633Pr5r0dVeAmXFZEJlcaJsaZLPtA7qca6Epp4pMp7gGyafJsgB+6t6siTLWXgwTYt+g==", "test"=>{"name"=>"MyTest", "test_url"=>"google.com", "test_type"=>"1", "questions"=>"1"}, "commit"=>"Create Test"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (8.1ms)[0m  [1m[32mINSERT INTO "tests" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", 2016-10-26 14:20:11 UTC], ["updated_at", 2016-10-26 14:20:11 UTC]]
+  [1m[35mSQL (19.2ms)[0m  [1m[32mINSERT INTO "tests_questions" ("question_id", "test_id") VALUES ($1, $2)[0m  [["question_id", 1], ["test_id", 5]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+No template found for TestsController#create, rendering head :no_content
+Completed 204 No Content in 179ms (ActiveRecord: 29.7ms)
+
+
+Started GET "/" for ::1 at 2016-10-26 15:27:30 +0100
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.haml within layouts/application
+  Rendered application/index.html.haml within layouts/application (2.6ms)
+  Rendered layouts/_nav.html.haml (9.6ms)
+Completed 200 OK in 136ms (Views: 132.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tests/new" for ::1 at 2016-10-26 15:27:32 +0100
+Processing by TestsController#new as HTML
+  [1m[36mTestType Load (0.8ms)[0m  [1m[34mSELECT  "test_types".* FROM "test_types" ORDER BY "test_types"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (5.7ms)
+  Rendered layouts/_nav.html.haml (2.1ms)
+Completed 200 OK in 114ms (Views: 95.0ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/tests" for ::1 at 2016-10-26 15:27:50 +0100
+Processing by TestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jD4+106fpvIxx+cLDx5cmm1gYXjuqmd8Lryin+89yaS6lgl6P5JwVzVabJNVcIfc6wLuOFV/hCOoAM7q6IJV+A==", "test"=>{"name"=>"MyTEST", "test_url"=>"www.test.com", "test_type"=>"1", "questions"=>"1"}, "commit"=>"Create Test"}
+  [1m[36mQuestion Load (0.8ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "tests" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", 2016-10-26 14:27:50 UTC], ["updated_at", 2016-10-26 14:27:50 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "tests_questions" ("question_id", "test_id") VALUES ($1, $2)[0m  [["question_id", 1], ["test_id", 6]]
+  [1m[35m (110.7ms)[0m  [1m[35mCOMMIT[0m
+No template found for TestsController#create, rendering head :no_content
+Completed 204 No Content in 251ms (ActiveRecord: 112.8ms)
+
+
+Started GET "/tests/new" for ::1 at 2016-10-26 15:31:12 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TestsController#new as HTML
+  [1m[36mTestType Load (0.6ms)[0m  [1m[34mSELECT  "test_types".* FROM "test_types" ORDER BY "test_types"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (66.6ms)
+  Rendered layouts/_nav.html.haml (5.1ms)
+Completed 200 OK in 686ms (Views: 601.9ms | ActiveRecord: 10.2ms)
+
+
+Started POST "/tests" for ::1 at 2016-10-26 15:31:21 +0100
+Processing by TestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gbPWuGHnN3+1eRDif9YnJBzLVqiJGu3MiFDZKEnTul+3G+EVEOrh2rHkm3oluPximqnZ6DLPDpMO7LVdTmwmAw==", "test"=>{"name"=>"NewTest", "test_url"=>"www.google.com", "test_type"=>"1", "questions"=>"1"}, "commit"=>"Create Test"}
+  [1m[36mQuestion Load (1.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.9ms)[0m  [1m[32mINSERT INTO "tests" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", 2016-10-26 14:31:21 UTC], ["updated_at", 2016-10-26 14:31:21 UTC]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "tests_questions" ("question_id", "test_id") VALUES ($1, $2)[0m  [["question_id", 1], ["test_id", 7]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+No template found for TestsController#create, rendering head :no_content
+Completed 204 No Content in 179ms (ActiveRecord: 16.5ms)
+
+
