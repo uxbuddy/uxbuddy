@@ -1122,3 +1122,358 @@ puma (3.6.0) lib/puma/server.rb:275:in `block in run'
 puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
   Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
   Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.6ms)
+Started GET "/" for ::1 at 2016-10-26 13:02:53 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.haml within layouts/application
+  Rendered application/index.html.haml within layouts/application (9.4ms)
+  Rendered layouts/_nav.html.haml (2.3ms)
+Completed 200 OK in 675ms (Views: 659.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tests/new" for ::1 at 2016-10-26 13:02:56 +0100
+Processing by TestsController#new as HTML
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (88.8ms)
+  Rendered layouts/_nav.html.haml (10.8ms)
+Completed 200 OK in 329ms (Views: 230.8ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/tests/new" for ::1 at 2016-10-26 13:03:56 +0100
+Processing by TestsController#new as HTML
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (18.3ms)
+  Rendered layouts/_nav.html.haml (2.2ms)
+Completed 200 OK in 166ms (Views: 124.9ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/tests/new" for ::1 at 2016-10-26 13:06:10 +0100
+Processing by TestsController#new as HTML
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.5ms)
+
+
+  
+SyntaxError (/Users/laurawilson/MakersAcademy/Projects/uxbuddy/app/views/tests/new.html.haml:4: syntax error, unexpected ')', expecting ']'
+/Users/laurawilson/MakersAcademy/Projects/uxbuddy/app/views/tests/new.html.haml:6: syntax error, unexpected '}', expecting tSTRING_DEND
+));}\n", 0, false);end;_hamlout.b...
+    ^
+/Users/laurawilson/MakersAcademy/Projects/uxbuddy/app/views/tests/new.html.haml:6: syntax error, unexpected $undefined, expecting tSTRING_DEND
+...aml_temp);_hamlout.push_text("\n", 0, false);::Haml::Util.ht...
+...                               ^
+/Users/laurawilson/MakersAcademy/Projects/uxbuddy/app/views/tests/new.html.haml:6: unterminated string meets end of file
+/Users/laurawilson/MakersAcademy/Projects/uxbuddy/app/views/tests/new.html.haml:6: syntax error, unexpected end-of-input, expecting tSTRING_DEND):
+  
+app/views/tests/new.html.haml:4: syntax error, unexpected ')', expecting ']'
+app/views/tests/new.html.haml:6: syntax error, unexpected '}', expecting tSTRING_DEND
+app/views/tests/new.html.haml:6: syntax error, unexpected $undefined, expecting tSTRING_DEND
+app/views/tests/new.html.haml:6: unterminated string meets end of file
+app/views/tests/new.html.haml:6: syntax error, unexpected end-of-input, expecting tSTRING_DEND
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.3ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (72.5ms)
+Started GET "/tests/new" for ::1 at 2016-10-26 13:06:33 +0100
+Processing by TestsController#new as HTML
+  [1m[36mQuestion Load (1.7ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (16.1ms)
+  Rendered layouts/_nav.html.haml (2.8ms)
+Completed 200 OK in 148ms (Views: 142.4ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/tests" for ::1 at 2016-10-26 13:06:44 +0100
+Processing by TestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oK7GD5rO0FGo/n2ntwiAu1KrIFb1TACBKwEr8jrFDk+WBvGi68MG9Kxj9j/tZlv91MmvFk6Z496tvUeHPXqSEw==", "test"=>{"name"=>"MyTest", "test_url"=>"www.google.com", "questions"=>"1"}, "commit"=>"Create Test"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Question(#70200901456300) expected, got NilClass(#70200838250500)):
+  
+app/controllers/tests_controller.rb:12:in `create'
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.8ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (80.1ms)
+Started POST "/tests" for ::1 at 2016-10-26 13:07:27 +0100
+Processing by TestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oK7GD5rO0FGo/n2ntwiAu1KrIFb1TACBKwEr8jrFDk+WBvGi68MG9Kxj9j/tZlv91MmvFk6Z496tvUeHPXqSEw==", "test"=>{"name"=>"MyTest", "test_url"=>"www.google.com", "questions"=>"1"}, "commit"=>"Create Test"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Question(#70200901456300) expected, got NilClass(#70200838250500)):
+  
+app/controllers/tests_controller.rb:12:in `create'
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.6ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (67.0ms)
+Started GET "/" for ::1 at 2016-10-26 13:08:12 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.haml within layouts/application
+  Rendered application/index.html.haml within layouts/application (7.8ms)
+  Rendered layouts/_nav.html.haml (4.7ms)
+Completed 200 OK in 704ms (Views: 684.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tests/new" for ::1 at 2016-10-26 13:08:14 +0100
+Processing by TestsController#new as HTML
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (84.3ms)
+  Rendered layouts/_nav.html.haml (9.9ms)
+Completed 200 OK in 316ms (Views: 212.3ms | ActiveRecord: 12.5ms)
+
+
+Started POST "/tests" for ::1 at 2016-10-26 13:08:25 +0100
+Processing by TestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I7D7QZAkYYge3/8rK0PJ168pQGD67XtXZamS3zmAfGcVGMzs4Sm3LRpCdLNxLRKRKUvPIEE4mAjjFf6qPj/gOw==", "test"=>{"name"=>"MyTest", "test_url"=>"google.com", "questions"=>"1"}, "commit"=>"Create Test"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Question(#70187192221900) expected, got NilClass(#70187177402380)):
+  
+app/controllers/tests_controller.rb:12:in `create'
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (83.4ms)
+Started POST "/tests" for ::1 at 2016-10-26 13:09:53 +0100
+Processing by TestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I7D7QZAkYYge3/8rK0PJ168pQGD67XtXZamS3zmAfGcVGMzs4Sm3LRpCdLNxLRKRKUvPIEE4mAjjFf6qPj/gOw==", "test"=>{"name"=>"MyTest", "test_url"=>"google.com", "questions"=>"1"}, "commit"=>"Create Test"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "tests" ("created_at", "updated_at", "test_type_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", 2016-10-26 12:09:53 UTC], ["updated_at", 2016-10-26 12:09:53 UTC], ["test_type_id", 1]]
+  [1m[35m (118.3ms)[0m  [1m[35mCOMMIT[0m
+No template found for TestsController#create, rendering head :no_content
+Completed 204 No Content in 273ms (ActiveRecord: 125.1ms)
+
+
+Started GET "/tests/new" for ::1 at 2016-10-26 13:11:08 +0100
+Processing by TestsController#new as HTML
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (26.6ms)
+  Rendered layouts/_nav.html.haml (2.1ms)
+Completed 200 OK in 188ms (Views: 142.9ms | ActiveRecord: 6.1ms)
+
+
+Started POST "/tests" for ::1 at 2016-10-26 13:11:18 +0100
+Processing by TestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5NnCQ6B9BrQtlPbguL4lq2+DN5RGwpfzHN8bTPoi0kjScfXu0XDQESkJfXji0P7t6eG41P0XdKyaY3c5/Z1OFA==", "test"=>{"name"=>"MyTest", "test_url"=>"google.com", "questions"=>"#<Question:0x007fab79eb3968>"}, "commit"=>"Create Test"}
+  [1m[36mQuestion Load (1.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Question with 'id'=):
+  
+app/controllers/tests_controller.rb:13:in `create'
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.2ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (84.0ms)
+Started POST "/tests" for ::1 at 2016-10-26 13:12:19 +0100
+Processing by TestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5NnCQ6B9BrQtlPbguL4lq2+DN5RGwpfzHN8bTPoi0kjScfXu0XDQESkJfXji0P7t6eG41P0XdKyaY3c5/Z1OFA==", "test"=>{"name"=>"MyTest", "test_url"=>"google.com", "questions"=>"#<Question:0x007fab79eb3968>"}, "commit"=>"Create Test"}
+  [1m[36mQuestion Load (1.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 1.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Question with 'id'=):
+  
+app/controllers/tests_controller.rb:13:in `create'
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.1ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (77.4ms)
+Started POST "/tests" for ::1 at 2016-10-26 13:12:24 +0100
+Processing by TestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5NnCQ6B9BrQtlPbguL4lq2+DN5RGwpfzHN8bTPoi0kjScfXu0XDQESkJfXji0P7t6eG41P0XdKyaY3c5/Z1OFA==", "test"=>{"name"=>"MyTest", "test_url"=>"google.com", "questions"=>"#<Question:0x007fab79eb3968>"}, "commit"=>"Create Test"}
+  [1m[36mQuestion Load (1.7ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 1.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Question with 'id'=):
+  
+app/controllers/tests_controller.rb:13:in `create'
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.3ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (76.9ms)
+Started GET "/" for ::1 at 2016-10-26 13:12:43 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.haml within layouts/application
+  Rendered application/index.html.haml within layouts/application (7.1ms)
+  Rendered layouts/_nav.html.haml (29.7ms)
+Completed 200 OK in 653ms (Views: 638.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tests/new" for ::1 at 2016-10-26 13:12:45 +0100
+Processing by TestsController#new as HTML
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (87.1ms)
+  Rendered layouts/_nav.html.haml (3.5ms)
+Completed 200 OK in 350ms (Views: 262.5ms | ActiveRecord: 9.2ms)
+
+
+Started POST "/tests" for ::1 at 2016-10-26 13:12:52 +0100
+Processing by TestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iQfuNmxSMDwKfUhxGY2f//Jbkd4QT6RolCmZWpLBghC/r9mbHV/mmQ7gw+lD40S5dDkenquaRzcSlfUvlX4eTA==", "test"=>{"name"=>"My Test", "test_url"=>"hello.com", "questions"=>"1"}, "commit"=>"Create Test"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Question with 'id'=):
+  
+app/controllers/tests_controller.rb:13:in `create'
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.3ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (80.3ms)
+Started POST "/tests" for ::1 at 2016-10-26 13:13:14 +0100
+Processing by TestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iQfuNmxSMDwKfUhxGY2f//Jbkd4QT6RolCmZWpLBghC/r9mbHV/mmQ7gw+lD40S5dDkenquaRzcSlfUvlX4eTA==", "test"=>{"name"=>"My Test", "test_url"=>"hello.com", "questions"=>"1"}, "commit"=>"Create Test"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 43ms (ActiveRecord: 5.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Question with 'id'=):
+  
+app/controllers/tests_controller.rb:13:in `create'
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.9ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (75.6ms)
+Started POST "/tests" for ::1 at 2016-10-26 13:14:03 +0100
+Processing by TestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iQfuNmxSMDwKfUhxGY2f//Jbkd4QT6RolCmZWpLBghC/r9mbHV/mmQ7gw+lD40S5dDkenquaRzcSlfUvlX4eTA==", "test"=>{"name"=>"My Test", "test_url"=>"hello.com", "questions"=>"1"}, "commit"=>"Create Test"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 14.0ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  relation "questions_tests" does not exist
+LINE 8:                WHERE a.attrelid = '"questions_tests"'::regcl...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod,
+             (SELECT c.collname FROM pg_collation c, pg_type t
+               WHERE c.oid = a.attcollation AND t.oid = a.atttypid AND a.attcollation <> t.typcollation),
+                     col_description(a.attrelid, a.attnum) AS comment
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"questions_tests"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+):
+  
+app/controllers/tests_controller.rb:13:in `create'
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.7ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (76.5ms)
+Started GET "/tests/mew" for ::1 at 2016-10-26 14:18:07 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TestsController#show as HTML
+  Parameters: {"id"=>"mew"}
+  [1m[36mTest Load (0.6ms)[0m  [1m[34mSELECT  "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 54ms (ActiveRecord: 6.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Test with 'id'=mew):
+  
+app/controllers/tests_controller.rb:17:in `show'
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.2ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/laurawilson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (91.3ms)
+Started GET "/tests/new" for ::1 at 2016-10-26 14:18:11 +0100
+Processing by TestsController#new as HTML
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (51.3ms)
+  Rendered layouts/_nav.html.haml (4.4ms)
+Completed 200 OK in 692ms (Views: 666.8ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/tests/new" for ::1 at 2016-10-26 14:26:12 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TestsController#new as HTML
+  [1m[36mTestType Load (0.9ms)[0m  [1m[34mSELECT  "test_types".* FROM "test_types" ORDER BY "test_types"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (102.7ms)
+  Rendered layouts/_nav.html.haml (12.8ms)
+Completed 200 OK in 724ms (Views: 617.4ms | ActiveRecord: 13.5ms)
+
+
