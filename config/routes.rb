@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :tests do
-    resources :reports
+    resources :report
   end
 
   root 'application#index'
