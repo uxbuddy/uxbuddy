@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "Starting to seed db..."
+
+
+Rake::Task['questions_csv:add_questions'].invoke
+
+TestType.create(description: 'Product')
+Test.create(name: 'Youtube', test_url: "https://www.youtube.com/embed/XGSy3_Czz8k", test_type_id: 1)
+Test.create(name: 'Asos', test_url: "https://www.asos.com", test_type_id: 1)
+Test.create(name: 'Google', test_url: "https://www.google.com", test_type_id: 1)
+
+5.times do
+  Answer.create(format: "Range", response: 4, question_id: 1)
+end
+
+puts "Finished seeding db"
