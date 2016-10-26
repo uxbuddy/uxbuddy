@@ -12,17 +12,17 @@ feature 'creating tests' do
     visit '/tests/new'
     fill_in 'test_name', with: "Asos Product Test"
     fill_in 'test_test_url', with: "www.asos.com"
-    select('Product', from: 'test_test_type')
-    select('How would you rate the information available about the product?', from: 'test_questions')
+    select('Product', from: 'test_test_type_id')
+    select('How would you rate the information available about the product?', from: 'test_question_ids')
     click_button "Create Test"
     expect(page).to have_content("Share test for Asos Product Test")
   end
 
-  scenario 'user can check multiple questions' do
+  xscenario 'user can check multiple questions' do
     visit '/tests/new'
     fill_in 'test_name', with: "Asos Product Test"
     fill_in 'test_test_url', with: "www.asos.com"
-    select('Product', from: 'test_test_type')
+    select('Product', from: 'test_test_type_id')
     check 'q1'
     check 'q2'
   end

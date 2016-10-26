@@ -1,6 +1,6 @@
 = form_for @test do |f|
   = f.text_field(:name)
   = f.text_field(:test_url, placeholder: "URL for testing")
-  = f.select :test_type, options_for_select(@test_types.map{ |t| [t.description, t.id] })
-  = f.select :questions, options_for_select(@questions.map{ |q| [q.text, q.id] })
+  = f.select :test_type_id, options_for_select(@test_types.map{ |t| [t.description, t.id] })
+  = f.select :question_ids, options_for_select(@questions.map{ |q| [q.text, q.id] })
   = f.submit
