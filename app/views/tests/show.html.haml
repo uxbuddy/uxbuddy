@@ -16,3 +16,31 @@
 
 %iframe{allowfullscreen: "", src: "https://www.youtube.com/embed/XGSy3_Czz8k", width: "800", height: "600"}
   %p Sorry, something seems to have gone wrong!
+
+.q1{style: "display:none"}
+  %p Question 1
+.q2{style: "display:none"}
+  %p Question 2
+.q3{style: "display:none"}
+  %p Question 3
+.q4{style: "display:none"}
+  %p Question 4
+.q5{style: "display:none"}
+  %p Question 5
+
+.toggle_button
+  %a{href: "javascript:void(0)", id: 'toggle'} Next
+
+%script
+:javascript
+  $(document).ready(function() {
+      $("#toggle").click((function(){
+              var counter = 0;
+              return function()
+              {
+                 $(".q" + counter).hide();
+                 counter = counter + 1;
+                 $(".q" + counter).show();
+              }
+              })());
+  });
