@@ -5,9 +5,10 @@ feature 'Tests' do
 
     let!(:test) { Test.create(name: 'Youtube', test_url: "https://www.youtube.com/embed/XGSy3_Czz8k") }
 
-    scenario 'welcomes user to specific test page' do
-      visit "/tests/#{test.id}"
-      expect(page).to have_content("Thanks for participating in the test for Youtube")
+    scenario 'user sees iframe url when starting test' do
+      visit "/tests/show"
+      expect(page).to have_content 'Welcome'
+      expect(page).to have_xpath("//iframe[@src= 'https://www.youtube.com/embed/XGSy3_Czz8k']")
     end
   end
 end
