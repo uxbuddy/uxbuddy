@@ -15,9 +15,26 @@
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
 require 'support/feature_helpers.rb'
-#
+require 'database_cleaner'
+require 'rake'
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:suite) do
+    DatabaseCleaner.start
+    load "#{Rails.root}/lib/tasks/questions_csv.rake"
+    load "#{Rails.root}/db/seeds.rb"
+  end
+
+  # Everything in this block runs once after each individual test
+  config.append_after(:suite) do
+    DatabaseCleaner.clean
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
