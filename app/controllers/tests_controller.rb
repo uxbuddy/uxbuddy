@@ -2,10 +2,8 @@ class TestsController < ApplicationController
 
   def new
     @test = Test.new
-    @test_types = TestType.first
+    @test_types = TestType.all
     @questions = Question.all
-    @question1 = Question.find(1)
-    @question2 = Question.find(2)
   end
 
   def create

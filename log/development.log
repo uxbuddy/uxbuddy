@@ -1713,3 +1713,345 @@ app/views/tests/thanks.html.haml:2:in `_app_views_tests_thanks_html_haml___24757
   Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
   Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
   Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (103.6ms)
+Started GET "/" for ::1 at 2016-10-26 17:18:16 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.haml within layouts/application
+  Rendered application/index.html.haml within layouts/application (18.3ms)
+  Rendered layouts/_nav.html.haml (4.8ms)
+Completed 200 OK in 1412ms (Views: 1394.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tests/new" for ::1 at 2016-10-26 17:18:19 +0100
+Processing by TestsController#new as HTML
+  [1m[36mTestType Load (0.6ms)[0m  [1m[34mSELECT  "test_types".* FROM "test_types" ORDER BY "test_types"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 130ms (ActiveRecord: 11.0ms)
+
+
+  
+SyntaxError (/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:5: syntax error, unexpected tIVAR, expecting ')'
+...check_box :questions @question1.text, @question1.id
+...                               ^
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:5: syntax error, unexpected '\n', expecting '='
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:7: syntax error, unexpected '}', expecting tSTRING_DEND
+));}\n#{_hamlout.format_script_fa...
+    ^
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:8: syntax error, unexpected $undefined, expecting tSTRING_DEND
+...aml_temp);_hamlout.push_text("\n", 0, false);::Haml::Util.ht...
+...                               ^
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:8: unterminated string meets end of file
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:8: syntax error, unexpected end-of-input, expecting tSTRING_DEND):
+  
+app/views/tests/new.html.haml:5: syntax error, unexpected tIVAR, expecting ')'
+app/views/tests/new.html.haml:5: syntax error, unexpected '\n', expecting '='
+app/views/tests/new.html.haml:7: syntax error, unexpected '}', expecting tSTRING_DEND
+app/views/tests/new.html.haml:8: syntax error, unexpected $undefined, expecting tSTRING_DEND
+app/views/tests/new.html.haml:8: unterminated string meets end of file
+app/views/tests/new.html.haml:8: syntax error, unexpected end-of-input, expecting tSTRING_DEND
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.6ms)
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (122.0ms)
+Started GET "/tests/new" for ::1 at 2016-10-26 17:18:56 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TestsController#new as HTML
+  [1m[36mTestType Load (0.7ms)[0m  [1m[34mSELECT  "test_types".* FROM "test_types" ORDER BY "test_types"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (67.7ms)
+Completed 500 Internal Server Error in 150ms (ActiveRecord: 9.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for "How would you rate the information available about the product?":String):
+    2:   = f.text_field(:name)
+    3:   = f.text_field(:test_url, placeholder: "URL for testing")
+    4:   = f.select :test_type, options_for_select([[@test_types.description, @test_types.id]])
+    5:   = f.check_box :questions, @question1.text, @question1.id
+    6:   = f.check_box :questions, @question2.text, @question2.id
+    7:   = f.submit
+  
+app/views/tests/new.html.haml:5:in `block in _app_views_tests_new_html_haml___2707239171799286399_70213896908780'
+app/views/tests/new.html.haml:1:in `_app_views_tests_new_html_haml___2707239171799286399_70213896908780'
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.6ms)
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (92.0ms)
+Started GET "/tests/new" for ::1 at 2016-10-26 17:20:57 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TestsController#new as HTML
+  [1m[36mTestType Load (1.8ms)[0m  [1m[34mSELECT  "test_types".* FROM "test_types" ORDER BY "test_types"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (53.5ms)
+Completed 500 Internal Server Error in 152ms (ActiveRecord: 14.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for "How would you rate the information available about the product?":String):
+    3:   = f.text_field(:test_url, placeholder: "URL for testing")
+    4:   = f.select :test_type, options_for_select([[@test_types.description, @test_types.id]])
+    5:   = f.label :questions do
+    6:     = f.check_box :questions, @question1.text, @question1.id
+    7:   = f.label :questions do
+    8:     = f.check_box :questions, @question2.text, @question2.id
+    9:   = f.submit
+  
+app/views/tests/new.html.haml:6:in `block (2 levels) in _app_views_tests_new_html_haml__2383201904838606228_70132802225980'
+app/views/tests/new.html.haml:5:in `block in _app_views_tests_new_html_haml__2383201904838606228_70132802225980'
+app/views/tests/new.html.haml:1:in `_app_views_tests_new_html_haml__2383201904838606228_70132802225980'
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.4ms)
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.5ms)
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (85.3ms)
+Started GET "/tests/new" for ::1 at 2016-10-26 17:32:52 +0100
+Processing by TestsController#new as HTML
+  [1m[36mTestType Load (0.3ms)[0m  [1m[34mSELECT  "test_types".* FROM "test_types" ORDER BY "test_types"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (7.2ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for "How would you rate the information available about the product?":String):
+    3:   = f.text_field(:test_url, placeholder: "URL for testing")
+    4:   = f.select :test_type, options_for_select([[@test_types.description, @test_types.id]])
+    5:   = f.label 'q1' do
+    6:     = f.check_box :questions, @question1.text, @question1.id
+    7:   = f.label :questions do
+    8:     = f.check_box :questions, @question2.text, @question2.id
+    9:   = f.submit
+  
+app/views/tests/new.html.haml:6:in `block (2 levels) in _app_views_tests_new_html_haml__2383201904838606228_70132802471880'
+app/views/tests/new.html.haml:5:in `block in _app_views_tests_new_html_haml__2383201904838606228_70132802471880'
+app/views/tests/new.html.haml:1:in `_app_views_tests_new_html_haml__2383201904838606228_70132802471880'
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.8ms)
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (86.5ms)
+Started GET "/tests/new" for ::1 at 2016-10-26 17:33:09 +0100
+Processing by TestsController#new as HTML
+  [1m[36mTestType Load (0.4ms)[0m  [1m[34mSELECT  "test_types".* FROM "test_types" ORDER BY "test_types"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 1.0ms)
+
+
+  
+SyntaxError (/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:6: syntax error, unexpected tIVAR, expecting ')'
+...check_box :questions @question1.text, @question1.id
+...                               ^
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:6: syntax error, unexpected '\n', expecting '='
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:7: syntax error, unexpected $undefined, expecting ')'
+...aml_temp);_hamlout.push_text("\n", 0, false);haml_temp =  f....
+...                               ^
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:9: syntax error, unexpected '}', expecting tSTRING_DEND
+));}\n", 0, false);end;_hamlout.b...
+    ^
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:9: syntax error, unexpected $undefined, expecting tSTRING_DEND
+...aml_temp);_hamlout.push_text("\n#{_hamlout.format_script_fal...
+...                               ^
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:10: syntax error, unexpected $undefined, expecting tSTRING_DEND
+...aml_temp);_hamlout.push_text("\n", 0, false);::Haml::Util.ht...
+...                               ^
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:10: unterminated string meets end of file
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:10: syntax error, unexpected end-of-input, expecting tSTRING_DEND):
+  
+app/views/tests/new.html.haml:6: syntax error, unexpected tIVAR, expecting ')'
+app/views/tests/new.html.haml:6: syntax error, unexpected '\n', expecting '='
+app/views/tests/new.html.haml:7: syntax error, unexpected $undefined, expecting ')'
+app/views/tests/new.html.haml:9: syntax error, unexpected '}', expecting tSTRING_DEND
+app/views/tests/new.html.haml:9: syntax error, unexpected $undefined, expecting tSTRING_DEND
+app/views/tests/new.html.haml:10: syntax error, unexpected $undefined, expecting tSTRING_DEND
+app/views/tests/new.html.haml:10: unterminated string meets end of file
+app/views/tests/new.html.haml:10: syntax error, unexpected end-of-input, expecting tSTRING_DEND
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.4ms)
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (98.4ms)
+Started GET "/tests/new" for ::1 at 2016-10-26 17:33:29 +0100
+Processing by TestsController#new as HTML
+  [1m[36mTestType Load (0.9ms)[0m  [1m[34mSELECT  "test_types".* FROM "test_types" ORDER BY "test_types"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.3ms)
+
+
+  
+SyntaxError (/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:6: syntax error, unexpected ')'
+));}\n#{
+ ^
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:10: syntax error, unexpected '}', expecting keyword_end
+));}\n", 0, false);end;_hamlout.b...
+    ^
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:10: syntax error, unexpected $undefined, expecting keyword_end
+...aml_temp);_hamlout.push_text("\n", 0, false);::Haml::Util.ht...
+...                               ^
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:10: unterminated string meets end of file
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:10: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/views/tests/new.html.haml:6: syntax error, unexpected ')'
+app/views/tests/new.html.haml:10: syntax error, unexpected '}', expecting keyword_end
+app/views/tests/new.html.haml:10: syntax error, unexpected $undefined, expecting keyword_end
+app/views/tests/new.html.haml:10: unterminated string meets end of file
+app/views/tests/new.html.haml:10: syntax error, unexpected end-of-input, expecting keyword_end
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.2ms)
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (88.3ms)
+Started GET "/tests/new" for ::1 at 2016-10-26 17:33:43 +0100
+Processing by TestsController#new as HTML
+  [1m[36mTestType Load (0.4ms)[0m  [1m[34mSELECT  "test_types".* FROM "test_types" ORDER BY "test_types"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (217.8ms)
+  Rendered layouts/_nav.html.haml (2.9ms)
+Completed 200 OK in 1686ms (Views: 1681.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tests/new" for ::1 at 2016-10-26 17:34:01 +0100
+Processing by TestsController#new as HTML
+  [1m[36mTestType Load (0.3ms)[0m  [1m[34mSELECT  "test_types".* FROM "test_types" ORDER BY "test_types"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (3.4ms)
+  Rendered layouts/_nav.html.haml (3.4ms)
+Completed 200 OK in 118ms (Views: 113.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/tests/new" for ::1 at 2016-10-26 17:34:51 +0100
+Processing by TestsController#new as HTML
+  [1m[36mTestType Load (0.4ms)[0m  [1m[34mSELECT  "test_types".* FROM "test_types" ORDER BY "test_types"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (3.2ms)
+  Rendered layouts/_nav.html.haml (4.7ms)
+Completed 200 OK in 113ms (Views: 108.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/tests/new" for ::1 at 2016-10-26 17:38:58 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TestsController#new as HTML
+  [1m[36mTestType Load (1.2ms)[0m  [1m[34mSELECT  "test_types".* FROM "test_types" ORDER BY "test_types"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (3.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 150ms (ActiveRecord: 17.0ms)
+
+
+  
+SyntaxError (/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:6: syntax error, unexpected ';', expecting ')'
+));}\n#{_hamlout.format_script_f...
+   ^
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:7: syntax error, unexpected $undefined, expecting tSTRING_DEND
+...aml_temp);_hamlout.push_text("\n", 0, false);::Haml::Util.ht...
+...                               ^
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:7: unterminated string meets end of file
+/Users/Billy/makers_academy/Projects/uxbuddy/app/views/tests/new.html.haml:7: syntax error, unexpected end-of-input, expecting tSTRING_DEND):
+  
+app/views/tests/new.html.haml:6: syntax error, unexpected ';', expecting ')'
+app/views/tests/new.html.haml:7: syntax error, unexpected $undefined, expecting tSTRING_DEND
+app/views/tests/new.html.haml:7: unterminated string meets end of file
+app/views/tests/new.html.haml:7: syntax error, unexpected end-of-input, expecting tSTRING_DEND
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.5ms)
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (110.0ms)
+Started GET "/tests/new" for ::1 at 2016-10-26 17:39:19 +0100
+Processing by TestsController#new as HTML
+  [1m[36mTestType Load (0.9ms)[0m  [1m[34mSELECT  "test_types".* FROM "test_types" ORDER BY "test_types"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.9ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (1.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered tests/new.html.haml within layouts/application (105.1ms)
+  Rendered layouts/_nav.html.haml (5.5ms)
+Completed 200 OK in 692ms (Views: 679.6ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/tests/new" for ::1 at 2016-10-26 17:41:16 +0100
+Processing by TestsController#new as HTML
+  [1m[36mTestType Load (2.5ms)[0m  [1m[34mSELECT  "test_types".* FROM "test_types" ORDER BY "test_types"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.8ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  Rendered tests/new.html.haml within layouts/application (13.9ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 4.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `map' for #<TestType:0x007f858091abb0>
+Did you mean?  tap):
+    1: = form_for @test do |f|
+    2:   = f.text_field(:name)
+    3:   = f.text_field(:test_url, placeholder: "URL for testing")
+    4:   = f.select :test_type, options_for_select(@test_types.map{ |t| [t.description, t.id] })
+    5:   = f.select :questions, options_for_select(@questions.map{ |q| [q.text, q.id] })
+    6:   = f.submit
+  
+app/views/tests/new.html.haml:4:in `block in _app_views_tests_new_html_haml__2974657266156252202_70105682155100'
+app/views/tests/new.html.haml:1:in `_app_views_tests_new_html_haml__2974657266156252202_70105682155100'
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.3ms)
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Billy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (111.3ms)
+Started GET "/tests/new" for ::1 at 2016-10-26 17:41:27 +0100
+Processing by TestsController#new as HTML
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tests/new.html.haml within layouts/application
+  [1m[36mTestType Load (0.3ms)[0m  [1m[34mSELECT "test_types".* FROM "test_types"[0m
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered tests/new.html.haml within layouts/application (21.0ms)
+  Rendered layouts/_nav.html.haml (3.0ms)
+Completed 200 OK in 285ms (Views: 241.1ms | ActiveRecord: 1.6ms)
+
+

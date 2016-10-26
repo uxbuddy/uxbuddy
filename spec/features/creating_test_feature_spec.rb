@@ -18,4 +18,13 @@ feature 'creating tests' do
     expect(page).to have_content("Share test for Asos Product Test")
   end
 
+  scenario 'user can check multiple questions' do
+    visit '/tests/new'
+    fill_in 'test_name', with: "Asos Product Test"
+    fill_in 'test_test_url', with: "www.asos.com"
+    select('Product', from: 'test_test_type')
+    check 'q1'
+    check 'q2'
+  end
+
 end
