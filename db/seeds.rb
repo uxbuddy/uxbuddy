@@ -9,9 +9,9 @@
 puts "Starting to seed db..."
 
 
-Rake::Task['questions_csv:add_questions'].invoke
+Rake::Task['load_data:add_questions'].invoke
+Rake::Task['load_data:add_test_types'].invoke
 
-TestType.create(description: 'Product')
 Test.create(name: 'Youtube', test_url: "https://www.youtube.com/embed/XGSy3_Czz8k", test_type_id: 1)
 Test.create(name: 'Asos', test_url: "https://www.asos.com", test_type_id: 1)
 Test.create(name: 'Google', test_url: "https://www.google.com", test_type_id: 1)

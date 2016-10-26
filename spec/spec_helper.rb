@@ -27,7 +27,7 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.start
-    load "#{Rails.root}/lib/tasks/questions_csv.rake"
+    load "#{Rails.root}/lib/tasks/load_data.rake"
     load "#{Rails.root}/db/seeds.rb"
   end
 
