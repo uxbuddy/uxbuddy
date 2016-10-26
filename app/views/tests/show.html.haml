@@ -1,24 +1,28 @@
-%h1 Welcome!
+.welcome
+  %h1 Welcome!
 
-%p
-  Thanks for participating in the test for
-  -# = @test.name
+  %p
+    Thanks for participating in the test for
+    -# = @test.name
 
-%p Here's how it works:
+  %p Here's how it works:
 
-%ol
-  %li You'll be asked a series of questions
-  %li Browse the site below, answer the question and hit next
-  %li That's it!
+  %ol
+    %li You'll be asked a series of questions
+    %li Browse the site below, answer the question and hit next
+    %li That's it!
 
-%button{href: "#", id: "start", value: 'Start'} Start
+  %button{href: "#", id: "start", value: 'Start'} Start
 
 .q1{style: "display:none"}
   %p Question 1
+  = @questions[0].text
 .q2{style: "display:none"}
   %p Question 2
+  = @questions[1].text
 .q3{style: "display:none"}
   %p Question 3
+  = @questions[2].text
 .q4{style: "display:none"}
   %p Question 4
 .q5{style: "display:none"}
@@ -46,7 +50,7 @@
       return function()
       {
          $("#iframe, .q1, #toggle").show();
-         $("#start").hide();
+         $(".welcome").hide();
       }
       })());
   });
