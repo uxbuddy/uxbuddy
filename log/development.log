@@ -114,3 +114,105 @@ Processing by TestsController#show as HTML
 Completed 200 OK in 669ms (Views: 651.1ms | ActiveRecord: 5.3ms)
 
 
+Started GET "/tests/show" for ::1 at 2016-10-26 16:21:15 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TestsController#show as HTML
+  Parameters: {"id"=>"show"}
+  Rendering tests/show.html.haml within layouts/application
+  Rendered tests/show.html.haml within layouts/application (5.6ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav.html.haml (3.9ms)
+Completed 200 OK in 647ms (Views: 628.7ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/tests/show" for ::1 at 2016-10-26 16:21:36 +0100
+Processing by TestsController#show as HTML
+  Parameters: {"id"=>"show"}
+  Rendering tests/show.html.haml within layouts/application
+  Rendered tests/show.html.haml within layouts/application (5.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav.html.haml (3.6ms)
+Completed 200 OK in 110ms (Views: 107.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/tests/show" for ::1 at 2016-10-26 16:22:24 +0100
+Processing by TestsController#show as HTML
+  Parameters: {"id"=>"show"}
+  Rendering tests/show.html.haml within layouts/application
+  Rendered tests/show.html.haml within layouts/application (3.3ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav.html.haml (3.2ms)
+Completed 200 OK in 90ms (Views: 87.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/tests/show" for ::1 at 2016-10-26 16:23:03 +0100
+Processing by TestsController#show as HTML
+  Parameters: {"id"=>"show"}
+  Rendering tests/show.html.haml within layouts/application
+  Rendered tests/show.html.haml within layouts/application (3.4ms)
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav.html.haml (3.7ms)
+Completed 200 OK in 95ms (Views: 91.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/tests/show" for ::1 at 2016-10-26 16:23:20 +0100
+Processing by TestsController#show as HTML
+  Parameters: {"id"=>"show"}
+  Rendering tests/show.html.haml within layouts/application
+  Rendered tests/show.html.haml within layouts/application (4.7ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav.html.haml (3.5ms)
+Completed 200 OK in 114ms (Views: 111.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/tests/show" for ::1 at 2016-10-26 16:27:00 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TestsController#show as HTML
+  Parameters: {"id"=>"show"}
+  Rendering tests/show.html.haml within layouts/application
+  Rendered tests/show.html.haml within layouts/application (6.0ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav.html.haml (3.3ms)
+Completed 200 OK in 593ms (Views: 574.0ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/tests/show" for ::1 at 2016-10-26 16:27:36 +0100
+Processing by TestsController#show as HTML
+  Parameters: {"id"=>"show"}
+  Rendering tests/show.html.haml within layouts/application
+  Rendered tests/show.html.haml within layouts/application (3.6ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav.html.haml (2.8ms)
+Completed 200 OK in 95ms (Views: 91.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/tests/show" for ::1 at 2016-10-26 16:28:21 +0100
+Processing by TestsController#show as HTML
+  Parameters: {"id"=>"show"}
+  Rendering tests/show.html.haml within layouts/application
+  Rendered tests/show.html.haml within layouts/application (3.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav.html.haml (2.8ms)
+Completed 200 OK in 89ms (Views: 86.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/tests/show" for ::1 at 2016-10-26 16:29:19 +0100
+Processing by TestsController#show as HTML
+  Parameters: {"id"=>"show"}
+  Rendering tests/show.html.haml within layouts/application
+  Rendered tests/show.html.haml within layouts/application (3.4ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav.html.haml (3.3ms)
+Completed 200 OK in 109ms (Views: 105.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/tests/show" for ::1 at 2016-10-26 16:29:40 +0100
+Processing by TestsController#show as HTML
+  Parameters: {"id"=>"show"}
+  Rendering tests/show.html.haml within layouts/application
+  Rendered tests/show.html.haml within layouts/application (4.0ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav.html.haml (3.2ms)
+Completed 200 OK in 113ms (Views: 110.7ms | ActiveRecord: 0.9ms)
+
+
