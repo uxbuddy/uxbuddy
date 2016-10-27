@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Tests' do
+feature 'User can see a test' do
 
   context "Welcome page" do
 
@@ -22,7 +22,7 @@ feature 'Tests' do
     end
   end
 
-  context "questions rendered" do
+  context "Questions rendered" do
 
     let!(:test) { Test.find(1) }
 

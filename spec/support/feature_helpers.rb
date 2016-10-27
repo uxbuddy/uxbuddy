@@ -20,4 +20,11 @@ module FeatureHelpers
     fill_in 'user[password]', with: password
     click_button("Log in")
   end
+
+  def start_creating_test(test_name = "Asos Product Test", test_url = "www.asos.com")
+    visit '/tests/new'
+    fill_in 'test_name', with: test_name
+    fill_in 'test_test_url', with: test_url
+    select('Product', from: 'test_test_type_id')
+  end
 end
