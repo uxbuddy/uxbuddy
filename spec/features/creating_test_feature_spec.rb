@@ -13,6 +13,7 @@ feature 'User can create new tests' do
     check 'test_question_ids_1'
     click_button "Create Test"
     expect(page).to have_content("Share test for Asos Product Test")
+    expect(page).to have_content("https://www.asos.com")
   end
 
   scenario 'User can check multiple questions' do
