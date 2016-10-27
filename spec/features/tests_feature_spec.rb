@@ -30,6 +30,4 @@ feature 'Tests' do
       expect(page).to have_content("How easy would you find it to buy these?")
     end
   end
-
-
 end
