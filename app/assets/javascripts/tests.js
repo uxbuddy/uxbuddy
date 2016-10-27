@@ -7,7 +7,7 @@ $(document).ready(function() {
         url: "/tests/1/answers",
         type: "POST",
         data: {answer: {
-          response: 3,
+          response: $("#range"+counter).val(),
           question_id: counter
         }},
         success: function() {
