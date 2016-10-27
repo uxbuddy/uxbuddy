@@ -1,6 +1,12 @@
 = form_for @test do |f|
-  = f.text_field(:name)
+  = f.text_field(:name, placeholder: "Your test name")
   = f.text_field(:test_url, placeholder: "URL for testing")
   = f.select :test_type_id, options_for_select(@test_types.map{ |t| [t.description, t.id] })
-  = f.select :question_ids, options_for_select(@questions.map{ |q| [q.text, q.id] })
+  %br
+  = f.label "Choose the questions you'd like to ask:"
+  %br
+  = f.collection_check_boxes :question_ids, @questions, :id, :text do |q|
+    = q.check_box
+    = q.label
+    %br
   = f.submit
