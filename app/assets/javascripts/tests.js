@@ -3,9 +3,20 @@ $(document).ready(function() {
     var counter = 1;
     return function()
     {
-       $(".q" + counter).hide();
-       counter = counter + 1;
-       $(".q" + counter).show();
+      $.ajax({
+        url: "/tests/1/answers",
+        type: "POST",
+        data: {answer: {
+          response: 3,
+          question_id: counter
+        }},
+        success: function() {
+          return false;
+        }
+      });
+      $(".q" + counter).hide();
+      counter = counter + 1;
+      $(".q" + counter).show();
     };
   })());
   $("#start").click((function(){
