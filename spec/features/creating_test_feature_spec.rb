@@ -13,18 +13,24 @@ feature 'creating tests' do
     fill_in 'test_name', with: "Asos Product Test"
     fill_in 'test_test_url', with: "www.asos.com"
     select('Product', from: 'test_test_type_id')
-    select('How would you rate the information available about the product?', from: 'test_question_ids')
+    check 'test_question_ids_1'
     click_button "Create Test"
     expect(page).to have_content("Share test for Asos Product Test")
   end
 
-  xscenario 'user can check multiple questions' do
+  scenario 'user can check multiple questions' do
     visit '/tests/new'
     fill_in 'test_name', with: "Asos Product Test"
     fill_in 'test_test_url', with: "www.asos.com"
     select('Product', from: 'test_test_type_id')
-    check 'q1'
-    check 'q2'
+    check 'test_question_ids_1'
+    check 'test_question_ids_2'
+    question1 = find('#test_question_ids_1')
+    question2 = find('#test_question_ids_2')
+    question3 = find('#test_question_ids_3')
+    expect(question1).to be_checked
+    expect(question2).to be_checked
+    expect(question3).to_not be_checked
   end
 
 end
