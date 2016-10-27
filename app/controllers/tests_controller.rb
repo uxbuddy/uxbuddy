@@ -9,6 +9,7 @@ class TestsController < ApplicationController
   def create
     @test = Test.new(test_params)
     if @test.save
+      @test.update(slug: @test.name.downcase)
       redirect_to thanks_test_path(@test)
     else
       redirect_to new_test_path
@@ -21,7 +22,7 @@ class TestsController < ApplicationController
   end
 
   def thanks
-    @test = Test.find(params[:id])
+    @test = Test.friendly.find(params[:id])
   end
 
   private
