@@ -35,24 +35,3 @@
 
 %iframe{allowfullscreen: "", id:"iframe", src: "https://www.youtube.com/embed/XGSy3_Czz8k", width: "800", height: "600", style: "display:none"}
   %p Sorry, something seems to have gone wrong!
-
-%script
-:javascript
-  $(document).ready(function() {
-    $("#toggle").click((function(){
-      var counter = 1;
-      return function()
-      {
-         $(".q" + counter).hide();
-         counter = counter + 1;
-         $(".q" + counter).show();
-      }
-      })());
-    $("#start").click((function(){
-      return function()
-      {
-         $("#iframe, .q1, #toggle").show();
-         $(".welcome").hide();
-      }
-      })());
-  });
