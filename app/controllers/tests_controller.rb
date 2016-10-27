@@ -8,7 +8,6 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
-    # @test.questions << Question.find(question_params)
     if @test.save
       redirect_to thanks_test_path(@test)
     else
