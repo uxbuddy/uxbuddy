@@ -15,6 +15,13 @@ feature 'User can create new tests' do
     expect(page).to have_content("Share test for Asos Product Test")
   end
 
+  scenario 'User cannot submit a test without a valid URL' do
+    start_creating_test("myURL", "not_a_url")
+    check 'test_question_ids_1'
+    click_button "Create Test"
+    expect(page).to have_content("Test url is invalid")
+  end
+
   scenario 'User can check multiple questions' do
     start_creating_test
     check 'test_question_ids_1'

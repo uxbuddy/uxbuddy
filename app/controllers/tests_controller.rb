@@ -9,8 +9,10 @@ class TestsController < ApplicationController
   def create
     @test = Test.new(test_params)
     if @test.save
+      flash[:success] = "Test saved!"
       redirect_to thanks_test_path(@test)
     else
+      flash[:error] = @test.errors.full_messages.map{|o| o  }.join("")
       redirect_to new_test_path
     end
   end
@@ -28,6 +30,10 @@ class TestsController < ApplicationController
 
   def test_params
     params.require(:test).permit(:name, :test_url, :test_type_id, :question_ids => [])
+  end
+
+  def check_url(url)
+    puts url
   end
 
 end
