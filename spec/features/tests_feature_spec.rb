@@ -28,6 +28,7 @@ feature 'User can see a test' do
     scenario 'user cannot initially see questions', js: true do
       visit "/tests/1"
       click_button('Start')
+      expect(page).to have_xpath("//iframe[@src='http://www.asos.com']")
       expect(page).not_to have_content("Question 2")
       click_link('Next')
       expect(page).to have_content("How easy would you find it to buy these?")
