@@ -17,12 +17,22 @@
 require 'support/feature_helpers.rb'
 require 'database_cleaner'
 require 'rake'
+require 'capybara/poltergeist'
+
+Capybara.javascript_driver = :poltergeist
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before(:suite, js: true) do
+    DatabaseCleaner.strategy = :truncation
   end
 
   config.before(:suite) do
@@ -30,11 +40,15 @@ RSpec.configure do |config|
     load "#{Rails.root}/lib/tasks/load_data.rake"
     load "#{Rails.root}/db/seeds.rb"
   end
-
-  # Everything in this block runs once after each individual test
-  config.append_after(:suite) do
+  config.after(:suite) do
     DatabaseCleaner.clean
   end
+
+
+  # Everything in this block runs once after each individual test
+  # config.append_after(:suite) do
+  #   DatabaseCleaner.clean
+  # end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
