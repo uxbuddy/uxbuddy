@@ -11,6 +11,6 @@
       %li
         %a= link_to "Log In", new_user_session_path
       %li
-        %a.btn.waves-effect.waves-light{:href => "users/sign_up"} Sign Up
+        %a.btn.waves-effect.waves-light{:href => new_user_registration_path} Sign Up
       %li
         %a= link_to "Sign out", destroy_user_session_path, :method => :delete
