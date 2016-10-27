@@ -6,6 +6,7 @@ feature 'User authentication' do
     scenario 'user can create an account with valid credentials' do
       visit "/users/sign_up"
       expect{user_sign_up}.to change(User, :count).by(1)
+      expect(page).to have_content "Welcome!"
     end
     scenario 'user cannot create account with invalid email' do
       visit "/users/sign_up"
