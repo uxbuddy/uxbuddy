@@ -2,7 +2,8 @@ require 'rails_helper'
 
 feature 'User authentication' do
 
-  context 'sign up' do
+  context 'Sign up' do
+
     scenario 'user can create an account with valid credentials' do
       visit "/users/sign_up"
       expect{user_sign_up}.to change(User, :count).by(1)
@@ -32,7 +33,7 @@ feature 'User authentication' do
     end
   end
 
-  context 'sign out' do
+  context 'Sign out' do
     scenario 'user can sign out' do
       user_sign_up
       user_sign_out
@@ -40,7 +41,7 @@ feature 'User authentication' do
     end
   end
 
-  context 'sign in' do
+  context 'Sign in' do
     scenario 'valid user can sign in' do
       user_sign_up
       user_sign_out
