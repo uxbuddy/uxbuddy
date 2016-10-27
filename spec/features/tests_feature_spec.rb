@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Tests' do
   context "welcome page" do
 
-    let!(:test) { Test.create(name: 'Youtube', test_url: "https://www.youtube.com/embed/XGSy3_Czz8k", test_type_id: 1) }
+    let!(:test) { Test.find(1) }
 
     before(:each) do
       visit "/tests/1" #need to change to actual test url
@@ -21,10 +21,11 @@ feature 'Tests' do
 
   context "questions rendered" do
 
-    let!(:test) { Test.create(name: 'Youtube', test_url: "https://www.youtube.com/embed/XGSy3_Czz8k", test_type_id: 1) }
+    let!(:test) { Test.find(1) }
 
     scenario 'user cannot initially see questions', js: true do
-      visit "/tests/#{test.id}"
+      visit "/tests/1"
+      click_button('Start')
       expect(page).not_to have_content("Question 2")
       click_link('Next')
       expect(page).to have_content("How easy would you find it to buy these?")
