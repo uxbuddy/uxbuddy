@@ -1,5 +1,5 @@
 = form_for @test do |f|
-  = f.text_field(:name)
+  = f.text_field(:name, placeholder: "Your test name")
   = f.text_field(:test_url, placeholder: "URL for testing")
   = f.select :test_type_id, options_for_select(@test_types.map{ |t| [t.description, t.id] })
   %br
