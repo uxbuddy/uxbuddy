@@ -16,7 +16,7 @@ class TestsController < ApplicationController
   end
 
   def show
-    @test = Test.find(params[:id])
+    @test = Test.friendly.find(params[:id])
     @questions = @test.questions
   end
 
