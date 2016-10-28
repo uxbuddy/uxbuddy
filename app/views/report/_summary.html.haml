@@ -1,0 +1,12 @@
+%table.highlight#summary
+
+  %tbody
+    %tr
+      %td Test URL:
+      %td= @test.test_url
+    %tr
+      %td Number of respondents:
+      %td= @test.answers.where(question_id: 1).count
+    %tr
+      %td Number of questions:
+      %td= @test.questions.count
