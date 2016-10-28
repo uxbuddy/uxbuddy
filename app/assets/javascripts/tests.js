@@ -4,9 +4,20 @@ $(document).ready(function() {
     var counter = 1;
     return function()
     {
-       $(".q" + counter).hide();
-       counter = counter + 1;
-       $(".q" + counter).show();
+      $.ajax({
+        url: window.location.pathname + "/answers",
+        type: "POST",
+        data: {answer: {
+          response: $("#range"+counter).val(),
+          question_id: counter
+        }},
+        success: function() {
+          return false;
+        }
+      });
+      $(".q" + counter).hide();
+      counter = counter + 1;
+      $(".q" + counter).show();
     };
   })());
   $("#start").click((function(){
