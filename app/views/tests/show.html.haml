@@ -14,24 +14,11 @@
 
   %button{href: "#", id: "start", value: 'Start'} Start
 
-
-.q1{style: "display:none"}
-  %p Question 1
-  = @questions[0].text
-  %input{type: "range", id: "range1", min: "0", max: "5", step: "1"}
-.q2{style: "display:none"}
-  %p Question 2
-  = @questions[1].text
-  %input{type: "range", id: "range2", min: "0", max: "5", step: "1"}
-.q3{style: "display:none"}
-  %p Question 3
-  = @questions[2].text
-  %input{type: "range", id: "range3", min: "0", max: "5", step: "1"}
-.q4{style: "display:none"}
-  %p Question 4
-.q5{style: "display:none"}
-  %p Question 5
-
+-@questions.each.with_index do |q, i|
+  %div{class: "q#{i + 1}", style: "display:none"}
+    %p="Question #{i + 1}"
+    %p=q.text
+    %input{type: "#{q.format}", min: "0", max: "5", step: "1"}
 
 .toggle_button
   %a{href: "javascript:void(0)", id: 'toggle', style: "display:none"} Next
