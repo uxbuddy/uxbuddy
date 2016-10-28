@@ -11,6 +11,7 @@ feature 'User can create new tests' do
   scenario 'User can fill in a form to create a test' do
     create_test
     expect(page).to have_content("Share test for Asos Product Test")
+    expect(page).to have_content("https://www.asos.com")
   end
 
   scenario 'User cannot submit a test without a valid URL' do
