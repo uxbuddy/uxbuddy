@@ -20,8 +20,6 @@ class TestsController < ApplicationController
   def show
     @test = Test.friendly.find(params[:id])
     @questions = @test.questions
-    p "HIIIIIIIIII"
-    p @questions
   end
 
   def thanks
