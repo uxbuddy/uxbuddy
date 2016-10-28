@@ -8,6 +8,7 @@ class Test < ApplicationRecord
 
   validates :test_url, presence: true
   validates :name, presence: true
+  validates :name, uniqueness: true
   validates :test_url, format: { with: URI.regexp }, if: 'test_url.present?'
 
 end
