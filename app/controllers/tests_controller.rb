@@ -1,9 +1,13 @@
 class TestsController < ApplicationController
 
   def new
-    @test = Test.new
-    @test_types = TestType.all
-    @questions = Question.all
+    if user_signed_in?
+      @test = Test.new
+      @test_types = TestType.all
+      @questions = Question.all
+    else
+      redirect_to new_user_registration_path
+    end
   end
 
   def create
