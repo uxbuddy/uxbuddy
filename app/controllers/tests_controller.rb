@@ -12,6 +12,7 @@ class TestsController < ApplicationController
       @test.update(slug: @test.name.downcase)
       redirect_to thanks_test_path(@test)
     else
+      flash[:error] = @test.errors.full_messages.map{|o| o  }.join("")
       redirect_to new_test_path
     end
   end
