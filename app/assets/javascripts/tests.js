@@ -4,7 +4,7 @@ $(document).ready(function() {
     return function()
     {
       $.ajax({
-        url: "/tests/1/answers",
+        url: window.location.pathname + "/answers",
         type: "POST",
         data: {answer: {
           format: "Range",
