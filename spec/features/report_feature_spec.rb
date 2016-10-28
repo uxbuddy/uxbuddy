@@ -17,7 +17,7 @@ feature 'report page' do
       expect(page).to have_content("Youtube // Test Report")
       expect(page).to have_content("Test URL: https://www.youtube.com/embed/XGSy3_Czz8k")
       expect(page).to have_content("Number of respondents: 5")
-      expect(page).to have_content("Percentage completion: 100%")
+      expect(page).to have_content("Number of questons: 5")
     end
   end
 end
