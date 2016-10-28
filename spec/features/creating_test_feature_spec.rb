@@ -9,9 +9,10 @@ feature 'User can create new tests' do
   end
 
   scenario 'User can fill in a form to create a test' do
-    create_test
-    expect(page).to have_content("Share test for Asos Product Test")
-    expect(page).to have_content("https://www.asos.com")
+    create_test("Climate", "http://www.climate.com")
+    url = "http://www.example.com/tests/climate"
+    expect(page).to have_content("Share test for Climate")
+    expect(page).to have_content(url)
   end
 
   scenario 'User cannot submit a test without a valid URL' do
@@ -38,6 +39,15 @@ feature 'User can create new tests' do
     expect(question1).to be_checked
     expect(question2).to be_checked
     expect(question3).to_not be_checked
+  end
+
+  scenario 'User must choose at least one question' do
+    visit '/tests/new'
+    fill_in 'test_name', with: 'test'
+    fill_in 'test_test_url', with: 'https://www.test.com'
+    select('Product', from: 'test_test_type_id')
+    click_button "Create Test"
+    expect(page).to have_content("Question ids can't be blank")
   end
 
 end
