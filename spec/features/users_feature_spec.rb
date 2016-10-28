@@ -14,7 +14,6 @@ feature 'User authentication' do
       expect{user_sign_up(email = "not valid email")}.to change(User, :count).by(0)
     end
     scenario 'user cannot create account with non-unique email' do
-      visit "/users/sign_up"
       user_sign_up
       user_sign_out
       expect{user_sign_up}.to change(User, :count).by(0)
