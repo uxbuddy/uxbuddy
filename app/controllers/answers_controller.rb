@@ -1,7 +1,9 @@
 class AnswersController < ApplicationController
 
   def create
-    Answer.create(answer_params)
+    answer = Answer.new(answer_params)
+    answer.format = answer.question.format
+    answer.save
   end
 
   private

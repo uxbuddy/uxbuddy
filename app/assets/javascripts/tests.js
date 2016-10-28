@@ -7,7 +7,6 @@ $(document).ready(function() {
         url: window.location.pathname + "/answers",
         type: "POST",
         data: {answer: {
-          format: "Range",
           response: $("#range"+counter).val(),
           question_id: counter
         }},
