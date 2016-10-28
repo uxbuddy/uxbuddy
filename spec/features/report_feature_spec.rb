@@ -15,4 +15,13 @@ feature 'report page' do
       expect(page).to have_content("Number of respondents: 5")
     end
   end
+
+  scenario 'report page has a response average table' do
+    visit '/tests/1/report'
+    within '#response-averages' do
+      expect(page).to have_content("Question number")
+      expect(page).to have_content("Question")
+      expect(page).to have_content("Average response")
+    end
+  end
 end

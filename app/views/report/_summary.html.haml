@@ -10,3 +10,21 @@
     %tr
       %td Number of questions:
       %td= @test.questions.count
+
+%br
+%br
+
+%table.highlight#response-averages
+  %thead
+    %tr
+      %th Question number
+      %th Question
+      %th Average response
+  %tbody
+    %tr
+      %td
+      %td
+      %td
+
+=@q1 =@questions[0]
+=@q1.ave_response
