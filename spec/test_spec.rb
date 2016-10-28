@@ -10,12 +10,12 @@ describe Test do
       expect(test3.questions.count).to eq(3)
     end
 
-    it 'should have 15 answers' do
-      expect(test1.answers.count).to eq(15)
+    xit 'should have 15 answers' do
+      expect(test3.answers.count).to eq(15)
     end
 
-    it 'should have 5 answers to Question 1' do
-      answers_to_question_1 = test1.answers.where(question_id: 1)
+    it 'should have 5 answers to Question 3' do
+      answers_to_question_1 = test1.answers.where(question_id: 3)
       expect(answers_to_question_1.count).to eq(5)
     end
 
