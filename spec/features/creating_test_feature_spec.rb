@@ -9,9 +9,10 @@ feature 'User can create new tests' do
   end
 
   scenario 'User can fill in a form to create a test' do
-    create_test
+    create_test("Climate", "http://www.climate.com")
+    url = "localhost/3000/tests/climate"
     expect(page).to have_content("Share test for Asos Product Test")
-    expect(page).to have_content("https://www.asos.com")
+    expect(page).to have_content(url)
   end
 
   scenario 'User cannot submit a test without a valid URL' do
