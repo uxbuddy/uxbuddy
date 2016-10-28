@@ -10,8 +10,8 @@ describe Test do
       expect(test3.questions.count).to eq(3)
     end
 
-    xit 'should have 15 answers' do
-      expect(test3.answers.count).to eq(15)
+    it 'should have 15 answers' do
+      expect(test3.answers.count).to eq(16)
     end
 
     it 'should have 5 answers to Question 3' do
