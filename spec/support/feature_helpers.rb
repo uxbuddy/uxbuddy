@@ -21,7 +21,7 @@ module FeatureHelpers
     click_button("Log in")
   end
 
-  def create_test(test_name = "Asos Product Test", test_url = "http://www.asos.com")
+  def create_test(test_name = "Asos Product Test", test_url = "https://www.asos.com")
     visit '/tests/new'
     fill_in 'test_name', with: test_name
     fill_in 'test_test_url', with: test_url
