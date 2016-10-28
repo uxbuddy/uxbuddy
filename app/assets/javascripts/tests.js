@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  $('select').material_select();
   $("#toggle").click((function(){
     var counter = 1;
     return function()

@@ -2,19 +2,19 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Uxbuddy
+    %title UX Buddy
     = csrf_meta_tags
-    -# = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons"
 
     %body
+      = render 'layouts/nav'
+      .container
+        - flash.each do |key, value|
+          %div{:class => "alert alert-#{key}"}= value
 
-    = render 'layouts/nav'
-    - flash.each do |key, value|
-      %div{:class => "alert alert-#{key}"}= value
+        = yield
 
-    = yield
-
-    %p.notice= notice
-    %p.alert= alert
+        %p.notice= notice
+        %p.alert= alert

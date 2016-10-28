@@ -10,7 +10,6 @@ module FeatureHelpers
   end
 
   def user_sign_out
-    visit '/'
     click_link("Sign out")
   end
 
