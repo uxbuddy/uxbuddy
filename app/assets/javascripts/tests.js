@@ -1,5 +1,7 @@
 $(document).ready(function() {
+
   $('select').material_select();
+
   $("#toggle").click((function(){
     var counter = 1;
     return function()
@@ -20,6 +22,7 @@ $(document).ready(function() {
       $(".q" + counter).show();
     };
   })());
+
   $("#start").click((function(){
     return function()
     {
@@ -27,4 +30,5 @@ $(document).ready(function() {
        $(".welcome").hide();
     };
   })());
+
 });
