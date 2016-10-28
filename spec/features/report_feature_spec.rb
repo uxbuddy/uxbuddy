@@ -24,4 +24,11 @@ feature 'report page' do
       expect(page).to have_content("Average response")
     end
   end
+
+  scenario 'averages table displays averages' do
+    visit '/tests/1/report'
+    within '#response-averages' do
+      expect(page).to have_content('3.6')
+    end
+  end
 end
