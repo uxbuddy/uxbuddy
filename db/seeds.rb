@@ -16,7 +16,7 @@ end
 
 Question.all.each do |question|
   5.times do
-    Answer.create(format: "Range", response: rand(1..5), question_id: question.id)
+    Answer.create(format: "Range", response: rand(1..5), question_id: question.id, test_id: rand(1..3))
   end
 end
 
