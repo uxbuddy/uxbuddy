@@ -6,7 +6,7 @@
       %td= @test.test_url
     %tr
       %td Number of respondents:
-      %td= @test.answers.where(question_id: 1).count
+      %td= @respondents
     %tr
       %td Number of questions:
       %td= @test.questions.count
