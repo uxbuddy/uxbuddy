@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20161029114836) do
     t.integer  "test_id"
     t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
     t.index ["test_id"], name: "index_answers_on_test_id", using: :btree
+
   end
 
   create_table "questions", force: :cascade do |t|
@@ -82,7 +83,10 @@ ActiveRecord::Schema.define(version: 20161029114836) do
   end
 
   add_foreign_key "answers", "questions"
+<<<<<<< HEAD
   add_foreign_key "answers", "tests"
+=======
+>>>>>>> 00e6825a02ab80f9e08ec8290dc674f247091f00
   add_foreign_key "questions_test_types", "questions"
   add_foreign_key "questions_test_types", "test_types"
   add_foreign_key "tests", "test_types"
