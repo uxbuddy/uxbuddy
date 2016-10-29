@@ -8,6 +8,7 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
+    @test.user_id = current_user.id
     if @test.save
       @test.update(slug: @test.name.downcase)
       redirect_to share_test_path(@test)
