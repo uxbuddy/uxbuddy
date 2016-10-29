@@ -20,8 +20,13 @@
     %p=q.text
     %input{type: "#{q.format}", min: "0", max: "5", step: "1"}
 
-.toggle_button
-  %a{href: "javascript:void(0)", id: 'toggle', style: "display:none"} Next
+%div{class: "q#{@questions.count - 1}"}
+  .toggle_button
+    %a{href: "javascript:void(0)", id: 'toggle', style: "display:none"} Next
+
+%div{class: "q#{@questions.count}", style: "display:none"}
+  .toggle_button
+    %a{href: thanks_test_path, id: 'toggle', style: "display:none"} Finish
 
 %iframe{allowfullscreen: "", id:"iframe", src: "#{@test.test_url}", width: "800", height: "600", style: "display:none"}
   %p Sorry, something seems to have gone wrong!

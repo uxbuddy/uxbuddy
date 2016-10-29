@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :answers, only: [:create]
     resources :report
     member do
+      get 'share'
       get 'thanks'
     end
   end
