@@ -1,7 +1,12 @@
 describe Question do
 
-  # let!(:question) {Question.create(id: 9, format: "Range", text: "Dummy question")}
-  # let!(:test) {Test.create(name: 'Youtube', test_url: "https://www.youtube.com/embed/XGSy3_Czz8k", test_type_id: 1, slug: "youtube", question_ids: 9)}
+  let!(:test) { Test.find(1) }
+  let!(:question1) {test.questions[0]}
+  let!(:answers) {question1.answers.where(test_id: test.id)}
+  let!(:response1) {answers[0].response}
+  let!(:response2) {answers[1].response}
+  let!(:response3) {answers[2].response}
+  let!(:average) {(response1 + response2 + response3)/3.0}
 
   describe "Load data" do
 
@@ -9,13 +14,9 @@ describe Question do
       expect(Question.count).to eq(8)
     end
 
-    # it "ave_response returns 3.5" do
-    #   puts question.inspect
-    #   Answer.create(format: "Range", response: 2, question_id: question.id)
-    #   puts question.inspect
-    #   Answer.create(format: "Range", response: 2, question_id: question.id)
-    #   expect(question.ave_response).to eq(2)
-    # end
+    it 'should calculate the average of the responses' do
+      expect(question1.ave_response(test.id).round(1)).to eq(average.round(1))
+    end
 
   end
 
