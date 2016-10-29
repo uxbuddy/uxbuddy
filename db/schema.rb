@@ -10,18 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161027114908) do
+ActiveRecord::Schema.define(version: 20161029114836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
     t.string   "format"
-    t.string   "response"
+    t.integer  "response"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "question_id"
+    t.integer  "test_id"
     t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
+    t.index ["test_id"], name: "index_answers_on_test_id", using: :btree
   end
 
   create_table "questions", force: :cascade do |t|
@@ -80,6 +82,7 @@ ActiveRecord::Schema.define(version: 20161027114908) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "tests"
   add_foreign_key "questions_test_types", "questions"
   add_foreign_key "questions_test_types", "test_types"
   add_foreign_key "tests", "test_types"
