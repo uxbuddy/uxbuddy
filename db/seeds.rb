@@ -14,9 +14,11 @@ Question.all.each do |question|
   question.test_types << TestType.where(id: 1)
 end
 
-Question.all.each do |question|
-  5.times do
-    Answer.create(format: "Range", response: rand(1..5), question_id: question.id)
+Test.all.each do |test|
+  test.questions.each do |question|
+    3.times do
+      Answer.create(format: "Range", response: rand(1..5), question_id: question.id, test_id: test.id)
+    end
   end
 end
 
