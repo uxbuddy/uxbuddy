@@ -6,7 +6,10 @@
       %td= @test.test_url
     %tr
       %td Number of respondents:
-      %td= @test.answers.where(question_id: 1).count
+      %p= @test.answers.count
+      %p= @test.questions[0].inspect
+      %p= @test.questions[0].answers.count
+      %td= @test.answers.where(question_id: @questions[0]).count
     %tr
       %td Number of questions:
       %td= @test.questions.count
@@ -25,4 +28,4 @@
     %tr
       %td= i+1
       %td= q.text
-      %td= q.ave_response
+      %td= q.answers.inspect
