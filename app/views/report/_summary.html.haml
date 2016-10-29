@@ -25,4 +25,4 @@
     %tr
       %td= i+1
       %td= q.text
-      %td= q.answers.inspect
+      %td= q.ave_response(@test.id).round(1)

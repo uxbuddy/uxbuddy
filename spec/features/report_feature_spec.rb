@@ -1,6 +1,15 @@
 require 'rails_helper'
 
 feature 'report page' do
+
+  let!(:test) { Test.find(1) }
+  let!(:question1) {test.questions[0]}
+  let!(:answers) {question1.answers.where(test_id: test.id)}
+  let!(:response1) {answers[0].response}
+  let!(:response2) {answers[1].response}
+  let!(:response3) {answers[2].response}
+  let!(:average) {(response1 + response2 + response3)/3.0}
+
   scenario 'report page loads' do
     visit '/tests/1/report'
     expect(page.status_code).to equal(200)
@@ -25,10 +34,10 @@ feature 'report page' do
     end
   end
 
-  xscenario 'PENDING DUE TO RAND SEEDING OF DB - averages table displays averages' do
+  scenario 'averages table displays average of question 1' do
     visit '/tests/1/report'
     within '#response-averages' do
-      expect(page).to have_content('3.6')
+      expect(page).to have_content(average.round(1))
     end
   end
 end
