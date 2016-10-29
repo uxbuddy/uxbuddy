@@ -18,6 +18,7 @@ describe Test do
       question_1 = test1.questions[0]
       answers_to_question_1 = question_1.answers.where(test_id: test1.id)
       expect(answers_to_question_1.count).to eq(3)
+
     end
 
   end

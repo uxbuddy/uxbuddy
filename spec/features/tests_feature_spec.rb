@@ -6,7 +6,7 @@ feature 'User can see a test' do
     let!(:test) { Test.find(1) }
 
     before(:each) do
-      visit "/tests/1" #need to change to actual test url
+      visit "/tests/youtube"
     end
 
     scenario 'user sees welcome page when they go to test url' do
@@ -49,6 +49,21 @@ feature 'User can see a test' do
       find(:xpath, "//input[@id='range1']").set 1
       click_link('Next')
       expect{click_link('Next')}.to change(Answer, :count).by(1)
+    end
+  end
+
+  context "Finishing a test" do
+
+    let!(:test) { Test.find(1) }
+
+    scenario 'User is redirected to a thank you page after completing questions', js: true do
+      visit '/tests/youtube'
+      click_button('Start')
+      click_link('Next')
+      click_link('Next')
+      click_link('Finish')
+      expect(page).to have_current_path("/tests/youtube/thanks")
+      expect(page).to have_content('That\'s it!')
     end
   end
 end
