@@ -46,7 +46,7 @@ feature 'User can see a test' do
     scenario 'User can submit answers', js: true do
       visit "/tests/youtube"
       click_button('Start')
-      find(:xpath, "//input[@id='range1']").set 2
+      find(:xpath, "//input[@id='range1']").set 1
       click_link('Next')
       expect{click_link('Next')}.to change(Answer, :count).by(1)
     end
