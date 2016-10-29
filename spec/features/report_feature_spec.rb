@@ -12,7 +12,7 @@ feature 'report page' do
     within '#summary' do
       expect(page).to have_content("Test URL: https://www.youtube.com/embed/XGSy3_Czz8k")
       expect(page).to have_content("Number of questions: 3")
-      expect(page).to have_content("Number of respondents: 5")
+      expect(page).to have_content("Number of respondents: 3")
     end
   end
 end
