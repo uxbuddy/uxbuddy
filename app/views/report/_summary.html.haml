@@ -10,3 +10,19 @@
     %tr
       %td Number of questions:
       %td= @test.questions.count
+
+%br
+%br
+
+%table.highlight#response-averages
+  %thead
+    %tr
+      %th Question number
+      %th Question
+      %th Average response
+  %tbody
+  -@questions.each_with_index do |q, i|
+    %tr
+      %td= i+1
+      %td= q.text
+      %td= q.answers.inspect
