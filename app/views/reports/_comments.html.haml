@@ -1,0 +1,11 @@
+%h5 Other comments
+
+-@questions.each do |q|
+  %table{class: "highlight", id: "question#{q.id}-comments"}
+    %thead
+      %tr
+        %th= q.text
+    %tbody
+      -q.comments(@test.id).each do |c|
+        %tr
+          %td= c
