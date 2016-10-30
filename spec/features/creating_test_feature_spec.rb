@@ -12,7 +12,7 @@ feature 'User can create new tests' do
     create_test("Climate", "http://www.climate.com")
     url = "http://www.example.com/tests/climate"
     expect(page).to have_content("Share test for Climate")
-    expect(page).to have_content(url)
+    expect(page).to have_link('', href: url)
   end
 
   scenario 'User cannot submit a test without a valid URL' do
