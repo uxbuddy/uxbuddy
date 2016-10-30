@@ -9,7 +9,7 @@ class TestsController < ApplicationController
   def create
     @test = Test.new(test_params)
     if @test.save
-      @test.update(slug: @test.name.downcase)
+      @test.update(slug: @test.name.downcase.split(" ").join("-"))
       redirect_to share_test_path(@test)
     else
       flash[:error] = @test.errors.full_messages.map{|o| o  }.join("")
