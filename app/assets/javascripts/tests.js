@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   $('select').material_select();
   $(".toggle_button").click((function(){
     var counter = 1;
