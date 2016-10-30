@@ -25,6 +25,10 @@ class TestsController < ApplicationController
     end
   end
 
+  def index
+    @tests = Test.where(user_id: current_user.id)
+  end
+
   def show
     @test = Test.friendly.find(params[:id])
     @questions = @test.questions
