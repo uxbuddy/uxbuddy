@@ -7,4 +7,9 @@ class Question < ApplicationRecord
     (self.answers.where(test_id: test_id)).average(:response)
   end
 
+  def comments(test_id)
+    answers = self.answers.where(test_id: test_id)
+    answers.map(&:comment).reject(&:empty?)
+  end
+
 end
