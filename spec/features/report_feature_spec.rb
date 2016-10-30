@@ -42,11 +42,11 @@ feature 'report page' do
   end
 
   scenario 'Nav bar chart icon links to tests#index' do
-    user_sign_up
+    user_sign_in
     visit '/'
-    puts page.body
+    save_and_open_page
     within '#nav' do
-      click_button('equalizer')
+      find(:xpath, "//a[@id='tests-all']").click
       expect(page).to have_current_path("/tests")
     end
   end

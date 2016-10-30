@@ -58,9 +58,10 @@ feature 'User can create new tests' do
 
     scenario 'Nav bar to add a test' do
       visit '/'
-      puts page.body
-      click_button('note_add')
-      expect(page).to have_current_path("/tests/new")
+      within '#nav' do
+        find(:xpath, "//a[@id='test-new']").click
+        expect(page).to have_current_path("/tests/new")
+      end
     end
   end
 
