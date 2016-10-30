@@ -1,2 +1,8 @@
-id,description,created_at,updated_at
-1,Product,,
+id,description,created_at,updated_at,status
+1,Product page,,,
+2,Search page,,,disabled
+3,Booking process,,,disabled
+4,FAQs,,,disabled
+5,Profile page,,,disabled
+6,Contact us,,,disabled
+7,Sign up,,,disabled
