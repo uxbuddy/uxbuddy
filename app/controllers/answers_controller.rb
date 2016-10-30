@@ -1,12 +1,9 @@
 class AnswersController < ApplicationController
 
   def create
-    answer = Answer.new(answer_params)
-    @test = Test.friendly.find(params[:test_id])
-    answer.test_id = @test.id
-    answer.question_id = @test.questions[params[:answer][:question_no].to_i].id
-    answer.format = answer.question.format
-    answer.save
+    test = Test.friendly.find(params[:test_id])
+    question_no =  params[:answer][:question_no]
+    Answer.build_answer(answer_params, test, question_no)
   end
 
   private
@@ -15,7 +12,4 @@ class AnswersController < ApplicationController
     params.require(:answer).permit(:format, :response, :comment, :question_no, :question_id, :test_id)
   end
 
-  def assign_question
-
-  end
 end
