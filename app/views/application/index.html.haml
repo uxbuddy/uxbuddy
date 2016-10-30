@@ -1,14 +1,17 @@
 .row#intro
   .col.s12
-    %h1.center-align#title UX Buddy
+    %h1.center-align#headline Testing Made Simple
+.row
+  .col.s6
+    = image_tag('uxbuddy.png', width: '350', id: "home-logo")
+  .col.s6#intro-text-div
     %p.flow-text
       Since the beginning of the internet, testing prototypes has been arduous, tedious, and painful. To make things worse, most of the time the feedback is totally useless and impossible to interpret.
     %p.flow-text
       %strong Well, not anymore!
       \ UX Buddy makes early stage testing a breeze. Just submit a URL, select your questions, and send out the URL to your guinea pigs, and we take care of the rest.
-
-.row.valign-wrapper
-  .col.s7
+.row#get-started-row.valign-wrapper
+  .col.s6.offset-s2
     %h3.strong.valign What are you waiting for?
   .col.s4
-    %a.btn-large.waves-effect.waves-light.valign{:href => new_test_path} Get started
+    %a.btn-large.waves-effect.waves-light.valign.left{:href => new_test_path} Get started
