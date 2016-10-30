@@ -18,8 +18,8 @@ class TestsController < ApplicationController
   end
 
   def index
-
-  end 
+    @tests = Test.where(user_id: current_user.id)
+  end
 
   def show
     @test = Test.friendly.find(params[:id])

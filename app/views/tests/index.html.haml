@@ -1,0 +1,5 @@
+%ol
+  -@tests.each do |t|
+    %li
+      =t.name
+      =link_to "View Report", test_report_index_path(t), class: "active"

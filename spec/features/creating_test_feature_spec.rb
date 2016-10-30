@@ -52,7 +52,7 @@ feature 'User can create new tests' do
   end
 
   context 'User has created tests' do
-    
+
     before do
       user_sign_up
       create_test
@@ -61,7 +61,7 @@ feature 'User can create new tests' do
     scenario 'User can see a list of all their own tests' do
       visit '/tests'
       expect(page).to have_content "Asos Product Test"
-      expect(page).to have_link('Report', href: "/tests/asos%20product%test/report")
+      expect(page).to have_link('View Report', href: "/tests/asosproducttest/report")
     end
   end
 
