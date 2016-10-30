@@ -36,7 +36,7 @@ feature 'User can create new tests' do
       visit '/tests/new'
       fill_in 'test_name', with: "BBC Test"
       fill_in 'test_test_url', with: "http://www.bbc.co.uk"
-      select('Product', from: 'test_test_type_id')
+      choose('Product page')
       check 'test_question_ids_1'
       check 'test_question_ids_2'
       question1 = find('#test_question_ids_1')
@@ -51,7 +51,7 @@ feature 'User can create new tests' do
       visit '/tests/new'
       fill_in 'test_name', with: 'test'
       fill_in 'test_test_url', with: 'https://www.test.com'
-      select('Product', from: 'test_test_type_id')
+      choose('Product page')
       click_button "Create Test"
       expect(page).to have_content("Question ids can't be blank")
     end

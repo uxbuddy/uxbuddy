@@ -48,4 +48,9 @@ class TestsController < ApplicationController
     params.require(:test).permit(:name, :test_url, :test_type_id, :question_ids => [])
   end
 
+  def status
+    self.status
+  end
+
+
 end

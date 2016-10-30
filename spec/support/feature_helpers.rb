@@ -25,7 +25,7 @@ module FeatureHelpers
     puts page.body
     fill_in 'test_name', with: test_name
     fill_in 'test_test_url', with: test_url
-    select('Product', from: 'test_test_type_id')
+    choose('Product page')
     check 'test_question_ids_1'
     click_button "Create Test"
   end
