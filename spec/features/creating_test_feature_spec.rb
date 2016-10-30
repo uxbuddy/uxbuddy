@@ -55,6 +55,13 @@ feature 'User can create new tests' do
       click_button "Create Test"
       expect(page).to have_content("Question ids can't be blank")
     end
+
+    scenario 'Nav bar to add a test' do
+      visit '/'
+      puts page.body
+      click_button('note_add')
+      expect(page).to have_current_path("/tests/new")
+    end
   end
 
   context 'User has created tests' do

@@ -40,4 +40,14 @@ feature 'report page' do
       expect(page).to have_content(average.round(1))
     end
   end
+
+  scenario 'Nav bar chart icon links to tests#index' do
+    user_sign_up
+    visit '/'
+    puts page.body
+    within '#nav' do
+      click_button('equalizer')
+      expect(page).to have_current_path("/tests")
+    end
+  end
 end
