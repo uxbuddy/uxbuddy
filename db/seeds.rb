@@ -17,7 +17,7 @@ end
 Test.all.each do |test|
   test.questions.each do |question|
     3.times do
-      Answer.create(format: "Range", response: rand(1..5), question_id: question.id, test_id: test.id)
+      Answer.create(format: "Range", response: rand(1..5), comment: 'wow', question_id: question.id, test_id: test.id)
     end
   end
 end

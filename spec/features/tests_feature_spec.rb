@@ -47,6 +47,7 @@ feature 'User can see a test' do
       visit "/tests/youtube"
       click_button('Start')
       find(:xpath, "//input[@id='range1']").set 2
+      fill_in 'comment1', with: 'This is so boss'
       click_link('Next')
       expect{click_link('Next')}.to change(Answer, :count).by(1)
     end

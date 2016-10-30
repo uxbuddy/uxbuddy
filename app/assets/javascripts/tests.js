@@ -9,6 +9,7 @@ $(document).ready(function() {
         type: "POST",
         data: {answer: {
           response: $("#range"+counter).val(),
+          comment: $("#comment"+counter).val(),
           question_no: counter - 1
         }},
         success: function() {
