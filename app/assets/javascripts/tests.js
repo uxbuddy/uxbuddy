@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $('select').material_select();
   $(".toggle_button").click((function(){
-    var counter = 0;
+    var counter = 1;
     return function()
     {
       $.ajax({
@@ -9,7 +9,7 @@ $(document).ready(function() {
         type: "POST",
         data: {answer: {
           response: $("#range"+counter).val(),
-          question_no: counter
+          question_no: counter - 1
         }},
         success: function() {
           return false;
