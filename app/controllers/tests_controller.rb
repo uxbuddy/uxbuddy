@@ -4,7 +4,7 @@ class TestsController < ApplicationController
 
   def new
     if user_signed_in?
-      @test = Test.new
+      check_test_in_progress
       @test_types = TestType.all
       @questions = Question.all
     else
@@ -15,14 +15,13 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
-    if current_user
-      @test.user_id = current_user.id
-    end
     if @test.save
+      @test.update(user_id: current_user.id)
       @test.update(slug: @test.name.downcase.split(" ").join("-"))
       redirect_to share_test_path(@test)
     else
       flash[:error] = @test.errors.full_messages.map{|o| o  }.join("")
+      session[:test] = test_params
       redirect_to new_test_path
     end
   end
@@ -51,8 +50,13 @@ class TestsController < ApplicationController
     @test = Test.friendly.find(params[:id])
   end
 
-  def status
-    self.status
+  def check_test_in_progress
+    if session[:test]
+      @test = Test.new(session[:test])
+      session[:test] = nil
+    else
+      @test = Test.new
+    end
   end
 
 end
