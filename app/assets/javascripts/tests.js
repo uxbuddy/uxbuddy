@@ -1,8 +1,7 @@
 $(document).ready(function() {
 
   $('select').material_select();
-
-  $("#toggle").click((function(){
+  $(".toggle_button").click((function(){
     var counter = 1;
     return function()
     {
