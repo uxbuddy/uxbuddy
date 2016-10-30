@@ -6,6 +6,7 @@ class TestsController < ApplicationController
       @test_types = TestType.all
       @questions = Question.all
     else
+      flash[:notice] = 'Please sign in to create a test' 
       redirect_to new_user_registration_path
     end
   end
