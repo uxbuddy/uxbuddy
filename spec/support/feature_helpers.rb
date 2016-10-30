@@ -21,7 +21,8 @@ module FeatureHelpers
   end
 
   def create_test(test_name = "Asos Product Test", test_url = "https://www.asos.com")
-    visit '/tests/new'
+    visit '/'
+    click_on "Get started"
     puts page.body
     fill_in 'test_name', with: test_name
     fill_in 'test_test_url', with: test_url

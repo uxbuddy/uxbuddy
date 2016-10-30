@@ -23,6 +23,7 @@ feature 'User can create new tests' do
 
     scenario 'User cannot submit a test without a valid URL', js: true do
       create_test("myURL", "not_a_url")
+      puts page.body
       expect(page).to have_content("Test url is invalid")
     end
 

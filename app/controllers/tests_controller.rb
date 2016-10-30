@@ -6,17 +6,15 @@ class TestsController < ApplicationController
       @test_types = TestType.all
       @questions = Question.all
     else
-      flash[:notice] = 'Please sign in to create a test' 
+      flash[:notice] = 'Please sign in to create a test'
       redirect_to new_user_registration_path
     end
   end
 
   def create
     @test = Test.new(test_params)
-    if current_user
-      @test.user_id = current_user.id
-    end 
     if @test.save
+      @test.update(user_id: current_user.id)
       @test.update(slug: @test.name.downcase.split(" ").join("-"))
       redirect_to share_test_path(@test)
     else
