@@ -1,12 +1,14 @@
 class TestsController < ApplicationController
 
+  before_action :find_test, only: [:show, :share, :thanks]
+
   def new
     if user_signed_in?
       @test = Test.new
       @test_types = TestType.all
       @questions = Question.all
     else
-      flash[:notice] = 'Please sign in to create a test' 
+      flash[:notice] = 'Please sign in to create a test'
       redirect_to new_user_registration_path
     end
   end
@@ -15,7 +17,7 @@ class TestsController < ApplicationController
     @test = Test.new(test_params)
     if current_user
       @test.user_id = current_user.id
-    end 
+    end
     if @test.save
       @test.update(slug: @test.name.downcase.split(" ").join("-"))
       redirect_to share_test_path(@test)
@@ -30,16 +32,13 @@ class TestsController < ApplicationController
   end
 
   def show
-    @test = Test.friendly.find(params[:id])
     @questions = @test.questions
   end
 
   def share
-    @test = Test.friendly.find(params[:id])
   end
 
   def thanks
-    @test = Test.friendly.find(params[:id])
   end
 
   private
@@ -48,9 +47,12 @@ class TestsController < ApplicationController
     params.require(:test).permit(:name, :test_url, :test_type_id, :question_ids => [])
   end
 
+  def find_test
+    @test = Test.friendly.find(params[:id])
+  end
+
   def status
     self.status
   end
-
 
 end
