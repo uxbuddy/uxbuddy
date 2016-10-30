@@ -1,7 +1,7 @@
 %h2.center-align Your Tests
 %table.bordered
-  -@tests.each do |t|
+  -@tests.each do |test|
     %tr.collection-item
-      %td=t.name
-      %td=link_to "View Report", test_report_index_path(t), class: "active"
-    -# =link_to "View Report", report_path(t), class: "active"
+      %td=test.name
+      %td=link_to "View Report", test_report_index_path(test), class: "active"
+    -# =link_to "View Report", report_path(test), class: "active"
