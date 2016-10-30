@@ -1,14 +1,20 @@
-.row
+.row#create-test-form
   .col.s8.offset-s2
     %h2 Create a new test
     = form_for @test do |f|
+      .col.s12#test-form-col
+      %h5 What is your test name?
       = f.text_field(:name, placeholder: "Your test name")
+      %h5 What URL are you testing?
       = f.text_field(:test_url, placeholder: "URL for testing")
-      .input-field
-        = f.select :test_type_id, options_for_select(@test_types.map{ |t| [t.description, t.id] })
-        %label Choose your test type
       %br
-      = f.label "Choose the questions you'd like to ask:"
+      %h5 What type of feature are you testing?
+      = f.collection_radio_buttons :test_type_id, @test_types, :id, :description do |t|
+        = t.radio_button
+        = t.label
+        %br
+      %br
+      %h5 What questions do you want to ask?
       %br
       = f.collection_check_boxes :question_ids, @questions, :id, :text do |q|
         = q.check_box

@@ -5,7 +5,7 @@ describe TestType do
     let(:product_type) { TestType.find(1) }
 
     it 'should load some data at the start' do
-      expect(TestType.count).to eq(1)
+      expect(TestType.count).to eq(7)
     end
 
     it 'should have 8 associated questions' do
