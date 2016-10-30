@@ -11,12 +11,12 @@ feature 'report page' do
   let!(:average) {(response1 + response2 + response3)/3.0}
 
   scenario 'report page loads' do
-    visit '/tests/1/report'
+    visit '/reports/1'
     expect(page.status_code).to equal(200)
   end
 
   scenario 'report page has test name in header' do
-    visit '/tests/1/report'
+    visit '/reports/1'
     expect(page).to have_content("Youtube // Test Report")
     within '#summary' do
       expect(page).to have_content("Test URL: https://www.youtube.com/embed/XGSy3_Czz8k")
@@ -26,7 +26,7 @@ feature 'report page' do
   end
 
   scenario 'report page has a response average table' do
-    visit '/tests/1/report'
+    visit '/reports/1'
     within '#response-averages' do
       expect(page).to have_content("Question number")
       expect(page).to have_content("Question")
@@ -35,7 +35,7 @@ feature 'report page' do
   end
 
   scenario 'averages table displays average of question 1' do
-    visit '/tests/1/report'
+    visit '/reports/1'
     within '#response-averages' do
       expect(page).to have_content(average.round(1))
     end
