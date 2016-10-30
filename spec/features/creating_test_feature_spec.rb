@@ -4,7 +4,7 @@ feature 'User can create new tests' do
 
   scenario 'Homepage has link to get started' do
     visit '/'
-    click_button 'Get started'
+    click_on 'Get started'
     expect(current_path).to eq('/tests/new')
   end
 
