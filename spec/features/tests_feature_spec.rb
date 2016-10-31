@@ -20,10 +20,12 @@ feature 'User can see a test' do
       expect(page).to have_content("How would you rate the information available about the product?")
     end
 
+  end
+
+  context "Github file tests" do
+
     scenario 'iframe has correct source for github urls', js: true do
-      user_sign_in
-      create_test("Github Test", "https://github.com/lili2311/trelogan-yoga/blob/master/src/about.html")
-      visit "/tests/github-test"
+      visit "/tests/githubtest"
       click_on('Start')
       expect(page).to have_xpath("//iframe[@src= 'https://htmlpreview.github.io/?https://github.com/lili2311/trelogan-yoga/blob/master/src/about.html']")
     end
