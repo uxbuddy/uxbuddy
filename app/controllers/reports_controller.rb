@@ -4,10 +4,17 @@ class ReportsController < ApplicationController
     @test = Test.friendly.find(params[:id])
     @questions = @test.questions
     @respondents = @test.questions[0].answers.where(test_id: @test.id).count
-    @library = {xtitle: 'Average response', hAxis: {ticks: [1,2,3,4,5]},
-                chartArea: {left: 400, width: 500}}
-  end
+    @library = {xtitle: 'Average response',
+                hAxis: {ticks: [1,2,3,4,5]},
+                chartArea: {left: 400, width: 500}
+                }
+    answers = @test.answers
+    @data = answers.joins(:question).group('text').count
+    
+    # average(:response)
+    # @data = @questions.joins(:answers).where(test_id = @test.id).group('text').average(:response)
 
+  end
 
   private
 
