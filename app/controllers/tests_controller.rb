@@ -31,11 +31,7 @@ class TestsController < ApplicationController
   end
 
   def show
-    if @test.test_url.include? "github.com"
-      @iframe_url = "https://htmlpreview.github.io/?"+ @test.test_url
-    else
-      @iframe_url = @test.test_url
-    end
+    check_github
     @questions = @test.questions
   end
 
@@ -53,6 +49,14 @@ class TestsController < ApplicationController
 
   def find_test
     @test = Test.friendly.find(params[:id])
+  end
+
+  def check_github
+    if @test.test_url.include? "github.com"
+      @iframe_url = "https://htmlpreview.github.io/?"+ @test.test_url
+    else
+      @iframe_url = @test.test_url
+    end
   end
 
   def check_test_in_progress
