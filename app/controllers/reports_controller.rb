@@ -9,11 +9,7 @@ class ReportsController < ApplicationController
                 chartArea: {left: 400, width: 500}
                 }
     answers = @test.answers
-    @data = answers.joins(:question).group('text').count
-    
-    # average(:response)
-    # @data = @questions.joins(:answers).where(test_id = @test.id).group('text').average(:response)
-
+    @data = answers.where(test_id: @test.id).group('text').average(:response)
   end
 
   private
