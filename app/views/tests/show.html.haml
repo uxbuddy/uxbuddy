@@ -41,7 +41,8 @@
       .toggle_button
         %a.btn.waves-effect.waves-light{href: thanks_test_path, id: 'toggle'} Finish
 
-.row#iframe
+.row#iframe-row
   %hr
-  %iframe{allowfullscreen: "", src: "#{@test.test_url}", width: "800", height: "600"}
-    %p Sorry, something seems to have gone wrong!
+  .col.s12
+    %iframe{allowfullscreen: "", id: "iframe", src: "#{@test.test_url}"}
+      %p Sorry, something seems to have gone wrong!

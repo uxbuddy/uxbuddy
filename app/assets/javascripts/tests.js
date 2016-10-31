@@ -24,7 +24,7 @@ $(document).on('turbolinks:load', function() {
   $("#start").click((function(){
     return function()
     {
-       $("#iframe, .q1, #toggle, #test-title").show();
+       $("#iframe-row, .q1, #toggle, #test-title").show();
        $(".welcome").hide();
     };
   })());
