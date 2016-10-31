@@ -9,7 +9,7 @@ describe TestType do
     end
 
     it 'should have 8 associated questions' do
-      expect(product_type.questions.count).to eq(8)
+      expect(product_type.questions.count).to eq(9)
     end
 
   end
