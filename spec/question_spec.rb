@@ -22,7 +22,7 @@ describe Question do
     end
 
     it 'should display all comments for particular question' do
-      expect(question1.comments(test.id)).to eq [comment1, comment2, comment3, 'This is so boss']
+      expect(question1.comments(test.id)).to eq [comment1, comment2, comment3]
     end
 
   end
