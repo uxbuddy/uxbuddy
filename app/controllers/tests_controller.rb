@@ -31,6 +31,11 @@ class TestsController < ApplicationController
   end
 
   def show
+    if @test.test_url.include? "github.com"
+      @iframe_url = "https://htmlpreview.github.io/?"+ @test.test_url
+    else
+      @iframe_url = @test.test_url
+    end
     @questions = @test.questions
   end
 
