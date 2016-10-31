@@ -25,21 +25,13 @@ feature 'report page' do
     end
   end
 
-  scenario 'report page has a response average table' do
+  scenario 'report page has an average chart' do
     visit '/reports/1'
-    within '#response-averages' do
-      expect(page).to have_content("Question number")
-      expect(page).to have_content("Question")
-      expect(page).to have_content("Average response")
+    within '#report-chart' do
+      expect(page.body).to have_content("How easy would you find it to buy these?")
     end
   end
 
-  scenario 'averages table displays average of question 1' do
-    visit '/reports/1'
-    within '#response-averages' do
-      expect(page).to have_content(average.round(1))
-    end
-  end
 
   scenario 'report page displays comments for each question' do
     visit '/reports/1'
