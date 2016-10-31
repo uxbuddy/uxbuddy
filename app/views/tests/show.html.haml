@@ -23,12 +23,14 @@
   -@questions.each.with_index do |q, i|
     .col.s6
       %div{class: "q#{i + 1}", id:"test-question"}
-        %p="Question #{i + 1}"
+        %h5="Question #{i + 1} of #{@questions.length}"
         %p=q.text
         %input{type: "#{q.format}", id: "range#{i+1}", min: "0", max: "5", step: "1"}
     .col.s6
       %div{class: "q#{i + 1}", id:"test-comment"}
-        %input{type: "text", id: "comment#{i+1}", placeholder: 'Any other comments'}
+        %h5 Comments
+        .input-field.col.s12
+          %textarea.materialize-textarea{type: "text", id: "comment#{i+1}", placeholder: 'Any other comments'}
 
   .col.s3.offset-s9
     %div{class: "q#{@questions.count - 1}"}
@@ -39,6 +41,7 @@
       .toggle_button
         %a.btn.waves-effect.waves-light{href: thanks_test_path, id: 'toggle'} Finish
 
-.row
-  %iframe{allowfullscreen: "", id:"iframe", src: "#{@test.test_url}", width: "800", height: "600", style: "display:none"}
+.row#iframe
+  %hr
+  %iframe{allowfullscreen: "", src: "#{@test.test_url}", width: "800", height: "600"}
     %p Sorry, something seems to have gone wrong!

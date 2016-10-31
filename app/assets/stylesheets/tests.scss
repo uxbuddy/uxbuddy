@@ -20,11 +20,19 @@
   display: none;
 }
 
+#test-question p {
+  font-size: 1.3em;
+}
+
 #test-comment {
   display: none;
 }
 
 #toggle {
   padding-bottom: 0.5em;
+  display: none;
+}
+
+#iframe {
   display: none;
 }
