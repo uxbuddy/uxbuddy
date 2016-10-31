@@ -6,7 +6,7 @@ class ReportsController < ApplicationController
     @respondents = @test.questions[0].answers.where(test_id: @test.id).count
     @library = {xtitle: 'Average response',
                 hAxis: {ticks: [1,2,3,4,5]},
-                chartArea: {left: 400, width: 500}
+                chartArea: {left: 400, width: 400},
                 }
     answers = @test.answers
     @data = answers.where(test_id: @test.id).group('text').average(:response)
