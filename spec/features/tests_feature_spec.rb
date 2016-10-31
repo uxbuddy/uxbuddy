@@ -17,7 +17,7 @@ feature 'User can see a test' do
       click_on('Start')
       expect(page).to have_xpath("//iframe[@src= 'https://www.youtube.com/embed/XGSy3_Czz8k']")
       expect(page).not_to have_xpath("//iframe[@src= 'other-url']")
-      expect(page).to have_content("How easy is it to know if this product is available?")
+      expect(page).to have_content("How would you rate the information available about the product?")
     end
 
   end
