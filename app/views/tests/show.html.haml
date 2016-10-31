@@ -1,17 +1,17 @@
 .welcome
-  %h1 Welcome!
+  %h3
+    %strong #{@test.name}
+    \ // Welcome
+  %hr
 
-  %p
-    ="Thanks for participating in the '" +  @test.name + "' test."
+  %p.flow-text Thanks for participating in this User Experience test. Here's how it works:
 
-  %p Here's how it works:
+  %ol.flow-text
+    %li Click 'Start' and you'll see a site appear
+    %li Answer the series of questions and feel free to add any comments
+    %li Click 'Finish' to submit your answers, and that's it!
 
-  %ol
-    %li You'll be asked a series of questions
-    %li Browse the site below, answer the question and hit next
-    %li That's it!
-
-  %a.btn.waves-effect.waves-light{ href: "javascript:void(0)", id: 'start' } Start
+  %a.btn.waves-effect.waves-light.right{ href: "javascript:void(0)", id: 'start' } Start
 
 .row#test-title
   .col.s12
