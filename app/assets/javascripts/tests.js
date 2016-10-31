@@ -28,7 +28,7 @@ $(document).on('turbolinks:load', function() {
     return function()
     {
        $("#iframe-row, .q1, #toggle, #test-title").show();
-       $(".welcome").hide();
+       $(".welcome, .q0").hide();
     };
   })());
 
