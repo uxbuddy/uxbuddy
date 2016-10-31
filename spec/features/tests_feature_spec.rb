@@ -74,7 +74,8 @@ feature 'User can see a test' do
       click_link('Next')
       click_link('Finish')
       expect(page).to have_current_path("/tests/youtube/thanks")
-      expect(page).to have_content('That\'s it!')
+      message = "Thank you for completing this test."
+      expect(page).to have_content(message)
     end
   end
 
