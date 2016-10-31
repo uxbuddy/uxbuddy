@@ -20,7 +20,7 @@ class TestsController < ApplicationController
       @test.update(slug: @test.name.downcase.split(" ").join("-"))
       redirect_to share_test_path(@test)
     else
-      flash[:error] = @test.errors.full_messages.map{|o| o  }.join("")
+      flash[:error] = @test.errors.full_messages.map{|o| o  }.join("/")
       session[:test] = test_params
       redirect_to new_test_path
     end

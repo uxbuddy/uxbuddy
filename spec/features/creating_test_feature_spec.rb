@@ -23,13 +23,13 @@ feature 'User can create new tests' do
 
     scenario 'User cannot submit a test without a valid URL' do
       create_test("myURL", "not_a_url")
-      expect(page).to have_content("Test url is invalid")
+      expect(page.body).to have_content("Test url is invalid")
     end
 
     scenario 'User cannot create two tests with the same name' do
       create_test("Climate", "http://www.climate.com")
       create_test("Climate", "http://www.climate.com")
-      expect(page).to have_content("Name has already been taken")
+      expect(page.body).to have_content("Name has already been taken")
     end
 
     scenario 'User can check multiple questions' do
@@ -53,7 +53,7 @@ feature 'User can create new tests' do
       fill_in 'test_test_url', with: 'https://www.test.com'
       choose('Product page')
       click_button "Create Test"
-      expect(page).to have_content("Question ids can't be blank")
+      expect(page.body).to have_content("Question ids can't be blank")
     end
 
     scenario 'Nav bar to add a test' do

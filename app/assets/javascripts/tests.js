@@ -21,6 +21,7 @@ $(document).on('turbolinks:load', function() {
       $(".q" + counter).show();
     };
   })());
+
   $("#start").click((function(){
     return function()
     {
@@ -28,4 +29,5 @@ $(document).on('turbolinks:load', function() {
        $(".welcome").hide();
     };
   })());
+
 });
