@@ -55,6 +55,14 @@ feature 'User can create new tests' do
       click_button "Create Test"
       expect(page).to have_content("Question ids can't be blank")
     end
+
+    scenario 'Nav bar to add a test' do
+      visit '/'
+      within '#nav' do
+        find(:xpath, "//a[@id='test-new']").click
+        expect(page).to have_current_path("/tests/new")
+      end
+    end
   end
 
   context 'User has created tests' do

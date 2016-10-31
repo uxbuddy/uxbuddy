@@ -47,4 +47,13 @@ feature 'report page' do
       expect(page).to have_content('wow')
     end
   end
+
+  scenario 'Nav bar chart icon links to tests#index' do
+    user_sign_in
+    visit '/'
+    within '#nav' do
+      find(:xpath, "//a[@id='tests-all']").click
+      expect(page).to have_current_path("/tests")
+    end
+  end
 end

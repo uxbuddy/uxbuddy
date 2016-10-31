@@ -67,4 +67,5 @@ feature 'User can see a test' do
       expect(page).to have_content('That\'s it!')
     end
   end
+
 end
