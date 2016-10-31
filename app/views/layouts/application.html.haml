@@ -14,7 +14,7 @@
       = render 'layouts/nav'
       .container
         - flash.each do |key, value|
-          - value.split("/").each do |flash_text| 
+          - value.split("/").each do |flash_text|
             :javascript
               var toast_colours = {
                 "notice": 'green',
@@ -25,7 +25,7 @@
               function toast_colour(flashKey) {
                 return toast_colours[flashKey];
               };
-              $(function(){Materialize.toast("#{flash_text}", 60000, toast_colour('#{key}'));});
+              $(function(){Materialize.toast("#{flash_text}", 8000, toast_colour('#{key}'));});
 
         = yield
 
