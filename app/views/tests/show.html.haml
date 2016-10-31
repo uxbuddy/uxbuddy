@@ -25,7 +25,16 @@
       %div{class: "q#{i + 1}", id:"test-question"}
         %h5="Question #{i + 1} of #{@questions.length}"
         %p=q.text
-        %input{type: "#{q.format}", id: "range#{i+1}", min: "0", max: "5", step: "1"}
+        .div#test5
+        %p.range-field
+          %input{type: "#{q.format}", id: "range#{i+1}", min: "0", max: "5", step: "1", list: "tickmarks"}
+            %datalist#tickmarks
+              %option 0
+              %option 1
+              %option 2
+              %option 3
+              %option 4
+              %option 5
     .col.s6
       %div{class: "q#{i + 1}", id:"test-comment"}
         %h5 Comments

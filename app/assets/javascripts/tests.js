@@ -19,7 +19,9 @@ $(document).on('turbolinks:load', function() {
       $(".q" + counter).hide();
       counter = counter + 1;
       $(".q" + counter).show();
+
     };
+
   })());
 
   $("#start").click((function(){
