@@ -1,5 +1,4 @@
-$(document).ready(function() {
-
+$(document).on('turbolinks:load', function() {
   $('select').material_select();
   $(".toggle_button").click((function(){
     var counter = 1;
@@ -10,7 +9,8 @@ $(document).ready(function() {
         type: "POST",
         data: {answer: {
           response: $("#range"+counter).val(),
-          question_id: counter
+          comment: $("#comment"+counter).val(),
+          question_no: counter - 1
         }},
         success: function() {
           return false;
@@ -25,7 +25,7 @@ $(document).ready(function() {
   $("#start").click((function(){
     return function()
     {
-       $("#iframe, .q1, #toggle").show();
+       $("#iframe-row, .q1, #toggle, #test-title").show();
        $(".welcome").hide();
     };
   })());

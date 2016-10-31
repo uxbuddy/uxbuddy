@@ -1,8 +1,10 @@
 class TestsController < ApplicationController
 
+  before_action :find_test, only: [:show, :share, :thanks]
+
   def new
     if user_signed_in?
-      @test = Test.new
+      check_test_in_progress
       @test_types = TestType.all
       @questions = Question.all
     else
@@ -19,6 +21,7 @@ class TestsController < ApplicationController
       redirect_to share_test_path(@test)
     else
       flash[:error] = @test.errors.full_messages.map{|o| o  }.join("")
+      session[:test] = test_params
       redirect_to new_test_path
     end
   end
@@ -28,16 +31,14 @@ class TestsController < ApplicationController
   end
 
   def show
-    @test = Test.friendly.find(params[:id])
+    check_github
     @questions = @test.questions
   end
 
   def share
-    @test = Test.friendly.find(params[:id])
   end
 
   def thanks
-    @test = Test.friendly.find(params[:id])
   end
 
   private
@@ -46,9 +47,25 @@ class TestsController < ApplicationController
     params.require(:test).permit(:name, :test_url, :test_type_id, :question_ids => [])
   end
 
-  def status
-    self.status
+  def find_test
+    @test = Test.friendly.find(params[:id])
   end
 
+  def check_github
+    if @test.test_url.include? "github.com"
+      @iframe_url = "https://htmlpreview.github.io/?"+ @test.test_url
+    else
+      @iframe_url = @test.test_url
+    end
+  end
+
+  def check_test_in_progress
+    if session[:test]
+      @test = Test.new(session[:test])
+      session[:test] = nil
+    else
+      @test = Test.new
+    end
+  end
 
 end

@@ -14,10 +14,20 @@ feature 'User can see a test' do
     end
 
     scenario 'user sees iframe and question 1 when click Start button', js: true do
-      click_button('Start')
+      click_on('Start')
       expect(page).to have_xpath("//iframe[@src= 'https://www.youtube.com/embed/XGSy3_Czz8k']")
       expect(page).not_to have_xpath("//iframe[@src= 'other-url']")
-      expect(page).to have_content("How would you rate the information available about the product?")
+      expect(page).to have_content("How easy is it to know if this product is available?")
+    end
+
+  end
+
+  context "Github file tests" do
+
+    scenario 'iframe has correct source for github urls', js: true do
+      visit "/tests/githubtest"
+      click_on('Start')
+      expect(page).to have_xpath("//iframe[@src= 'https://htmlpreview.github.io/?https://github.com/lili2311/trelogan-yoga/blob/master/src/about.html']")
     end
   end
 
@@ -27,7 +37,7 @@ feature 'User can see a test' do
 
     scenario 'user cannot initially see questions', js: true do
       visit "/tests/1"
-      click_button('Start')
+      click_on('Start')
       expect(page).not_to have_content("Question 2")
       click_link('Next')
       expect(page).to have_content("How easy would you find it to buy these?")
@@ -45,8 +55,9 @@ feature 'User can see a test' do
 
     scenario 'User can submit answers', js: true do
       visit "/tests/youtube"
-      click_button('Start')
-      find(:xpath, "//input[@id='range1']").set 2
+      click_on('Start')
+      find(:xpath, "//input[@id='range1']").set 1
+      fill_in 'comment1', with: 'This is so boss'
       click_link('Next')
       expect{click_link('Next')}.to change(Answer, :count).by(1)
     end
@@ -58,7 +69,7 @@ feature 'User can see a test' do
 
     scenario 'User is redirected to a thank you page after completing questions', js: true do
       visit '/tests/youtube'
-      click_button('Start')
+      click_on('Start')
       click_link('Next')
       click_link('Next')
       click_link('Finish')
@@ -66,4 +77,5 @@ feature 'User can see a test' do
       expect(page).to have_content('That\'s it!')
     end
   end
+
 end

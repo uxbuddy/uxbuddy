@@ -4,10 +4,10 @@ feature 'User authentication' do
 
   context 'Sign up' do
 
-    scenario 'user can create an account with valid credentials' do
+    scenario 'user can create an account with valid credentials', js: true do
       visit "/users/sign_up"
       expect{user_sign_up(email = 'test2@email.com')}.to change(User, :count).by(1)
-      expect(page).to have_content "Welcome!"
+      expect(page).to have_content "Welcome! You have signed up successfully."
     end
 
     scenario 'user cannot create account with invalid email' do
@@ -37,7 +37,7 @@ feature 'User authentication' do
   end
 
   context 'Sign in' do
-    scenario 'valid user can sign in' do
+    scenario 'valid user can sign in', js: true do
       user_sign_in
       expect(page).to have_content("Signed in successfully.")
     end
@@ -49,7 +49,7 @@ feature 'User authentication' do
   end
 
   context 'Sign out' do
-    scenario 'user can sign out' do
+    scenario 'user can sign out', js: true do
       user_sign_in
       user_sign_out
       expect(page).to have_content("Signed out successfully.")

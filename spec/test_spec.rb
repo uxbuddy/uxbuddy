@@ -18,7 +18,11 @@ describe Test do
       question_1 = test1.questions[0]
       answers_to_question_1 = question_1.answers.where(test_id: test1.id)
       expect(answers_to_question_1.count).to eq(3)
+    end
 
+    it 'Test 3 should have 3 comments on question 1' do
+      question_1 = test3.questions[0]
+      expect(question_1.comments(test3.id).count).to eq(3)
     end
 
   end

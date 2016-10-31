@@ -11,3 +11,34 @@
   margin-left: 0;
   padding-left: 0;
 }
+
+#test-title {
+  display: none;
+}
+
+#test-question {
+  display: none;
+}
+
+#test-question p {
+  font-size: 1.3em;
+}
+
+#test-comment {
+  display: none;
+}
+
+#toggle {
+  padding-bottom: 0.5em;
+  display: none;
+}
+
+#iframe-row {
+  display: none;
+}
+
+#iframe {
+  position: relative;
+  width: 100%;
+  height: 1000px;
+}
