@@ -17,7 +17,17 @@ feature 'User can see a test' do
       click_on('Start')
       expect(page).to have_xpath("//iframe[@src= 'https://www.youtube.com/embed/XGSy3_Czz8k']")
       expect(page).not_to have_xpath("//iframe[@src= 'other-url']")
-      expect(page).to have_content("How would you rate the information available about the product?")
+      expect(page).to have_content("How easy is it to know if this product is available?")
+    end
+
+  end
+
+  context "Github file tests" do
+
+    scenario 'iframe has correct source for github urls', js: true do
+      visit "/tests/githubtest"
+      click_on('Start')
+      expect(page).to have_xpath("//iframe[@src= 'https://htmlpreview.github.io/?https://github.com/lili2311/trelogan-yoga/blob/master/src/about.html']")
     end
   end
 

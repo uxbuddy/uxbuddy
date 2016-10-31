@@ -6,6 +6,9 @@
       %h5 What is your test name?
       = f.text_field(:name, placeholder: "Your test name")
       %h5 What URL are you testing?
+      %p
+      Link to a hosted site by providing your website URL. Alternatively, if your site is not hosted, simply link your file from Github (e.g.
+      %em https://github.com/username/repo-name/blob/master/src/index.html)
       = f.text_field(:test_url, placeholder: "URL for testing")
       %br
       %h5 What type of feature are you testing?
