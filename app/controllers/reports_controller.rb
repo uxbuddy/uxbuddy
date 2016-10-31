@@ -4,7 +4,8 @@ class ReportsController < ApplicationController
     @test = Test.friendly.find(params[:id])
     @questions = @test.questions
     @respondents = @test.questions[0].answers.where(test_id: @test.id).count
-    @answers = Answer.all
+    @library = {xtitle: 'Average response', hAxis: {ticks: [1,2,3,4,5]},
+                chartArea: {left: 400, width: 500}}
   end
 
 

@@ -5,6 +5,5 @@
 
 = render 'reports/summary'
 = render 'reports/averages'
-= bar_chart @questions.joins(:answers).group('text').average(:response)
--# {library: {hAxis: {title: "hih"}}, {vAxis: {title: "hiv"}}}
+= bar_chart @questions.joins(:answers).group('text').average(:response), library: @library
 = render 'reports/comments'
