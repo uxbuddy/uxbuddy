@@ -1,32 +1,48 @@
 .welcome
-  %h1 Welcome!
+  %h3
+    %strong #{@test.name}
+    \ // Welcome
+  %hr
 
-  %p
-    ="Thanks for participating in the '" +  @test.name + "' test."
+  %p.flow-text Thanks for participating in this User Experience test. Here's how it works:
 
-  %p Here's how it works:
+  %ol.flow-text
+    %li Click 'Start' and you'll see a site appear
+    %li Answer the series of questions and feel free to add any comments
+    %li Click 'Finish' to submit your answers, and that's it!
 
-  %ol
-    %li You'll be asked a series of questions
-    %li Browse the site below, answer the question and hit next
-    %li That's it!
+  %a.btn.waves-effect.waves-light.right{ href: "javascript:void(0)", id: 'start' } Start
 
-  %a.btn.waves-effect.waves-light{ href: "javascript:void(0)", id: 'start' } Start
+.row#test-title
+  .col.s12
+    %h3
+      %strong #{@test.name}
+      \ // Your Feedback
+    %hr
+.row
+  -@questions.each.with_index do |q, i|
+    .col.s6
+      %div{class: "q#{i + 1}", id:"test-question"}
+        %h5="Question #{i + 1} of #{@questions.length}"
+        %p=q.text
+        %input{type: "#{q.format}", id: "range#{i+1}", min: "0", max: "5", step: "1"}
+    .col.s6
+      %div{class: "q#{i + 1}", id:"test-comment"}
+        %h5 Comments
+        .input-field.col.s12
+          %textarea.materialize-textarea{type: "text", id: "comment#{i+1}", placeholder: 'Any other comments'}
 
--@questions.each.with_index do |q, i|
-  %div{class: "q#{i + 1}", style: "display:none"}
-    %p="Question #{i + 1}"
-    %p=q.text
-    %input{type: "#{q.format}", id: "range#{i+1}", min: "0", max: "5", step: "1"}
-    %input{type: "text", id: "comment#{i+1}", placeholder: 'Any other comments'}
+  .col.s3.offset-s9
+    %div{class: "q#{@questions.count - 1}"}
+      .toggle_button
+        %a.btn.waves-effect.waves-light{href: "javascript:void(0)", id: 'toggle'} Next
 
-%div{class: "q#{@questions.count - 1}"}
-  .toggle_button
-    %a{href: "javascript:void(0)", id: 'toggle', style: "display:none"} Next
+    %div{class: "q#{@questions.count}", style: "display:none"}
+      .toggle_button
+        %a.btn.waves-effect.waves-light{href: thanks_test_path, id: 'toggle'} Finish
 
-%div{class: "q#{@questions.count}", style: "display:none"}
-  .toggle_button
-    %a{href: thanks_test_path, id: 'toggle', style: "display:none"} Finish
-
-%iframe{allowfullscreen: "", id:"iframe", src: "#{@test.test_url}", width: "800", height: "600", style: "display:none"}
-  %p Sorry, something seems to have gone wrong!
+.row#iframe-row
+  %hr
+  .col.s12
+    %iframe{allowfullscreen: "", id: "iframe", src: "#{@test.test_url}"}
+      %p Sorry, something seems to have gone wrong!
