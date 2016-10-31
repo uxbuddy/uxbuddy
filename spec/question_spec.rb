@@ -1,7 +1,9 @@
 describe Question do
 
   let!(:test) { Test.find(1) }
+  let!(:test2) { Test.create(name: 'Giphy', test_url: "http://www.giphy.com", test_type_id: 1, slug: "giphy", question_ids: [1])}
   let!(:question1) {test.questions[0]}
+  let!(:question2) {test2.questions[0]}
   let!(:answers) {question1.answers.where(test_id: test.id)}
   let!(:response1) {answers[0].response}
   let!(:response2) {answers[1].response}
@@ -17,9 +19,9 @@ describe Question do
       expect(Question.count).to eq(8)
     end
 
-    xit 'should calculate the average of the responses' do # skipped as changes when you add more tests for answers
-      expect(question1.ave_response(test.id).round(1)).to eq(average.round(1))
-    end
+  end
+
+  describe "Display comments" do
 
     it 'should display all comments for particular question' do
       expect(question1.comments(test.id)).to eq [comment1, comment2, comment3]
