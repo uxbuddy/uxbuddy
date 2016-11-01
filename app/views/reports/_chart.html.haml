@@ -1,4 +1,7 @@
 %h5#report-chart Average responses
 %hr
 .col.s12#avg-chart
-  = bar_chart @data, library: @library
+  - if @data.any?
+    = bar_chart @data, library: @library
+  - else
+    "Sorry, no data yet!"
