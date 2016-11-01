@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function() {
         url: window.location.pathname + "/answers",
         type: "POST",
         data: {answer: {
-          response: $('.range-label span').text(),
+          response: $('#range'+counter+' .range-label span').text(),
           comment: $("#comment"+counter).val(),
           question_no: counter - 1
         }},
