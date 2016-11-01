@@ -12,7 +12,7 @@ class ReportsController < ApplicationController
     answers = @test.answers
     @data = answers.where(test_id: @test.id).group('text').average(:response)
     else
-      flash[:notice] = 'Please sign in to view your tests'
+      flash[:notice] = 'Please sign in to view your reports'
       redirect_to new_user_registration_path
     end
   end
