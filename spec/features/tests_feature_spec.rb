@@ -23,7 +23,7 @@ feature 'Guinea pigs can take tests:' do
       expect(page).to have_content("How easy would you find it to buy these?")
     end
 
-    scenario 'iframe has correct source for github urls' do
+    scenario 'iframe has correct source for github urls', js: true do
       create_test(test_name = "Github", test_url= "https://github.com/lili2311/trelogan-yoga/blob/master/src/about.html")
       visit "/tests/github"
       click_on('Start')
@@ -33,7 +33,7 @@ feature 'Guinea pigs can take tests:' do
   end
 
 
-  context "Users can answer the questions" do
+  context "Users can answer the questions", js: true do
 
     before(:each) do
       user_sign_up
@@ -42,7 +42,7 @@ feature 'Guinea pigs can take tests:' do
       click_on('Start')
     end
 
-    scenario 'User can submit answers' do
+    scenario 'User can submit answers', js: true do
       find(:xpath, "//input[@id='range1']").set 1
       fill_in 'comment1', with: 'This is so boss'
       save_and_open_page
@@ -52,7 +52,7 @@ feature 'Guinea pigs can take tests:' do
       # expect answer.comment for q1 to be "This is so boss"
     end
 
-    scenario 'User is redirected to a thank you page after completing questions' do
+    scenario 'User is redirected to a thank you page after completing questions', js: true do
       click_link('Next')
       click_link('Finish')
       expect(page).to have_current_path("/tests/asos/thanks")

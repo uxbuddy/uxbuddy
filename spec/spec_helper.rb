@@ -25,44 +25,58 @@ DatabaseCleaner.strategy = :truncation
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
-  config.before(:suite) do
-    puts "1"
-    DatabaseCleaner.start
-    load "#{Rails.root}/lib/tasks/load_data.rake"
-    load "#{Rails.root}/db/seeds.rb"
-  end
 
-  config.before(:each) do
-    puts "2 - non JS"
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.start
-    puts "Type count before non-js: "
-    puts TestType.all.count
-  end
-
-  config.before(:each, js: true) do
-    puts "2 - JS"
-    DatabaseCleaner.strategy = :truncation
-    DatabaseCleaner.start
-    puts "Type count before js: "
-    puts TestType.all.count
+  config.around(:each) do |example|
+    DatabaseCleaner.strategy = example.metadata[:js] ? (:truncation, {:except => %w[questions test_types]}) : :transaction
+    DatabaseCleaner.cleaning do
+      example.run
+    end
   end
 
   config.after(:each) do
-    puts "3"
     DatabaseCleaner.clean
-    puts "Type count before seeding: "
-    puts TestType.all.count
     load "#{Rails.root}/lib/tasks/load_data.rake"
     load "#{Rails.root}/db/seeds.rb"
     puts "Type count after seeding: "
     puts TestType.all.count
   end
-
-  config.after(:suite) do
-    puts "4"
-    DatabaseCleaner.clean_with(:truncation)
-  end
+  #
+  # config.before(:suite) do
+  #   puts "Running 1st"
+  #   DatabaseCleaner.clean_with(:truncation)
+  # end
+  #
+  # config.before(:each) do
+  #   puts "Running 2nd - non JS"
+  #   DatabaseCleaner.strategy = :transaction
+  #   DatabaseCleaner.start
+  #   puts "Type count before non-js: "
+  #   puts TestType.all.count
+  # end
+  #
+  # config.before(:each, js: true) do
+  #   puts "Running 2nd - JS"
+  #   DatabaseCleaner.strategy = :deletion
+  #   puts "Type count before js: "
+  #   puts TestType.all.count
+  # end
+  #
+  # config.before(:each) do
+  #   puts "Running 3rd"
+  #   DatabaseCleaner.start
+  # end
+  #
+  # config.after(:each) do
+  #   Capybara.reset_sessions!
+  #   puts "Running 4th"
+  #   DatabaseCleaner.clean
+  #   puts "Type count before seeding: "
+  #   puts TestType.all.count
+  #   load "#{Rails.root}/lib/tasks/load_data.rake"
+  #   load "#{Rails.root}/db/seeds.rb"
+  #   puts "Type count after seeding: "
+  #   puts TestType.all.count
+  # end
 
 
   # Everything in this block runs once after each individual test
