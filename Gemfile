@@ -34,6 +34,16 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml'
 gem 'friendly_id', '~> 5.1.0'
 gem 'chartkick'
+# IMGKit for site thumbnails
+gem "imgkit", "~> 1.3.7"
+
+# Amazon S3 storage
+gem 'aws-sdk', '~> 1.3.4'
+
+# Paperclip for file uploads
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'wkhtmltopdf-binary'
+gem 'wkhtmltoimage-binary'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
