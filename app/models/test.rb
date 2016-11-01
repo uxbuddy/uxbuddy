@@ -18,8 +18,10 @@ class Test < ApplicationRecord
     self.questions[0].answers.where(test_id: self.id).count
   end
 
-  def score
-    self.answers.where(test_id: self.id).average(:response).round(1)
+  def average_score
+    answers = self.answers.where(test_id: self.id)
+    return "awaiting responses" if answers.count == 0
+    answers.average(:response).round(1)
   end
 
 end
