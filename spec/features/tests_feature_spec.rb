@@ -1,79 +1,61 @@
 require 'rails_helper'
 
-feature 'User can see a test' do
+feature 'Guinea pigs can take tests:' do
 
-  context "Welcome page" do
-    let!(:test) { Test.find(1) }
+  context "User clicks Start and is shown questions for that test" do
 
     before(:each) do
-      visit "/tests/youtube"
+      user_sign_up
     end
 
-    scenario 'user sees welcome page when they go to test url' do
-      expect(page).to have_content 'Welcome'
-    end
-
-    scenario 'user sees iframe and question 1 when click Start button', js: true do
+    scenario 'non-Github-file test', js: true do
+      create_test
+      visit "/tests/asos"
+      expect(page).to have_content 'Asos // Welcome'
+      save_and_open_page
       click_on('Start')
-      expect(page).to have_xpath("//iframe[@src= 'https://www.youtube.com/embed/XGSy3_Czz8k']")
+      save_and_open_page
+      expect(page).to have_xpath("//iframe[@src= 'http://www.asos.com/women/jumpers-cardigans/cat/?cid=2637&cr=6&CTARef=shop|knitwear']")
       expect(page).not_to have_xpath("//iframe[@src= 'other-url']")
       expect(page).to have_content("How would you rate the information available about the product?")
-    end
-
-  end
-
-  context "Github file tests" do
-
-    scenario 'iframe has correct source for github urls', js: true do
-      visit "/tests/githubtest"
-      click_on('Start')
-      expect(page).to have_xpath("//iframe[@src= 'https://htmlpreview.github.io/?https://github.com/lili2311/trelogan-yoga/blob/master/src/about.html']")
-    end
-  end
-
-  context "Questions rendered" do
-
-    let!(:test) { Test.find(1) }
-
-    scenario 'user cannot initially see questions', js: true do
-      visit "/tests/1"
-      click_on('Start')
-      expect(page).not_to have_content("Question 2")
+      expect(page).not_to have_content("How easy would you find it to buy these?")
       click_link('Next')
       expect(page).to have_content("How easy would you find it to buy these?")
     end
 
+    scenario 'iframe has correct source for github urls' do
+      create_test(test_name = "Github", test_url= "https://github.com/lili2311/trelogan-yoga/blob/master/src/about.html")
+      visit "/tests/github"
+      click_on('Start')
+      expect(page).to have_xpath("//iframe[@src= 'https://htmlpreview.github.io/?https://github.com/lili2311/trelogan-yoga/blob/master/src/about.html']")
+      expect(page).to have_content("How would you rate the information available about the product?")
+    end
   end
 
-  context "User can visit friendly URL" do
 
-    scenario 'User visits /tests/youtube and sees the right questions' do
-      visit "/tests/youtube"
-      expect(page.status_code).to equal(200)
-      expect(page).to have_current_path("/tests/youtube")
+  context "Users can answer the questions" do
+
+    before(:each) do
+      user_sign_up
+      create_test
+      visit "/tests/asos"
+      click_on('Start')
     end
 
-    scenario 'User can submit answers', js: true do
-      visit "/tests/youtube"
-      click_on('Start')
+    scenario 'User can submit answers' do
       find(:xpath, "//input[@id='range1']").set 1
       fill_in 'comment1', with: 'This is so boss'
+      save_and_open_page
       click_link('Next')
       expect{click_link('Next')}.to change(Answer, :count).by(1)
+      # expect answer.response for q1 to be 1
+      # expect answer.comment for q1 to be "This is so boss"
     end
-  end
 
-  context "Finishing a test" do
-
-    let!(:test) { Test.find(1) }
-
-    scenario 'User is redirected to a thank you page after completing questions', js: true do
-      visit '/tests/youtube'
-      click_on('Start')
-      click_link('Next')
+    scenario 'User is redirected to a thank you page after completing questions' do
       click_link('Next')
       click_link('Finish')
-      expect(page).to have_current_path("/tests/youtube/thanks")
+      expect(page).to have_current_path("/tests/asos/thanks")
       message = "Thank you for completing this test."
       expect(page).to have_content(message)
     end

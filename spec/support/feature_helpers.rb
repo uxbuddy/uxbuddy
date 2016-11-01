@@ -20,13 +20,14 @@ module FeatureHelpers
     click_button("Log in")
   end
 
-  def create_test(test_name = "Asos Product Test", test_url = "https://www.asos.com")
+  def create_test(test_name = "Asos", test_url = "http://www.asos.com/women/jumpers-cardigans/cat/?cid=2637&cr=6&CTARef=shop|knitwear")
     visit '/'
     click_on "Get started"
     fill_in 'test_name', with: test_name
     fill_in 'test_test_url', with: test_url
     choose('Product page')
     check 'test_question_ids_1'
+    check 'test_question_ids_2'
     click_button "Create Test"
   end
 end

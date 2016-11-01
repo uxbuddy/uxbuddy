@@ -20,21 +20,48 @@ require 'rake'
 require 'capybara/poltergeist'
 
 Capybara.javascript_driver = :poltergeist
+DatabaseCleaner.strategy = :truncation
+
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
-  config.before(:each) do
-    DatabaseCleaner.clean_with(:truncation, :except => %w[questions test_types])
-  end
-
   config.before(:suite) do
+    puts "1"
     DatabaseCleaner.start
     load "#{Rails.root}/lib/tasks/load_data.rake"
     load "#{Rails.root}/db/seeds.rb"
   end
-  config.after(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
+
+  config.before(:each) do
+    puts "2 - non JS"
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.start
+    puts "Type count before non-js: "
+    puts TestType.all.count
+  end
+
+  config.before(:each, js: true) do
+    puts "2 - JS"
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.start
+    puts "Type count before js: "
+    puts TestType.all.count
+  end
+
+  config.after(:each) do
+    puts "3"
     DatabaseCleaner.clean
+    puts "Type count before seeding: "
+    puts TestType.all.count
+    load "#{Rails.root}/lib/tasks/load_data.rake"
+    load "#{Rails.root}/db/seeds.rb"
+    puts "Type count after seeding: "
+    puts TestType.all.count
+  end
+
+  config.after(:suite) do
+    puts "4"
+    DatabaseCleaner.clean_with(:truncation)
   end
 
 

@@ -69,15 +69,15 @@ feature 'User can create new tests' do
 
   context 'User has created tests' do
 
-    before do
+    before(:each) do
       user_sign_up
       create_test
     end
 
     scenario 'User can see a list of all their own tests' do
       visit '/tests'
-      expect(page).to have_content "Asos Product Test"
-      expect(page).to have_link('View Report', href: "/reports/asos-product-test")
+      expect(page).to have_content "Asos"
+      expect(page).to have_link('View Report', href: "/reports/asos")
     end
 
   end

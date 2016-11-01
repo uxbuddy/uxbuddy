@@ -10,12 +10,12 @@ feature 'report page' do
   let!(:response3) {answers[2].response}
   let!(:average) {(response1 + response2 + response3)/3.0}
 
-  scenario 'report page loads' do
+  xscenario 'report page loads' do
     visit '/reports/1'
     expect(page.status_code).to equal(200)
   end
 
-  scenario 'report page has test name in header' do
+  xscenario 'report page has test name in header' do
     visit '/reports/1'
     expect(page).to have_content("Youtube // Test Report")
     within '#summary' do
@@ -25,7 +25,7 @@ feature 'report page' do
     end
   end
 
-  scenario 'report page has an average chart' do
+  xscenario 'report page has an average chart' do
     visit '/reports/1'
     within '#report-chart' do
       expect(page.body).to have_content("How easy would you find it to buy these?")
@@ -33,14 +33,14 @@ feature 'report page' do
   end
 
 
-  scenario 'report page displays comments for each question' do
+  xscenario 'report page displays comments for each question' do
     visit '/reports/1'
     within '#question1-comments' do
       expect(page).to have_content('wow')
     end
   end
 
-  scenario 'Nav bar chart icon links to tests#index' do
+  xscenario 'Nav bar chart icon links to tests#index' do
     user_sign_in
     visit '/'
     within '#nav' do
