@@ -14,4 +14,8 @@ class Test < ApplicationRecord
   validates :name, uniqueness: true
   validates :test_url, format: { with: URI.regexp }, if: 'test_url.present?'
 
+  def number_respondents
+    self.questions[0].answers.where(test_id: self.id).count
+  end
+
 end
