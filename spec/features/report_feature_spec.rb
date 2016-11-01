@@ -57,5 +57,10 @@ feature 'report page' do
     visit '/reports/1'
     expect(page).to have_current_path('/users/sign_up')
   end
-  
+
+  scenario 'reports index shows list of user test reports' do
+    user_sign_in
+    visit '/reports'
+    expect(page).to have_current_path('/tests')
+  end
 end
