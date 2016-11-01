@@ -4,7 +4,7 @@ class ReportsController < ApplicationController
     if user_signed_in?
     @test = Test.friendly.find(params[:id])
     @questions = @test.questions
-    @respondents = @test.questions[0].answers.where(test_id: @test.id).count
+    @respondents = @test.number_respondents
     @library = {xtitle: 'Average response',
                 hAxis: {ticks: [1,2,3,4,5]},
                 chartArea: {left: 500, width: 600},
