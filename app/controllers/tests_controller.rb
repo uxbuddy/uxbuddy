@@ -77,8 +77,7 @@ class TestsController < ApplicationController
   def upload_image(test)
    url  = test.test_url
    img   = IMGKit.new(url).to_png
-   file  = Tempfile.new(["#{test.slug}", '.png'], 'tmp',
-                         :encoding => 'ascii-8bit')
+   file  = Tempfile.new(["#{test.slug}", '.png'], 'tmp', :encoding => 'ascii-8bit')
    file.write(img)
    file.flush
    test.snapshot = file
