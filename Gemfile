@@ -37,9 +37,9 @@ gem 'chartkick'
 # IMGKit for site thumbnails
 gem "imgkit", "~> 1.3.7"
 # Amazon S3 storage
-gem 'aws-sdk', '~> 1.3.4'
+gem 'aws-sdk', '~> 2.3'
 # Paperclip for file uploads
-gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'paperclip'
 gem 'wkhtmltopdf-binary'
 gem 'wkhtmltoimage-binary'
 gem 'dotenv-rails'

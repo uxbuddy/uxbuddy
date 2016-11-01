@@ -6,7 +6,7 @@ class Test < ApplicationRecord
   has_one :test_type
   has_and_belongs_to_many :questions, join_table: "tests_questions"
   has_many :answers, through: :questions
-  has_attached_file :snapshot
+  has_attached_file :snapshot, styles: { medium: "700x", thumb: "100x100>" }
 
   # validates :user, presence: true
   validates :test_url, presence: true
