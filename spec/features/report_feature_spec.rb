@@ -35,6 +35,15 @@ feature 'report page' do
     end
   end
 
+  scenario 'average chart does not display if no reponses' do
+    user_sign_in
+    create_test("BBC", "http://www.bbc.co.uk")
+    visit '/reports/5'
+    within '#report-chart' do
+      expect(page.body).to have_content("Sorry, no data yet!")
+    end
+  end
+
 
   scenario 'report page displays comments for each question' do
     user_sign_in

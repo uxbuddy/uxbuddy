@@ -1,9 +1,9 @@
 id,created_at,updated_at,format,text
-1,,,Range,How would you rate the information available about the product?
-2,,,Range,How easy would you find it to buy these?
-3,,,Range,How easy is it to know if this product is available?
-4,,,Range,How easy is it to compare this product against other options?
-5,,,Range,How clear is the pricing?
-6,,,Range,How easy would it be to return to this item later?
-7,,,Range,How comfortable would you be to purchase a product from this site?
-8,,,Range,How easy is it to assess whether others have found this product useful??
+1,,,range,How would you rate the information available about the product?
+2,,,range,How easy would you find it to buy these?
+3,,,range,How easy is it to know if this product is available?
+4,,,range,How easy is it to compare this product against other options?
+5,,,range,How clear is the pricing?
+6,,,range,How easy would it be to return to this item later?
+7,,,range,How comfortable would you be to purchase a product from this site?
+8,,,range,How easy is it to assess whether others have found this product useful??
