@@ -17,7 +17,7 @@ feature 'User can create new tests' do
     scenario 'User can fill in a form to create a test' do
       create_test("Climate", "http://www.climate.com")
       url = "http://www.example.com/tests/climate"
-      expect(page).to have_content("Share test for Climate")
+      expect(page).to have_content("Climate // Share")
       expect(page).to have_link('', href: url)
     end
 
