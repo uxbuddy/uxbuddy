@@ -11,11 +11,13 @@ feature 'report page' do
   let!(:average) {(response1 + response2 + response3)/3.0}
 
   scenario 'report page loads' do
+    user_sign_in
     visit '/reports/1'
     expect(page.status_code).to equal(200)
   end
 
   scenario 'report page has test name in header' do
+    user_sign_in
     visit '/reports/1'
     expect(page).to have_content("Youtube // Test Report")
     within '#summary' do
@@ -26,6 +28,7 @@ feature 'report page' do
   end
 
   scenario 'report page has an average chart' do
+    user_sign_in
     visit '/reports/1'
     within '#report-chart' do
       expect(page.body).to have_content("How easy would you find it to buy these?")
@@ -34,6 +37,7 @@ feature 'report page' do
 
 
   scenario 'report page displays comments for each question' do
+    user_sign_in
     visit '/reports/1'
     within '#question1-comments' do
       expect(page).to have_content('wow')
@@ -48,4 +52,10 @@ feature 'report page' do
       expect(page).to have_current_path("/tests")
     end
   end
+
+  scenario 'User can only view reports page when signed in' do
+    visit '/reports/1'
+    expect(page).to have_current_path('/users/sign_up')
+  end
+  
 end

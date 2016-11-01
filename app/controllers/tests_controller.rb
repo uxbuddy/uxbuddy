@@ -27,7 +27,12 @@ class TestsController < ApplicationController
   end
 
   def index
-    @tests = Test.where(user_id: current_user.id)
+    if user_signed_in?
+      @tests = Test.where(user_id: current_user.id)
+    else
+      flash[:notice] = 'Please sign in to view your tests'
+      redirect_to new_user_registration_path
+    end
   end
 
   def show
