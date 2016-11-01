@@ -33,14 +33,22 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :user_name => ENV['GMAIL_USERNAME'],
-    :password => ENV['GMAIL_PASSWORD'],
-    :domain => 'gmail.com',
-    :address => 'smtp.gmail.com',
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
+  :address => "smtp.sendgrid.net",
+  :port => 25,
+  :domain => "uxbuddy.herokuapp.com",
+  :authentication => :plain,
+  :user_name => ENV['SENDGRID_USERNAME'],
+  :password => ENV['SENDGRID_PASSWORD']
   }
+  # config.action_mailer.smtp_settings = {
+  #   :user_name => 'uxbuddy',
+  #   :password => 'uxbuddy1',
+  #   :domain => 'uxbuddy.herokuapp.com',
+  #   :address => 'smtp.sendgrid.net',
+  #   :port => 587,
+  #   :authentication => :plain,
+  #   :enable_starttls_auto => true
+  # }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
