@@ -1,6 +1,19 @@
 %h2.center-align Your Tests
-%table.bordered
+.row
   -@tests.each do |test|
-    %tr.collection-item
-      %td=test.name
-      %td=link_to "View Report", report_path(test), class: "active"
+    .col.s4
+      .card
+        .card-image.waves-effect.waves-block.waves-light
+          %img.activator{:src => "images/default_image.jpg"}/
+        .card-content
+          %span.card-title.activator.grey-text.text-darken-4
+            =test.name
+            %i.material-icons.right more_vert
+          %p
+            %a= link_to "View Report", report_path(test), class: "active"
+        .card-reveal
+          %span.card-title.grey-text.text-darken-4
+            =test.name
+            %i.material-icons.right close
+          %p Number of respondents:
+          %p Test score: 4.5/5
