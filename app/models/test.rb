@@ -18,4 +18,8 @@ class Test < ApplicationRecord
     self.questions[0].answers.where(test_id: self.id).count
   end
 
+  def score
+    self.answers.where(test_id: self.id).average(:response).round(1)
+  end
+
 end
