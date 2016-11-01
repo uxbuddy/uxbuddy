@@ -38,6 +38,12 @@ class TestsController < ApplicationController
   def share
   end
 
+  def email
+    list = email_parser(params[:emails][:emails])
+    url = request.original_url[0...-6]
+    TestMailer.send_test_email(current_user, list, url).deliver
+  end
+
   def thanks
   end
 
@@ -45,6 +51,10 @@ class TestsController < ApplicationController
 
   def test_params
     params.require(:test).permit(:name, :test_url, :test_type_id, :question_ids => [])
+  end
+
+  def email_parser(emails)
+    emails.delete(" ").split(",")
   end
 
   def find_test
