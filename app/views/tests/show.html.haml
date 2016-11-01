@@ -19,27 +19,21 @@
       %strong #{@test.name}
       \ // Your Feedback
     %hr
-.row
+.row#questions-div
   -@questions.each.with_index do |q, i|
-    .col.s6
-      %div{class: "q#{i + 1}", id:"test-question"}
+    .col.s8
+      .div{class: "q#{i + 1}", id:"test-question"}
         %h5="Question #{i + 1} of #{@questions.length}"
         %p=q.text
-        .div#test5
-        %p.range-field
-          %input{type: "#{q.format}", id: "range#{i+1}", min: "0", max: "5", step: "1", list: "tickmarks"}
-            %datalist#tickmarks
-              %option 0
-              %option 1
-              %option 2
-              %option 3
-              %option 4
-              %option 5
-    .col.s6
+        .col.s8#slider-div
+          .p.em Please provide your rating (0 = worst, 5 = best)
+          %br
+          .div{id: "range#{i+1}"}
+    .col.s4
       %div{class: "q#{i + 1}", id:"test-comment"}
-        %h5 Comments
-        .input-field.col.s12
-          %textarea.materialize-textarea{type: "text", id: "comment#{i+1}", placeholder: 'Any other comments'}
+        %h5.strong Comments
+        .input-field.col.s12#comment-div
+          %textarea.materialize-textarea{type: "text", id: "comment#{i+1}", placeholder: 'Do you have any other comments?'}
 
   .col.s3.offset-s9
     %div{class: "q#{@questions.count - 1}"}
@@ -52,6 +46,6 @@
 
 .row#iframe-row
   %hr
-  .col.s12
+  .col.s12#iframe-div
     %iframe{allowfullscreen: "", id: "iframe", src: "#{@iframe_url}"}
       %p Sorry, something seems to have gone wrong!
