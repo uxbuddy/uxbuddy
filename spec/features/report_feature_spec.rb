@@ -48,7 +48,7 @@ feature 'report page' do
     user_sign_in
     visit '/'
     within '#nav' do
-      find(:xpath, "//a[@id='tests-all']").click
+      find(:xpath, "//a[@id='tests-all-1']").click
       expect(page).to have_current_path("/tests")
     end
   end
@@ -57,5 +57,5 @@ feature 'report page' do
     visit '/reports/1'
     expect(page).to have_current_path('/users/sign_up')
   end
-  
+
 end

@@ -7,13 +7,13 @@
     %ul.right.hide-on-med-and-down
       - if user_signed_in?
         %li
-          %a#test-new{:href => new_test_path}
+          %a#test-new-1{:href => new_test_path}
             %i.material-icons note_add
         %li
-          %a#tests-all{:href => tests_path}
+          %a#tests-all-1{:href => tests_path}
             %i.material-icons equalizer
         %li
-          %a= link_to "Sign out", destroy_user_session_path, :method => :delete
+          %a= link_to "Sign out", destroy_user_session_path, :method => :delete, id: "sign-out-1"
       - else
         %li
           %a= link_to "Log In", new_user_session_path
