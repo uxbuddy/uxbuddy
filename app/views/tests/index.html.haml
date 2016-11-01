@@ -1,4 +1,10 @@
-%h2.center-align Your Tests
+.row
+  .col.s12
+    %h3
+      %strong
+      \ // Your Tests
+    %hr
+
 .row
   -@tests.each do |test|
     .col.s4
@@ -21,3 +27,10 @@
           %p
             Test score:
             =test.average_score
+  .col.s4
+    .card
+      .card-image.waves-effect.waves-block.waves-light
+        %img{:src => 'images/add_test.png'}/
+      .card-content
+        %span.card-title.activator.grey-text.text-darken-4
+          %a= link_to "New test", new_test_path
