@@ -17,6 +17,15 @@ class ReportsController < ApplicationController
     end
   end
 
+  def index
+    if user_signed_in?
+      redirect_to tests_path
+    else
+      flash[:notice] = 'Please sign in to view your reports'
+      redirect_to new_user_registration_path
+    end
+  end
+
   private
 
   def test_params
