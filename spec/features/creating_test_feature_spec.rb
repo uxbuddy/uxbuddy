@@ -2,16 +2,25 @@ require 'rails_helper'
 
 feature 'User can create new tests' do
 
-  context 'User has not created any tests' do
-
-    scenario 'Homepage has link to get started' do
-      user_sign_up
-      click_link 'Get started'
-      expect(current_path).to eq('/tests/new')
-    end
+  context 'User can navigate to the tests/new page' do
 
     before(:each) do
-      user_sign_in
+      user_sign_up
+    end
+
+    scenario 'Nav bar has a link to add a test' do
+      visit '/'
+      within '#nav' do
+        find(:xpath, "//a[@id='test-new']").click
+        expect(page).to have_current_path("/tests/new")
+      end
+    end
+  end
+
+  context 'User must fill in new test form with valid inputs' do
+
+    before(:each) do
+      user_sign_up
     end
 
     scenario 'User can fill in a form to create a test' do
@@ -56,19 +65,12 @@ feature 'User can create new tests' do
       expect(page.body).to have_content("Question ids can't be blank")
     end
 
-    scenario 'Nav bar to add a test' do
-      visit '/'
-      within '#nav' do
-        find(:xpath, "//a[@id='test-new']").click
-        expect(page).to have_current_path("/tests/new")
-      end
-    end
   end
 
   context 'User has created tests' do
 
     before do
-      user_sign_in
+      user_sign_up
       create_test
     end
 
@@ -77,6 +79,7 @@ feature 'User can create new tests' do
       expect(page).to have_content "Asos Product Test"
       expect(page).to have_link('View Report', href: "/reports/asos-product-test")
     end
+
   end
 
 end

@@ -23,16 +23,8 @@ Capybara.javascript_driver = :poltergeist
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
-  config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-  end
-
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
+  config.before(:each) do
+    DatabaseCleaner.clean_with(:truncation, :except => %w[questions test_types])
   end
 
   config.before(:suite) do
@@ -41,6 +33,7 @@ RSpec.configure do |config|
     load "#{Rails.root}/db/seeds.rb"
   end
   config.after(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
     DatabaseCleaner.clean
   end
 
