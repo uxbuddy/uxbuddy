@@ -2,7 +2,9 @@
   .nav-wrapper
     %a.brand-logo{ href: root_path }
       = image_tag("uxbuddy_white.png", id: "nav-logo")
-    %ul#nav-mobile.right.hide-on-med-and-down
+    %a.button-collapse{"data-activates" => "nav-mobile", :href => "#"}
+      %i.material-icons menu
+    %ul.right.hide-on-med-and-down
       - if user_signed_in?
         %li
           %a#test-new{:href => new_test_path}
@@ -15,5 +17,22 @@
       - else
         %li
           %a= link_to "Log In", new_user_session_path
+        %li
+          %a.btn.waves-effect.waves-light{:href => new_user_registration_path} Sign Up
+    %ul#nav-mobile.side-nav
+      - if user_signed_in?
+        %li
+          %a#test-new{:href => new_test_path}
+            Add A Test
+            %i.material-icons note_add
+        %li
+          %a#tests-all{:href => tests_path}
+            See reports
+            %i.material-icons equalizer
+        %li
+          = link_to "Sign out", destroy_user_session_path, :method => :delete
+      - else
+        %li
+          = link_to "Log In", new_user_session_path
         %li
           %a.btn.waves-effect.waves-light{:href => new_user_registration_path} Sign Up
