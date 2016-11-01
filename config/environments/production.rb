@@ -56,16 +56,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "uxbuddy_#{Rails.env}"
   config.action_mailer.perform_caching = false
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   :user_name => ENV['GMAIL_USERNAME'],
-  #   :password => ENV['GMAIL_PASSWORD'],
-  #   :domain => 'gmail.com',
-  #   :address => 'smtp.gmail.com',
-  #   :port => 587,
-  #   :authentication => :plain,
-  #   :enable_starttls_auto => true
-  # }
+
   config.action_mailer.register_interceptor(SendGrid::MailInterceptor)
 
   config.action_mailer.smtp_settings = {

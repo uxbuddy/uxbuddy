@@ -1,5 +1,5 @@
 class TestMailer < ApplicationMailer
-  # default :from => 'no-reply@uxbuddy.herokuapp.com'
+  default :from => 'hello@uxbuddy.com'
 
   def send_test_email(user, list, url)
     @url = url
