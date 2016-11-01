@@ -4,9 +4,9 @@
 %hr
 %br
 .row
-  .col.s6
-    %iframe.giphy-embed{:allowfullscreen => "", :frameborder => "0", :height => "266", :src => "//giphy.com/embed/iahffKAnhDjEc", :width => "480"}
+  .col.s12#thanks-iframe-div
+    %iframe.giphy-embed{:allowfullscreen => "", :frameborder => "0", :height => "266", :src => "//giphy.com/embed/iahffKAnhDjEc", :width => "480", id: "thanks-iframe", align: "middle"}
       %p
         %a{:href => "http://giphy.com/gifs/todd-margaret-iahffKAnhDjEc"} via GIPHY
-  .col.s4
-    %p.flow-text Thank you for completing this test. Your feedback and comments are appreciated.
+  .col.s8.offset-s2
+    %p.flow-text.center-align Thank you for completing this test. Your feedback and comments are appreciated.
