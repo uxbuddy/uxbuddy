@@ -1,18 +1,20 @@
-%h2
-  Share test for
-  = @test.name
-
 %h3
-  Here's your testing prototype link:
 
-#url
-  =link_to uxbuddy_test_url, "#{uxbuddy_test_url}", class: "active"
+  %strong #{@test.name}
+  \ // Share
+%hr
 
-%br
+%p.flow-text
+  Congratulations. Your test is ready to share.
 
-%h4
-  Send your test out:
-
-=form_tag email_test_path do
-  =text_field :emails, 'emails', placeholder: "Add emails here, separated by commas"
-  =submit_tag('Send')
+.row
+  .col.s6
+    %h5#url-title Share Your Test URL
+    #url
+      =link_to uxbuddy_test_url, "#{uxbuddy_test_url}", class: "active"
+  .col.s6
+    %h5 Email Your Test
+    .col.s9#email-div
+      %input{type: "text", name: :emails, placeholder: "Add emails here"}
+    .col.s3
+      %input{type: "submit", value: "Send", class: "btn waves-light waves-effect" }
