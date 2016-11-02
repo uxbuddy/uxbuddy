@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161030164753) do
+ActiveRecord::Schema.define(version: 20161101215031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,11 +51,15 @@ ActiveRecord::Schema.define(version: 20161030164753) do
   create_table "tests", force: :cascade do |t|
     t.string   "name"
     t.string   "test_url"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "test_type_id"
     t.string   "slug"
     t.integer  "user_id"
+    t.string   "snapshot_file_name"
+    t.string   "snapshot_content_type"
+    t.integer  "snapshot_file_size"
+    t.datetime "snapshot_updated_at"
     t.index ["slug"], name: "index_tests_on_slug", unique: true, using: :btree
     t.index ["test_type_id"], name: "index_tests_on_test_type_id", using: :btree
     t.index ["user_id"], name: "index_tests_on_user_id", using: :btree

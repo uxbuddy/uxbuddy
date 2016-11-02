@@ -35,9 +35,10 @@ feature 'report page' do
     end
   end
 
-  xscenario 'average chart does not display if no reponses' do
+  scenario 'average chart does not display if no reponses' do
     user_sign_in
-    visit '/reports/1'
+    create_test("BBC", "http://www.bbc.co.uk")
+    visit '/reports/5'
     within '#report-chart' do
       expect(page.body).to have_content("Sorry, no data yet!")
     end
@@ -56,7 +57,7 @@ feature 'report page' do
     user_sign_in
     visit '/'
     within '#nav' do
-      find(:xpath, "//a[@id='tests-all']").click
+      find(:xpath, "//a[@id='tests-all-1']").click
       expect(page).to have_current_path("/tests")
     end
   end
@@ -71,4 +72,5 @@ feature 'report page' do
     visit '/reports'
     expect(page).to have_current_path('/tests')
   end
+
 end

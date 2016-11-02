@@ -18,6 +18,7 @@ class TestsController < ApplicationController
     if @test.save
       @test.update(user_id: current_user.id)
       @test.update(slug: @test.name.downcase.split(" ").join("-"))
+      upload_image(@test)
       redirect_to share_test_path(@test)
     else
       flash[:error] = @test.errors.full_messages.map{|o| o  }.join("/")
@@ -46,6 +47,13 @@ class TestsController < ApplicationController
   def thanks
   end
 
+  def email
+    list = email_parser(params[:emails][:emails])
+    url = request.original_url[0...-6]
+    TestMailer.send_test_email(current_user, list, url).deliver
+    redirect_to tests_path
+  end
+
   private
 
   def test_params
@@ -64,6 +72,10 @@ class TestsController < ApplicationController
     end
   end
 
+  def email_parser(emails)
+    emails.delete(" ").split(",")
+  end
+  
   def check_test_in_progress
     if session[:test]
       @test = Test.new(session[:test])
@@ -72,5 +84,17 @@ class TestsController < ApplicationController
       @test = Test.new
     end
   end
+
+  def upload_image(test)
+   url = test.test_url
+   img = IMGKit.new(url).to_png
+   file = Tempfile.new(["#{test.slug}", '.png'], 'tmp', :encoding => 'ascii-8bit')
+   file.write(img)
+   file.flush
+   test.snapshot = file
+   test.save
+   file.unlink
+  end
+
 
 end

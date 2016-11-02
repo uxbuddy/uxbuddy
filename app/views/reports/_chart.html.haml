@@ -4,4 +4,5 @@
   - if @data.any?
     = bar_chart @data, library: @library
   - else
-    "Sorry, no data yet!"
+    #chart-box.valign-wrapper
+      %p.flow-text.valign#chart-box-text Sorry, no data yet!
