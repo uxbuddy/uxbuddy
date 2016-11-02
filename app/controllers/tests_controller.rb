@@ -18,6 +18,7 @@ class TestsController < ApplicationController
     if @test.save
       @test.update(user_id: current_user.id)
       @test.update(slug: @test.name.downcase.split(" ").join("-"))
+      upload_image(@test)
       redirect_to share_test_path(@test)
     else
       flash[:error] = @test.errors.full_messages.map{|o| o  }.join("/")
@@ -72,5 +73,17 @@ class TestsController < ApplicationController
       @test = Test.new
     end
   end
+
+  def upload_image(test)
+   url = test.test_url
+   img = IMGKit.new(url).to_png
+   file = Tempfile.new(["#{test.slug}", '.png'], 'tmp', :encoding => 'ascii-8bit')
+   file.write(img)
+   file.flush
+   test.snapshot = file
+   test.save
+   file.unlink
+  end
+
 
 end

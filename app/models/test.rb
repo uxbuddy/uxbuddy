@@ -6,6 +6,7 @@ class Test < ApplicationRecord
   has_one :test_type
   has_and_belongs_to_many :questions, join_table: "tests_questions"
   has_many :answers, through: :questions
+  has_attached_file :snapshot, styles: { medium: "300x300#", thumb: "100x100>" }
 
   # validates :user, presence: true
   validates :test_url, presence: true
@@ -13,6 +14,7 @@ class Test < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
   validates :test_url, format: { with: URI.regexp }, if: 'test_url.present?'
+  validates_attachment_content_type :snapshot, :content_type => /\Aimage\/.*\Z/
 
   def number_respondents
     self.questions[0].answers.where(test_id: self.id).count
