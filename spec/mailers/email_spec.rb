@@ -18,8 +18,14 @@ describe TestMailer, type: :mailer do
       expect(mail.to).to eq(['recipient@example.com'])
     end
 
-    it 'assigns @url' do
-      expect(mail.body.encoded).to match('www.test.com')
+    it 'renders test url as link in email' do
+      url = 'www.test.com'
+      expect(mail.body.encoded).to have_link("#{url}", href: url )
+    end
+
+    it 'renders test url as "Take Survey" link in email' do
+      url = 'www.test.com'
+      expect(mail.body.encoded).to have_link("Take Survey", href: url )
     end
 
   end

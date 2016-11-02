@@ -75,7 +75,7 @@ class TestsController < ApplicationController
   def email_parser(emails)
     emails.delete(" ").split(",")
   end
-  
+
   def check_test_in_progress
     if session[:test]
       @test = Test.new(session[:test])
