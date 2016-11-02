@@ -26,6 +26,10 @@ ul#footer li {
   width: 160px;
 }
 
+i {
+  font-size: 30px;
+}
+
 #login {
   margin-top: 3em;
 }
@@ -35,31 +39,13 @@ ul#footer li {
   margin-left: 1em;
 }
 
-#home-logo {
-  margin-left: 4em;
-  margin-top: 1.5em;
-  right: 50%
-}
-
 .banner {
   width: 100%;
 }
 
-// .front, img {
-//   position: relative;
-//   display: block !important;
-//   width: 100px;
-//   z-index: 2;
-// }
-
-.logotrans {
-  // display: block !important;
-  // position: absolute;
-  // width: 100px;
-  // height: 100px;
-  // z-index: 3;
+.parallax img {
+  display: block !important;
 }
-
 
 .feature {
   margin: 20px 0px;
@@ -70,21 +56,19 @@ ul#footer li {
   padding: 20px 0px;
 }
 
-.chevron {
-  position: absolute;
-  top: 300px;
+.feature-copy h2 {
+  font-weight: 200;
 }
 
 .logo {
-  float: none !important;
-  width: 100% !important;
+  width: 150px;
   display: block;
-  background-image: url('logo_trans.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin: 0;
-  height: 170px;
-  // border: 2px solid white;
+  margin-bottom: 150px;
+
+}
+
+i.fa.fa-chevron-circle-down {
+  color: white;
 }
 
 .front {
@@ -93,8 +77,21 @@ ul#footer li {
   color: #ffffff;
 }
 
+.section {
+  height: 800px;
+}
+
+#find-out-more {
+  position: absolute;
+  left: 50%;
+  height: 100px;
+  text-align: center;
+  margin: -100px;
+  z-index: 4;
+}
+
 #height-container {
-  height: 85vh;
+  height: 95vh;
   z-index: 1;
 }
 
