@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :reports
+  resources :reports do
+    get 'unknown', to: 'application#unknown'
+  end
   resources :tests do
     resources :answers, only: [:create]
     member do
@@ -13,6 +15,6 @@ Rails.application.routes.draw do
 
   root 'application#index'
 
-  get '*path', to: 'application#unknown'
+  get '*path', to: 'application#unknown', as: 'unknown'
 
 end

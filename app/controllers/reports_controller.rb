@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
 
   def show
     @test = Test.friendly.find(params[:id])
-    redirect('application#unknown') if @test.user_id != current_user.id
+    redirect_to report_unknown_path(@test) if @test.user_id != current_user.id
     if user_signed_in?
       @questions = @test.questions
       @respondents = @test.number_respondents
