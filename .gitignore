@@ -15,11 +15,10 @@
 !/log/.keep
 !/tmp/.keep
 /public/system/tests
-
-.env
+/coverage/*
 
 # Ignore Byebug command history file.
 .byebug_history
 
-# Ignore AWS keys
+# Ignore secret keys
 .env
