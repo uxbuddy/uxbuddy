@@ -14,7 +14,8 @@
       =link_to uxbuddy_test_url, "#{uxbuddy_test_url}", class: "active"
   .col.s6
     %h5 Email Your Test
-    .col.s9#email-div
-      %input{type: "text", name: :emails, placeholder: "Add emails here"}
-    .col.s3
-      %input{type: "submit", value: "Send", class: "btn waves-light waves-effect" }
+    =form_tag email_test_path do
+      .col.s9#email-div
+        =text_field :emails, 'emails', placeholder: "Add emails here, separated by commas"
+      .col.s3
+        =submit_tag 'Send', class: "btn waves-light waves-effect"
