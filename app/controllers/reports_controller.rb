@@ -1,8 +1,9 @@
 class ReportsController < ApplicationController
 
   def show
+    @test = Test.friendly.find(params[:id])
+    redirect('application#unknown') if @test.user_id != current_user.id
     if user_signed_in?
-      @test = Test.friendly.find(params[:id])
       @questions = @test.questions
       @respondents = @test.number_respondents
       @library = {xtitle: 'Average response',
@@ -13,7 +14,7 @@ class ReportsController < ApplicationController
       @data = answers.where(test_id: @test.id).group('text').average(:response)
     else
       flash[:notice] = 'Please sign in to view your reports'
-      redirect_to new_user_registration_path
+      redirect_to new_user_session_path
     end
   end
 
@@ -22,7 +23,7 @@ class ReportsController < ApplicationController
       redirect_to tests_path
     else
       flash[:notice] = 'Please sign in to view your reports'
-      redirect_to new_user_registration_path
+      redirect_to new_user_session_path
     end
   end
 

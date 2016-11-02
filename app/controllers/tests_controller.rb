@@ -9,7 +9,7 @@ class TestsController < ApplicationController
       @questions = Question.all
     else
       flash[:notice] = 'Please sign in to create a test'
-      redirect_to new_user_registration_path
+      redirect_to new_user_session_path
     end
   end
 
@@ -32,7 +32,7 @@ class TestsController < ApplicationController
       @tests = Test.where(user_id: current_user.id)
     else
       flash[:notice] = 'Please sign in to view your tests'
-      redirect_to new_user_registration_path
+      redirect_to new_user_session_path
     end
   end
 
@@ -75,7 +75,7 @@ class TestsController < ApplicationController
   def email_parser(emails)
     emails.delete(" ").split(",")
   end
-  
+
   def check_test_in_progress
     if session[:test]
       @test = Test.new(session[:test])
