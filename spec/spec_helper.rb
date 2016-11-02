@@ -14,6 +14,9 @@
 #
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
+require 'coveralls'
+Coveralls.wear!('rails')
+
 require 'support/feature_helpers.rb'
 require 'database_cleaner'
 require 'rake'
