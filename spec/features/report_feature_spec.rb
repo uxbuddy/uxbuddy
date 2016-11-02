@@ -10,13 +10,7 @@ feature 'report page' do
   let!(:response3) {answers[2].response}
   let!(:average) {(response1 + response2 + response3)/3.0}
 
-  scenario 'report page loads' do
-    user_sign_in
-    visit '/reports/1'
-    expect(page.status_code).to equal(200)
-  end
-
-  scenario 'report page has test name in header' do
+  scenario 'report page has right test info' do
     user_sign_in
     visit '/reports/1'
     expect(page).to have_content("Youtube // Test Report")
@@ -25,14 +19,15 @@ feature 'report page' do
       expect(page).to have_content("Number of questions: 3")
       expect(page).to have_content("Number of respondents: 3")
       expect(page).to have_content("Percentage completion: 100%")
+      within '#report-chart' do
+        expect(page.body).to have_content("How easy would you find it to buy these?")
     end
   end
 
   scenario 'report page has an average chart' do
     user_sign_in
     visit '/reports/1'
-    within '#report-chart' do
-      expect(page.body).to have_content("How easy would you find it to buy these?")
+
     end
   end
 

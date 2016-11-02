@@ -1,8 +1,8 @@
 describe Answer do
-  describe "Load data" do
+  describe "#build_answer" do
 
-    it 'should load some data at the start' do
-      expect(Answer.count).to eq(36)
+    it 'needs defining' do
+      
     end
   end
 

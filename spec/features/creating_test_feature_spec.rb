@@ -4,21 +4,8 @@ feature 'User can create new tests' do
 
   context 'User has not created any tests' do
 
-    scenario 'Homepage has link to get started' do
-      user_sign_up
-      click_link 'Get started'
-      expect(current_path).to eq('/tests/new')
-    end
-
     before(:each) do
       user_sign_in
-    end
-
-    scenario 'User can fill in a form to create a test' do
-      create_test("Climate", "http://www.climate.com")
-      url = "http://www.example.com/tests/climate"
-      expect(page).to have_content("Climate // Share")
-      expect(page).to have_link('', href: url)
     end
 
     scenario 'User cannot submit a test without a valid URL' do
