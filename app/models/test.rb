@@ -22,8 +22,16 @@ class Test < ApplicationRecord
 
   def average_score
     answers = self.answers.where(test_id: self.id)
-    return "awaiting responses" if answers.count == 0
+    return "Awaiting responses" if answers.count == 0
     answers.average(:response).round(1)
   end
+
+  def complete_respondents
+    complete = self.questions[-1].answers.where(test_id: self.id).count
+    return "Awaiting responses" if number_respondents == 0
+    ((complete * 100) / number_respondents).to_s + "%"
+  end
+
+
 
 end
