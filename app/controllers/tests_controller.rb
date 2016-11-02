@@ -39,12 +39,14 @@ class TestsController < ApplicationController
   def show
     check_github
     @questions = @test.questions
+    render :layout => 'test'
   end
 
   def share
   end
 
   def thanks
+    render :layout => 'test'
   end
 
   def email
