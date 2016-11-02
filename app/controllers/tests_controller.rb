@@ -47,6 +47,13 @@ class TestsController < ApplicationController
   def thanks
   end
 
+  def email
+    list = email_parser(params[:emails][:emails])
+    url = request.original_url[0...-6]
+    TestMailer.send_test_email(current_user, list, url).deliver
+    redirect_to tests_path
+  end
+
   private
 
   def test_params
@@ -65,6 +72,10 @@ class TestsController < ApplicationController
     end
   end
 
+  def email_parser(emails)
+    emails.delete(" ").split(",")
+  end
+  
   def check_test_in_progress
     if session[:test]
       @test = Test.new(session[:test])

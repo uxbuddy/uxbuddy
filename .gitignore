@@ -16,6 +16,8 @@
 !/tmp/.keep
 /public/system/tests
 
+.env
+
 # Ignore Byebug command history file.
 .byebug_history
 
