@@ -65,7 +65,7 @@ feature 'report page' do
 
   scenario 'User can only view reports page when signed in' do
     visit '/reports/1'
-    expect(page).to have_current_path('/users/sign_up')
+    expect(page).to have_current_path('/users/sign_in')
   end
 
   scenario 'reports index shows list of user test reports' do

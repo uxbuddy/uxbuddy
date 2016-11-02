@@ -1,9 +1,8 @@
 class ReportsController < ApplicationController
 
   def show
-    @test = Test.friendly.find(params[:id])
-    redirect_to report_unknown_path(@test) if @test.user_id != current_user.id
     if user_signed_in?
+      @test = Test.friendly.find(params[:id])
       @questions = @test.questions
       @respondents = @test.number_respondents
       @library = {xtitle: 'Average response',
