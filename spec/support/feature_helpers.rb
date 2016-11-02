@@ -10,7 +10,7 @@ module FeatureHelpers
   end
 
   def user_sign_out
-    click_link("Sign out")
+    click_on("sign-out-1")
   end
 
   def user_sign_in(email = "test@email.com", password = "password")
