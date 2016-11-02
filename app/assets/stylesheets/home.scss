@@ -41,17 +41,61 @@ ul#footer li {
   right: 50%
 }
 
-#banner {
+.banner {
   width: 100%;
 }
 
-.white {
+// .front, img {
+//   position: relative;
+//   display: block !important;
+//   width: 100px;
+//   z-index: 2;
+// }
 
+.logotrans {
+  // display: block !important;
+  // position: absolute;
+  // width: 100px;
+  // height: 100px;
+  // z-index: 3;
 }
 
 
+.feature {
+  margin: 20px 0px;
+  width: 100%;
+}
+
+.feature-copy {
+  padding: 20px 0px;
+}
+
+.chevron {
+  position: absolute;
+  top: 300px;
+}
+
+.logo {
+  float: none !important;
+  width: 100% !important;
+  display: block;
+  background-image: url('logo_trans.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  height: 170px;
+  // border: 2px solid white;
+}
+
+.front {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+}
+
 #height-container {
-  height: 80vh;
+  height: 85vh;
+  z-index: 1;
 }
 
 #headline {

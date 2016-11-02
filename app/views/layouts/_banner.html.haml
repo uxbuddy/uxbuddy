@@ -1,11 +1,39 @@
 .parallax-container#height-container
-  .parallax
-    = image_tag('work-top.jpg', id: "banner")
-.section.white
-  .row.container
-    %h2.header UX Buddy
-    %p Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me. Besides, I've already been through too much shit this morning over this case to hand it over to your dumb ass.
-
+  .parallax.valign-wrapper
+    = image_tag('laptop.jpeg', class: "banner")
+    .row
+      .col.s12.front.center-align.valign
+        .col.s12.logo.center-align
+        -# = image_tag('logo_trans.png', id: "logotrans")
+        %h3 Remote UX testing made easy
+        %a.btn-large.waves-effect.waves-light{:href => new_test_path} Get started
+      .col.s12.center-align.front.chevron
+        %p v
+        -# = image_tag('uxbuddy_white.png', width: "300px")
+.section.grey.lighten-5
+  .row.container.valign-wrapper
+    .col.s6
+      = image_tag('firstfeature.png', class: "feature")
+    .col.s6.feature-copy
+      %h2.header Guides research
+      %p Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me.
 .parallax-container
   .parallax
-    = image_tag('testing.jpeg', id: "banner")
+    = image_tag('notes.jpeg', class: "banner")
+.section.grey.lighten-5
+  .row.container.valign-wrapper
+    .col.s6.feature-copy
+      %h2.header Gathers feedback
+      %p Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me.
+    .col.s6
+      = image_tag('thirdfeature.JPG', class: "feature")
+.parallax-container
+  .parallax
+    = image_tag('chocs.jpeg', class: "banner")
+.section.grey.lighten-5
+  .row.container.valign-wrapper
+    .col.s6
+      = image_tag('secondfeature.png', class: "feature")
+    .col.s6.feature-copy
+      %h2.header Analyses results
+      %p Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me.
