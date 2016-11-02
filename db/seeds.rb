@@ -6,10 +6,10 @@ puts "Starting to seed db..."
 Rake::Task['load_data:add_questions'].invoke
 Rake::Task['load_data:add_test_types'].invoke
 
-Test.create(name: 'Youtube', test_url: "https://github.com/lili2311/trelogan-yoga/blob/master/src/about.html", test_type_id: 1, slug: "youtube", question_ids: [1,2,3])
+Test.create(name: 'Youtube', test_url: "http://www.youtube.com/embed/XGSy3_Czz8k", test_type_id: 1, slug: "youtube", question_ids: [1,2,3])
 Test.create(name: 'Asos', test_url: "https://www.asos.com", test_type_id: 1, slug: "asos", question_ids: [1,2,3])
 Test.create(name: 'Google', test_url: "https://www.google.com", test_type_id: 1, slug: "google", question_ids: [1,2,3])
-Test.create(name: 'GithubTest', test_url: "https://www.bbc.co.uk/news", test_type_id: 1, slug: "githubtest", question_ids: [1,2,3])
+Test.create(name: 'GithubTest', test_url: "https://github.com/lili2311/trelogan-yoga/blob/master/src/about.html", test_type_id: 1, slug: "githubtest", question_ids: [1,2,3])
 
 
 Question.all.each do |question|
