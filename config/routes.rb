@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'application#index'
+  root 'application#home'
 
 end
