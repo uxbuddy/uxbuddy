@@ -16,7 +16,7 @@ feature 'User authentication' do
     end
 
     scenario 'user cannot create account with non-unique email' do
-      expect{user_sign_up}.to change(User, :count).by(0)
+      expect{user_sign_up(email = 'test2@email.com')}.to change(User, :count).by(0)
     end
 
     scenario 'user cannot create account with unmatching password confirmation' do
@@ -36,23 +36,22 @@ feature 'User authentication' do
 
   end
 
-  context 'Sign in' do
+  context 'Sign in & sign out' do
     scenario 'valid user can sign in', js: true do
-      user_sign_in
+      user_sign_in(email='test2@email.com')
       expect(page).to have_content("Signed in successfully.")
     end
+
+    scenario 'user can sign out', js: true do
+      user_sign_in(email='test2@email.com')
+      user_sign_out
+      expect(page).to have_content("Signed out successfully.")
+    end
+
     scenario 'invalid user cannot sign in' do
       user_sign_in(password = "not my password")
       expect(page).not_to have_content("Signed in successfully.")
       expect(page).to have_current_path('/users/sign_in')
-    end
-  end
-
-  context 'Sign out' do
-    scenario 'user can sign out', js: true do
-      user_sign_in
-      user_sign_out
-      expect(page).to have_content("Signed out successfully.")
     end
   end
 

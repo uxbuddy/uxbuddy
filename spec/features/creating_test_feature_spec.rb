@@ -5,7 +5,7 @@ feature 'User can create new tests' do
   context 'User has not created any tests' do
 
     before(:each) do
-      user_sign_in
+      user_sign_up
     end
 
     scenario 'User cannot submit a test without a valid URL' do
