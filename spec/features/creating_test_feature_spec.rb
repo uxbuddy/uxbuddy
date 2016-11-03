@@ -43,7 +43,7 @@ feature 'Create tests' do
       fill_in 'test_name', with: 'test'
       fill_in 'test_test_url', with: 'https://www.test.com'
       choose('Product page')
-      click_button "Create Test"
+      click_button "create test"
       expect(page.body).to have_content("Question ids can't be blank")
     end
 
