@@ -76,6 +76,8 @@ Run tests through RSpec.
 
 ![Sharing](http://i.imgur.com/7xDu7kSl.png)
 
+![Email](http://i.imgur.com/fmi2HPl.png)
+
 ### Complete surveys
 ![Survey Part One](http://i.imgur.com/UPSvyZvl.png)
 
