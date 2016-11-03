@@ -1,0 +1,43 @@
+.parallax-container#height-container
+  .parallax.valign-wrapper#parallaxbox
+    = image_tag('laptop.jpeg', class: "banner")
+    .row
+      .col.s12.front.center-align.valign
+        = image_tag('logo_trans.png', class: "logo")
+        %h3 Remote UX testing made easy
+        %a.btn-large.waves-effect.waves-light{:href => new_test_path} Get started
+#find-out-more
+  = image_tag('chevron.png')
+%a#section1
+.section.grey.lighten-5.valign-wrapper
+  .row.container.valign-wrapper
+    .col.s6
+      = image_tag('first-feature.gif', class: "feature")
+    .col.s6.feature-copy.valign
+      %h2.header Meaningful user research
+      %p User test your solution early. Just choose the prototype task you want to test and select from carefully constructed questions designed to gather meaningful responses.
+.parallax-container
+  .parallax
+    = image_tag('notes.jpeg', class: "banner")
+.section.grey.lighten-5.valign-wrapper
+  .row.container.valign-wrapper
+    .col.s6.feature-copy.valign
+      %h2.header Gathers feedback
+      %p Your test is ready instantly to share with real users. Users interact with an uncompromised version of your design, no images, no clickthroughs just real code with real users.
+    .col.s6
+      = image_tag('thirdfeature.JPG', class: "feature")
+.parallax-container
+  .parallax
+    = image_tag('chocs.jpeg', class: "banner")
+.section.grey.lighten-5.valign-wrapper
+  .row.container.valign-wrapper
+    .col.s6
+      = image_tag('secondfeature.png', class: "feature")
+    .col.s6.feature-copy.valign
+      %h2.header Analyses results
+      %p Reporting tools that summarise the feedback as it flies in. Quickly identify what's working and what isn't.
+.section.grey.lighten-5.bottom-link.valign-wrapper
+  .row.container.valign-wrapper
+    .col.s12
+      %h3 Get real user feedback today
+      %a.btn-large.waves-effect.waves-light{:href => new_test_path} Create your first test
