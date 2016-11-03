@@ -1,24 +1,15 @@
 require 'rails_helper'
 
-feature 'User can create new tests' do
+feature 'Create tests' do
 
-  context 'User has not created any tests' do
+  before(:each) do
+    User.create(email: "test@email.com", password: "password", password_confirmation: "password")
+  end
 
-    scenario 'Homepage has link to get started' do
-      user_sign_up
-      click_link 'Get started'
-      expect(current_path).to eq('/tests/new')
-    end
+  context 'User cannot create invalid tests' do
 
     before(:each) do
       user_sign_in
-    end
-
-    scenario 'User can fill in a form to create a test' do
-      create_test("Climate", "http://www.climate.com")
-      url = "http://www.example.com/tests/climate"
-      expect(page).to have_content("Climate // Share")
-      expect(page).to have_link('', href: url)
     end
 
     scenario 'User cannot submit a test without a valid URL' do
@@ -52,24 +43,25 @@ feature 'User can create new tests' do
       fill_in 'test_name', with: 'test'
       fill_in 'test_test_url', with: 'https://www.test.com'
       choose('Product page')
-      click_button "Create Test"
+      click_button "create test"
       expect(page.body).to have_content("Question ids can't be blank")
     end
 
-    scenario 'Nav bar to add a test' do
+  end
+
+  context 'User can create a test' do
+
+    before do
+      user_sign_in
+      create_test
+    end
+
+    scenario 'Nav bar + button links to add a test' do
       visit '/'
       within '#nav' do
         find(:xpath, "//a[@id='test-new-1']").click
         expect(page).to have_current_path("/tests/new")
       end
-    end
-  end
-
-  context 'User has created tests' do
-
-    before do
-      user_sign_in
-      create_test
     end
 
     scenario 'User can see a list of all their own tests' do
