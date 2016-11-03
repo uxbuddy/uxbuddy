@@ -34,6 +34,10 @@ ul#footer li {
   width: 160px;
 }
 
+i {
+  font-size: 30px;
+}
+
 #login {
   margin-top: 3em;
 }
@@ -43,10 +47,66 @@ ul#footer li {
   margin-left: 1em;
 }
 
-#home-logo {
-  margin-left: 4em;
-  margin-top: 1.5em;
-  right: 50%
+.banner {
+  width: 100%;
+}
+
+.parallax img {
+  display: block !important;
+}
+
+.feature {
+  padding-right: 30px;
+  width: 100%;
+}
+
+.feature-copy {
+  padding: 20px 0px;
+}
+
+.feature-copy h2 {
+  font-weight: 200;
+}
+
+.feature-copy p {
+  font-weight: 300;
+  font-size: 1.2em;
+}
+
+.logo {
+  width: 150px;
+  display: block;
+  margin-bottom: 150px;
+}
+
+.front {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+}
+
+.section {
+  height: 800px;
+}
+
+.bottom-link {
+  margin-top: -100px;
+  height: 200px;
+  text-align: center;
+}
+
+#find-out-more {
+  position: absolute;
+  left: 55%;
+  height: 100px;
+  text-align: center;
+  margin: -100px;
+  z-index: 4;
+}
+
+#height-container {
+  height: 95vh;
+  z-index: 1;
 }
 
 #headline {
