@@ -37,7 +37,7 @@ feature 'User can see a test' do
 
     scenario 'User is redirected to sign up page if not signed in' do
       visit '/tests'
-      expect(page).to have_current_path('/users/sign_up')
+      expect(page).to have_current_path('/users/sign_in')
     end
    end
 

@@ -4,15 +4,17 @@ feature 'Report page' do
 
   before(:each) do
     Test.create(name: 'BBC', test_url: "https://www.bbc.co.uk/news", test_type_id: 1, slug: "bbcnews", question_ids: [1,4,7])
-    Answer.create(format: "range", response: 5, question_id: 1, test_id: 1, comment: "wow")
-    Answer.create(format: "range", response: 2, question_id: 4, test_id: 1, comment: "don't like that")
-    Answer.create(format: "range", response: 4, question_id: 7, test_id: 1, comment: "looks great")
+    Answer.create(format: "range", response: 5, question_id: 1, test_id: 4, comment: "wow")
+    Answer.create(format: "range", response: 2, question_id: 4, test_id: 4, comment: "don't like that")
+    Answer.create(format: "range", response: 4, question_id: 7, test_id: 4, comment: "looks great")
     user_sign_up
   end
 
   scenario 'report page has right test info', js: true do
+    tests = Test.all
+    tests.each { |x| puts "#{x.id}, #{x.name}"}
     user_sign_in
-    visit '/reports/bbcnews'
+    visit '/reports/4'
     expect(page).to have_content("BBC // Test Report")
     within '#summary' do
       expect(page).to have_content("Test URL: https://www.bbc.co.uk/news")
@@ -39,7 +41,7 @@ feature 'Report page' do
 
   scenario 'User can only view reports page when signed in' do
     visit '/reports/1'
-    expect(page).to have_current_path('/users/sign_up')
+    expect(page).to have_current_path('/users/sign_in')
   end
 
   scenario 'Nav bar chart icon links to tests#index' do

@@ -1,6 +1,23 @@
 // Place all the styles related to the tests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#add-test-content {
+  height: 110px;
+}
+.card-image {
+  height: 220px;
+}
+
+.test-container {
+  background-color: #eceff1;
+  padding: 1em;
+}
+
+.ux-buddy-text {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 #create-test-form {
   margin-top: 3em;
@@ -14,7 +31,6 @@
 #test-welcome-container {
   margin-left: auto;
   margin-right: auto;
-  max-width: 80%;
 }
 
 #start {
@@ -24,6 +40,7 @@
 
 #test-title {
   display: none;
+  margin-bottom: 3px;
 }
 
 #test-question {
@@ -48,7 +65,7 @@
 }
 
 #iframe-div {
-  margin-top: 3em;
+  margin-top: 1em;
   margin-left: 0px;
   margin-right: 0px;
   padding-left: 0px;
@@ -58,11 +75,14 @@
 #iframe {
   position: relative;
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   height: 1000px;
+  border: none;
 }
 
 #questions-div {
-  margin-bottom: 5em;
+  margin-bottom: 0.3em;
 }
 
 #slider-div {

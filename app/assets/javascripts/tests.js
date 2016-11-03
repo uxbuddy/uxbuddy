@@ -51,4 +51,12 @@ $(document).on('turbolinks:load', function() {
   	}
     });
   }
+
+  $('#test_test_type_id_2').prop('disabled', true);
+  $('#test_test_type_id_3').prop('disabled', true);
+  $('#test_test_type_id_4').prop('disabled', true);
+  $('#test_test_type_id_5').prop('disabled', true);
+  $('#test_test_type_id_6').prop('disabled', true);
+  $('#test_test_type_id_7').prop('disabled', true);
+
 });
