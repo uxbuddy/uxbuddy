@@ -2,13 +2,18 @@ require 'rails_helper'
 
 feature 'User can create new tests' do
 
+  before(:each) do
+    user_sign_up
+  end
   context 'User has not created any tests' do
 
-    before(:each) do
-      user_sign_up
+    before(:each) do      
+      user_sign_in
     end
 
     scenario 'User cannot submit a test without a valid URL' do
+      Capybara.reset_sessions!
+      user_sign_in
       create_test("myURL", "not_a_url")
       expect(page.body).to have_content("Test url is invalid")
     end
