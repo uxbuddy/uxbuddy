@@ -25,13 +25,13 @@ feature 'User can see a test' do
       click_link('Next')
       click_link('Next')
       click_link('Finish')
-      counter = Test.last.questions.inject do |sum, x|
-        sum + x.answers.where(test_id: Test.last.id).count
-      end
-      expect(counter).to eq(3)
       expect(page).to have_current_path("/tests/github/thanks")
       message = "Thank you for completing this test."
       expect(page).to have_content(message)
+      counter = Test.last.questions.inject(0) do |sum, x|
+        sum + x.answers.where(test_id: Test.last.id).count
+      end
+      expect(counter).to eq(3)
     end
   end
 

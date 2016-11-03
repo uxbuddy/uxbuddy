@@ -11,6 +11,7 @@ feature 'Report page' do
   end
 
   scenario 'report page has right test info', js: true do
+    user_sign_in
     visit '/reports/bbcnews'
     expect(page).to have_content("BBC // Test Report")
     within '#summary' do
