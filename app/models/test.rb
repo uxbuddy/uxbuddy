@@ -32,6 +32,4 @@ class Test < ApplicationRecord
     ((complete * 100) / number_respondents).to_s + "%"
   end
 
-
-
 end

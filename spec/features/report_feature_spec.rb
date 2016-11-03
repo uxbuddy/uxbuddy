@@ -3,18 +3,16 @@ require 'rails_helper'
 feature 'Report page' do
 
   before(:each) do
-    Test.create(name: 'BBC', test_url: "https://www.bbc.co.uk/news", test_type_id: 1, slug: "bbcnews", question_ids: [1,4,7])
+    user_sign_up
+    Test.create(name: 'BBC', test_url: "https://www.bbc.co.uk/news", test_type_id: 1, slug: "bbcnews", question_ids: [1,4,7], user_id: 1)
     Answer.create(format: "range", response: 5, question_id: 1, test_id: 4, comment: "wow")
     Answer.create(format: "range", response: 2, question_id: 4, test_id: 4, comment: "don't like that")
     Answer.create(format: "range", response: 4, question_id: 7, test_id: 4, comment: "looks great")
-    user_sign_up
   end
 
   scenario 'report page has right test info', js: true do
-    tests = Test.all
-    tests.each { |x| puts "#{x.id}, #{x.name}"}
     user_sign_in
-    visit '/reports/4'
+    visit '/reports/bbcnews'
     expect(page).to have_content("BBC // Test Report")
     within '#summary' do
       expect(page).to have_content("Test URL: https://www.bbc.co.uk/news")
@@ -53,7 +51,7 @@ feature 'Report page' do
     end
   end
 
-  scenario 'reports index shows list of user test reports' do
+  scenario 'reports index redirects to test index' do
     user_sign_in
     visit '/reports'
     expect(page).to have_current_path('/tests')

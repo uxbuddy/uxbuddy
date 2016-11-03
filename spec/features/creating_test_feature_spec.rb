@@ -1,20 +1,18 @@
 require 'rails_helper'
 
-feature 'User can create new tests' do
+feature 'Create tests' do
 
   before(:each) do
-    user_sign_up
+    User.create(email: "test@email.com", password: "password", password_confirmation: "password")
   end
-  
-  context 'User has not created any tests' do
+
+  context 'User cannot create invalid tests' do
 
     before(:each) do
       user_sign_in
     end
 
     scenario 'User cannot submit a test without a valid URL' do
-      Capybara.reset_sessions!
-      user_sign_in
       create_test("myURL", "not_a_url")
       expect(page.body).to have_content("Test url is invalid")
     end
@@ -49,20 +47,21 @@ feature 'User can create new tests' do
       expect(page.body).to have_content("Question ids can't be blank")
     end
 
-    scenario 'Nav bar to add a test' do
+  end
+
+  context 'User can create a test' do
+
+    before do
+      user_sign_in
+      create_test
+    end
+
+    scenario 'Nav bar + button links to add a test' do
       visit '/'
       within '#nav' do
         find(:xpath, "//a[@id='test-new-1']").click
         expect(page).to have_current_path("/tests/new")
       end
-    end
-  end
-
-  context 'User has created tests' do
-
-    before do
-      user_sign_in
-      create_test
     end
 
     scenario 'User can see a list of all their own tests' do
