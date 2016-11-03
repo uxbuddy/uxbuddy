@@ -51,6 +51,7 @@ class TestsController < ApplicationController
     list = email_parser(params[:emails][:emails])
     url = request.original_url[0...-6]
     TestMailer.send_test_email(current_user, list, url).deliver
+    flash[:notice] = "Emails sent. Check back soon for results."
     redirect_to tests_path
   end
 
@@ -75,7 +76,7 @@ class TestsController < ApplicationController
   def email_parser(emails)
     emails.delete(" ").split(",")
   end
-  
+
   def check_test_in_progress
     if session[:test]
       @test = Test.new(session[:test])
