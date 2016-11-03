@@ -10,7 +10,7 @@
   = image_tag('chevron.png')
 %a#section1
 .section.grey.lighten-5.valign-wrapper
-  .row.container.valign-wrapper
+  .row.container-home.valign-wrapper
     .col.s6
       = image_tag('first-feature.gif', class: "feature")
     .col.s6.feature-copy.valign
@@ -20,24 +20,24 @@
   .parallax
     = image_tag('notes.jpeg', class: "banner")
 .section.grey.lighten-5.valign-wrapper
-  .row.container.valign-wrapper
+  .row.container-home.valign-wrapper
+    .col.s6
+      = image_tag('second-feature.gif', class: "feature")
     .col.s6.feature-copy.valign
       %h2.header Gathers feedback
-      %p Your test is ready instantly to share with real users. Users interact with an uncompromised version of your design, no images, no clickthroughs just real code with real users.
-    .col.s6
-      = image_tag('thirdfeature.JPG', class: "feature")
+      %p Your test is ready instantly to share with real users. Users interact with an uncompromised version of your design meaning you can test your real code with real users.
 .parallax-container
   .parallax
     = image_tag('chocs.jpeg', class: "banner")
 .section.grey.lighten-5.valign-wrapper
-  .row.container.valign-wrapper
+  .row.container-home.valign-wrapper
     .col.s6
-      = image_tag('secondfeature.png', class: "feature")
+      = image_tag('first-feature.gif', class: "feature")
     .col.s6.feature-copy.valign
       %h2.header Analyses results
-      %p Reporting tools that summarise the feedback as it flies in. Quickly identify what's working and what isn't.
+      %p Reporting tools that summarise the feedback in real-time, helping you to quickly identify what is working and what isn't.
 .section.grey.lighten-5.bottom-link.valign-wrapper
-  .row.container.valign-wrapper
-    .col.s12
-      %h3 Get real user feedback today
+  .row.container-home.valign-wrapper
+    .col.s12.feature-copy.cta
+      %h2.header Get real user feedback today
       %a.btn-large.waves-effect.waves-light{:href => new_test_path} Create your first test
