@@ -7,35 +7,37 @@
         %h3 Remote UX testing made easy
         %a.btn-large.waves-effect.waves-light{:href => new_test_path} Get started
 #find-out-more
-  = link_to :anchor => "section1", id:"chevron-btn" do
-    = image_tag('chevron.png')
+  = image_tag('chevron.png')
 %a#section1
 .section.grey.lighten-5.valign-wrapper
-
-  .row.container
+  .row.container.valign-wrapper
     .col.s6
-      = image_tag('firstfeature.png', class: "feature")
-    .col.s6.feature-copy
-      %h2.header Meaningful research
-      %p Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me.
+      = image_tag('feature-one.gif', class: "feature")
+    .col.s6.feature-copy.valign
+      %h2.header Meaningful user research
+      %p User test your solution early. Just choose the prototype task you want to test and select from carefully constructed questions designed to gather meaningful responses.
 .parallax-container
   .parallax
     = image_tag('notes.jpeg', class: "banner")
 .section.grey.lighten-5.valign-wrapper
-  .row.container.valign
-    .col.s6.feature-copy
+  .row.container.valign-wrapper
+    .col.s6.feature-copy.valign
       %h2.header Gathers feedback
-      %p Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me.
+      %p Your test is ready instantly to share with real users. Users interact with an uncompromised version of your design, no images, no clickthroughs just real code with real users.
     .col.s6
       = image_tag('thirdfeature.JPG', class: "feature")
 .parallax-container
   .parallax
     = image_tag('chocs.jpeg', class: "banner")
 .section.grey.lighten-5.valign-wrapper
-  .row.container.valign
+  .row.container.valign-wrapper
     .col.s6
       = image_tag('secondfeature.png', class: "feature")
-    .col.s6.feature-copy
+    .col.s6.feature-copy.valign
       %h2.header Analyses results
-      %i.large.material-icons insert_chart
-      %p Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me.
+      %p Reporting tools that summarise the feedback as it flies in. Quickly identify what's working and what isn't.
+.section.grey.lighten-5.bottom-link.valign-wrapper
+  .row.container.valign-wrapper
+    .col.s12
+      %h3 Get real user feedback today
+      %a.btn-large.waves-effect.waves-light{:href => new_test_path} Create your first test

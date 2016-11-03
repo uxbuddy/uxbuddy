@@ -48,7 +48,7 @@ i {
 }
 
 .feature {
-  margin: 20px 0px;
+  padding-right: 30px;
   width: 100%;
 }
 
@@ -60,15 +60,15 @@ i {
   font-weight: 200;
 }
 
+.feature-copy p {
+  font-weight: 300;
+  font-size: 1.2em;
+}
+
 .logo {
   width: 150px;
   display: block;
   margin-bottom: 150px;
-
-}
-
-i.fa.fa-chevron-circle-down {
-  color: white;
 }
 
 .front {
@@ -81,9 +81,15 @@ i.fa.fa-chevron-circle-down {
   height: 800px;
 }
 
+.bottom-link {
+  margin-top: -100px;
+  height: 200px;
+  text-align: center;
+}
+
 #find-out-more {
   position: absolute;
-  left: 50%;
+  left: 55%;
   height: 100px;
   text-align: center;
   margin: -100px;
