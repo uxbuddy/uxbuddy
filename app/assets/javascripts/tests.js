@@ -10,7 +10,7 @@ $(document).on('turbolinks:load', function() {
     };
   })());
 
-  $(".toggle_button").click((function(){
+  $(".toggle_button_next").click((function(){
     var counter = 1;
     return function()
     {
@@ -30,6 +30,28 @@ $(document).on('turbolinks:load', function() {
       counter = counter + 1;
       $(".q" + counter).show();
       generateSlider(counter);
+    };
+  })());
+
+  $(".toggle_button_finish").click((function(){
+    var counter = $("#qnum").text();
+    return function()
+    {
+      $.ajax({
+        url: window.location.pathname + "/answers",
+        type: "POST",
+        data: {answer: {
+          response: $('#range'+counter+' .range-label span').text(),
+          comment: $("#comment"+counter).val(),
+          question_no: counter - 1
+        }},
+        success: function() {
+          return false;
+        }
+      });
+      $(".q" + counter-1).hide();
+      counter = counter + 1;
+      $(".q" + counter).show();
     };
   })());
 
