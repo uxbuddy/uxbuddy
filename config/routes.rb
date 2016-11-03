@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :reports do
+  resources :reports, only: [:show, :index] do
     get 'unknown', to: 'application#unknown'
   end
-  resources :tests do
+  resources :tests, only: [:index, :create, :new, :show] do
     resources :answers, only: [:create]
     member do
       get 'share'
