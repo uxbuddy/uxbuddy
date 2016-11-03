@@ -5,7 +5,7 @@ class TestMailer < ApplicationMailer
     @url = url
     mail(to: list,
     from: user.email,
-    subject: 'Please take our UX test!' )
+    subject: 'Please take my UX feedback survey' )
   end
 
 end
