@@ -5,7 +5,6 @@ describe Test do
   let!(:answer1) {Answer.create(format: "range", response: 5, question_id: 1, test_id: Test.last.id, comment: "wow") }
   let!(:answer2) {Answer.create(format: "range", response: 1, question_id: 1, test_id: Test.last.id, comment: "wow") }
 
-
   describe '#number_respondents' do
 
     it 'should return the number of people have answered Test as 0' do

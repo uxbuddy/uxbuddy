@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function() {
+  $('.parallax').parallax();
   $('select').material_select();
 
   $("#start").click((function(){
