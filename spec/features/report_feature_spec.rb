@@ -3,30 +3,25 @@ require 'rails_helper'
 feature 'report page' do
 
   before(:each) do
-    Test.create(name: 'bbc', test_url: "https://www.bbc.co.uk/news", test_type_id: 1, slug: "bbc", question_ids: [1,4,])
-    Test.create(name: 'github', test_url: "https://github.com/lili2311/trelogan-yoga/blob/master/src/about.html", test_type_id: 1, slug: "github", question_ids: [1])
+    Test.create(name: 'BBC', test_url: "https://www.bbc.co.uk/news", test_type_id: 1, slug: "bbcnews", question_ids: [1,4,7])
+    Answer.create(format: "range", response: 5, question_id: 1, test_id: 1, comment: "wow")
+    Answer.create(format: "range", response: 2, question_id: 4, test_id: 1, comment: "don't like that")
+    Answer.create(format: "range", response: 4, question_id: 7, test_id: 1, comment: "looks great")
+    user_sign_up
   end
 
-  # let!(:test) { Test.find(1) }
-  # let!(:question1) {test.questions[0]}
-  # let!(:answers) {question1.answers.where(test_id: test.id)}
-  # let!(:response1) {answers[0].response}
-  # let!(:response2) {answers[1].response}
-  # let!(:response3) {answers[2].response}
-  # let!(:average) {(response1 + response2 + response3)/3.0}
-
-  scenario 'report page has right test info' do
-    user_sign_in
-    visit '/reports/bbc'
+  scenario 'report page has right test info', js: true do
+    visit '/reports/bbcnews'
+    save_and_open_page
     expect(page).to have_content("BBC // Test Report")
     within '#summary' do
-      expect(page).to have_content("Test URL: https://www.youtube.com/embed/XGSy3_Czz8k")
+      expect(page).to have_content("Test URL: https://www.bbc.co.uk/news")
       expect(page).to have_content("Number of questions: 3")
-      expect(page).to have_content("Number of respondents: 3")
+      expect(page).to have_content("Number of respondents: 1")
       expect(page).to have_content("Percentage completion: 100%")
     end
     within '#report-chart' do
-      expect(page.body).to have_content("How easy would you find it to buy these?")
+      expect(page.body).to have_content("How easy is it to compare this product against other options?")
     end
     within '#question1-comments' do
       expect(page).to have_content('wow')
@@ -35,8 +30,8 @@ feature 'report page' do
 
   scenario 'average chart does not display if no reponses' do
     user_sign_in
-    create_test("BBC", "http://www.bbc.co.uk")
-    visit '/reports/bbc'
+    create_test("Makers", "http://www.makersacademy.com/")
+    visit '/reports/makers'
     within '#report-chart' do
       expect(page.body).to have_content("Sorry, no data yet!")
     end
