@@ -66,14 +66,24 @@ Run tests through RSpec.
 
 ### Sign up
 
+![Sign up](http://i.imgur.com/kCJtiYCl.png)
+
 ### Create tests
+
+![Creating tests](http://i.imgur.com/lWK5ylol.png)
 
 ### Share tests
 
+![Sharing](http://i.imgur.com/7xDu7kSl.png)
+
 ### Complete surveys
+![Survey Part One](http://i.imgur.com/UPSvyZvl.png)
+
+![Survey Part Two](http://i.imgur.com/G5W0fxtl.png)
 
 ### View results
 
+![Results](http://i.imgur.com/gf9BeQkl.png)
 
 ## Contributions
 
