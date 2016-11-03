@@ -1,6 +1,12 @@
 // Place all the styles related to the tests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#add-test-content {
+  height: 110px;
+}
+.card-image {
+  height: 220px;
+}
 
 .test-container {
   background-color: #eceff1;
