@@ -2,18 +2,18 @@ class ReportsController < ApplicationController
 
   def show
     if user_signed_in?
-    @test = Test.friendly.find(params[:id])
-    @questions = @test.questions
-    @respondents = @test.number_respondents
-    @library = {xtitle: 'Average response',
-                hAxis: {ticks: [1,2,3,4,5]},
-                chartArea: {left: 500, width: 600},
-                }
-    answers = @test.answers
-    @data = answers.where(test_id: @test.id).group('text').average(:response)
+      @test = Test.friendly.find(params[:id])
+      @questions = @test.questions
+      @respondents = @test.number_respondents
+      @library = {xtitle: 'Average response',
+                  hAxis: {ticks: [1,2,3,4,5]},
+                  chartArea: {left: 500, width: 600},
+                  }
+      answers = @test.answers
+      @data = answers.where(test_id: @test.id).group('text').average(:response)
     else
       flash[:notice] = 'Please sign in to view your reports'
-      redirect_to new_user_registration_path
+      redirect_to new_user_session_path
     end
   end
 
@@ -22,7 +22,7 @@ class ReportsController < ApplicationController
       redirect_to tests_path
     else
       flash[:notice] = 'Please sign in to view your reports'
-      redirect_to new_user_registration_path
+      redirect_to new_user_session_path
     end
   end
 
