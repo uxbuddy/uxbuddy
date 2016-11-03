@@ -5,9 +5,9 @@ feature 'Report page' do
   before(:each) do
     user_sign_up
     Test.create(name: 'BBC', test_url: "https://www.bbc.co.uk/news", test_type_id: 1, slug: "bbcnews", question_ids: [1,4,7], user_id: 1)
-    Answer.create(format: "range", response: 5, question_id: 1, test_id: 4, comment: "wow")
-    Answer.create(format: "range", response: 2, question_id: 4, test_id: 4, comment: "don't like that")
-    Answer.create(format: "range", response: 4, question_id: 7, test_id: 4, comment: "looks great")
+    Answer.create(format: "range", response: 5, question_id: 1, test_id: Test.last.id, comment: "wow")
+    Answer.create(format: "range", response: 2, question_id: 4, test_id: Test.last.id, comment: "don't like that")
+    Answer.create(format: "range", response: 4, question_id: 7, test_id: Test.last.id, comment: "looks great")
   end
 
   scenario 'report page has right test info', js: true do

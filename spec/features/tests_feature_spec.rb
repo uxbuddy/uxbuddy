@@ -3,11 +3,10 @@ require 'rails_helper'
 feature 'User can see a test' do
 
   before(:each) do
-    Test.create(name: 'youtube', test_url: "https://www.youtube.com/watch?v=Fz4F2X1xSc8", test_type_id: 1, slug: "youtube", question_ids: [1,3,5])
-    Test.create(name: 'github', test_url: "https://github.com/lili2311/trelogan-yoga/blob/master/src/about.html", test_type_id: 1, slug: "github", question_ids: [1])
+    Test.create(name: 'github', test_url: "https://github.com/lili2311/trelogan-yoga/blob/master/src/about.html", test_type_id: 1, slug: "github", question_ids: [1,3,5])
   end
 
-  context "Github file tests" do
+  context "A test from a github link" do
 
     scenario 'iframe has correct source for github urls', js: true do
       visit "/tests/github"
@@ -17,19 +16,22 @@ feature 'User can see a test' do
 
   end
 
-  context "User can complete a test" do
+  context "User can complete a test of a github page" do
 
     scenario 'User can submit answers', js: true do
-      visit "/tests/youtube"
+      visit "/tests/github"
       click_on('Start')
       fill_in 'comment1', with: 'This is so boss'
       click_link('Next')
       click_link('Next')
       click_link('Finish')
-      expect(Answer.count).to eq(3)
-      expect(page).to have_current_path("/tests/youtube/thanks")
+      expect(page).to have_current_path("/tests/github/thanks")
       message = "Thank you for completing this test."
       expect(page).to have_content(message)
+      counter = Test.last.questions.inject(0) do |sum, x|
+        sum + x.answers.where(test_id: Test.last.id).count
+      end
+      expect(counter).to eq(3)
     end
   end
 

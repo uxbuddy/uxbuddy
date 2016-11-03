@@ -6,7 +6,7 @@ feature 'Emailing tests' do
 
   before do
     user_sign_in('example@user.com', 'password')
-    create_test('emailtest', 'http://uxbuddy.herokuapp.com')
+    create_test('emailtest', 'http://www.bbc.co.uk/news')
   end
 
   scenario 'sharing test link' do
