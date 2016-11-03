@@ -17,6 +17,7 @@
             \ // Your Feedback
             =image_tag 'ux_buddy_nav.png', class: "right"
         %hr
+      %p#qnum= @questions.length
       .row#questions-div
         -@questions.each.with_index do |q, i|
           .col.s8
@@ -35,11 +36,11 @@
 
         .col.s3.offset-s9
           %div{class: "q#{@questions.count - 1}"}
-            .toggle_button
+            .toggle_button_next
               %a.btn.waves-effect.waves-light{href: "javascript:void(0)", id: 'toggle'} Next
 
           %div{class: "q#{@questions.count}", style: "display:none"}
-            .toggle_button
+            .toggle_button_finish
               %a.btn.waves-effect.waves-light{href: thanks_test_path, id: 'toggle'} Finish
 
 .row#iframe-row
