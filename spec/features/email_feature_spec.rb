@@ -13,5 +13,6 @@ feature 'Emailing tests' do
     visit '/tests/emailtest/share'
     fill_in('emails_emails', with: 'first@person.com, second@person.com')
     expect { click_button('Send') }.to change { ActionMailer::Base.deliveries.count }.by(1)
+    expect(page.body).to have_content("Emails sent. Check back soon for results.")
   end
 end
