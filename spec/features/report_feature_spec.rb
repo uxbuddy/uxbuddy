@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'report page' do
+feature 'Report page' do
 
   before(:each) do
     Test.create(name: 'BBC', test_url: "https://www.bbc.co.uk/news", test_type_id: 1, slug: "bbcnews", question_ids: [1,4,7])
@@ -11,8 +11,8 @@ feature 'report page' do
   end
 
   scenario 'report page has right test info', js: true do
+    user_sign_in
     visit '/reports/bbcnews'
-    save_and_open_page
     expect(page).to have_content("BBC // Test Report")
     within '#summary' do
       expect(page).to have_content("Test URL: https://www.bbc.co.uk/news")

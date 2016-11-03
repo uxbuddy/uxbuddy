@@ -5,9 +5,10 @@ feature 'User can create new tests' do
   before(:each) do
     user_sign_up
   end
+  
   context 'User has not created any tests' do
 
-    before(:each) do      
+    before(:each) do
       user_sign_in
     end
 
