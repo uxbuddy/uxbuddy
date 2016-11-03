@@ -1,4 +1,4 @@
-// $(document).on('turbolinks:load', function() {
-//   alert("hello");
-//   $('.parallax').parallax();
-// });
+$(document).on('turbolinks:load', function() {
+  $(".button-collapse").sideNav();
+  $(".dropdown-button").dropdown();
+});

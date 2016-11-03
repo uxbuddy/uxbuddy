@@ -24,6 +24,7 @@ feature 'report page' do
       expect(page).to have_content("Test URL: https://www.youtube.com/embed/XGSy3_Czz8k")
       expect(page).to have_content("Number of questions: 3")
       expect(page).to have_content("Number of respondents: 3")
+      expect(page).to have_content("Percentage completion: 100%")
     end
   end
 
@@ -57,14 +58,14 @@ feature 'report page' do
     user_sign_in
     visit '/'
     within '#nav' do
-      find(:xpath, "//a[@id='tests-all']").click
+      find(:xpath, "//a[@id='tests-all-1']").click
       expect(page).to have_current_path("/tests")
     end
   end
 
   scenario 'User can only view reports page when signed in' do
     visit '/reports/1'
-    expect(page).to have_current_path('/users/sign_up')
+    expect(page).to have_current_path('/users/sign_in')
   end
 
   scenario 'reports index shows list of user test reports' do
@@ -72,4 +73,5 @@ feature 'report page' do
     visit '/reports'
     expect(page).to have_current_path('/tests')
   end
+
 end

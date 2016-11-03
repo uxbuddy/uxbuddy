@@ -1,7 +1,7 @@
 .row
   .col.s12
     %h3
-      %strong
+      %strong= current_user.email[/[^@]+/]
       \ // Your Tests
     %hr
 
@@ -10,7 +10,7 @@
     .col.s4
       .card
         .card-image.waves-effect.waves-block.waves-light
-          %img{:src => test.snapshot.url(:medium)}/
+          = link_to image_tag(test.snapshot.url(:medium)), test_path(test.id)
         .card-content
           %span.card-title.activator.grey-text.text-darken-4
             =test.name
@@ -25,12 +25,15 @@
             Number of respondents:
             =test.number_respondents
           %p
+            Percentage completion:
+            =test.complete_respondents
+          %p
             Test score:
             =test.average_score
   .col.s4
     .card
       .card-image.waves-effect.waves-block.waves-light
-        = image_tag 'add_test.png'
-      .card-content
+        = link_to image_tag('add_test.png'), new_test_path
+      .card-content#add-test-content
         %span.card-title.activator.grey-text.text-darken-4
           %a= link_to "New test", new_test_path

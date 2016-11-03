@@ -9,7 +9,7 @@ class TestsController < ApplicationController
       @questions = Question.all
     else
       flash[:notice] = 'Please sign in to create a test'
-      redirect_to new_user_registration_path
+      redirect_to new_user_session_path
     end
   end
 
@@ -32,25 +32,28 @@ class TestsController < ApplicationController
       @tests = Test.where(user_id: current_user.id)
     else
       flash[:notice] = 'Please sign in to view your tests'
-      redirect_to new_user_registration_path
+      redirect_to new_user_session_path
     end
   end
 
   def show
     check_github
     @questions = @test.questions
+    render :layout => 'test'
   end
 
   def share
   end
 
   def thanks
+    render :layout => 'test'
   end
 
   def email
     list = email_parser(params[:emails][:emails])
     url = request.original_url[0...-6]
     TestMailer.send_test_email(current_user, list, url).deliver
+    flash[:notice] = "Emails sent. Check back soon for results."
     redirect_to tests_path
   end
 
@@ -75,7 +78,7 @@ class TestsController < ApplicationController
   def email_parser(emails)
     emails.delete(" ").split(",")
   end
-  
+
   def check_test_in_progress
     if session[:test]
       @test = Test.new(session[:test])

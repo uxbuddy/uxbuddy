@@ -1,10 +1,10 @@
-%h3
-  %strong #{@test.name}
-  \ // Thank You
-%hr
-%br
-.row
-  .col.s6
-    %iframe.giphy-embed{:allowfullscreen => "", :frameborder => "0", :height => "266", :src => "//giphy.com/embed/iahffKAnhDjEc", :width => "480"}
-  .col.s4.offset-s2
-    %p.flow-text Thank you for completing this test. Your feedback and comments are appreciated.
+.test-container.z-depth-2
+  .ux-buddy-text
+    .questions_container
+      .welcome
+        %h3
+          Thank You
+          =image_tag 'uxbuddy_horizontal.png', class: "right"
+        %hr
+        .col.12
+          =render 'tests/thanks_text'
