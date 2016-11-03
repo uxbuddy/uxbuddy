@@ -1,3 +1,7 @@
+.container-home {
+  max-width: none !important;
+}
+
 .container {
   max-width: 960px !important;
 }
@@ -43,8 +47,9 @@ i {
 }
 
 #nav-logo {
-  margin-top: 0.35em;
+  margin-top: 0.50em;
   margin-left: 1em;
+  width: 120px;
 }
 
 .banner {
@@ -56,16 +61,20 @@ i {
 }
 
 .feature {
-  padding-right: 30px;
-  width: 100%;
+  margin-left: 100px;
+  max-height: 500px;
 }
 
 .feature-copy {
-  padding: 20px 0px;
+  margin: 0px 100px 0px 90px !important;
 }
 
 .feature-copy h2 {
   font-weight: 200;
+}
+
+.cta h2 {
+  font-weight: 300;
 }
 
 .feature-copy p {
