@@ -28,6 +28,6 @@ module FeatureHelpers
     fill_in 'test_test_url', with: test_url
     choose('Product page')
     check 'test_question_ids_1'
-    click_button "Create Test"
+    click_on "create test"
   end
 end
