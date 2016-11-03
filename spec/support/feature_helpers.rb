@@ -9,8 +9,9 @@ module FeatureHelpers
     click_button("Sign up")
   end
 
-  def user_sign_out
-    click_on 'test@email.com'
+  def user_sign_out(email = 'test2@email.com')
+    visit '/'
+    click_on email
     click_on 'sign-out-1'
   end
 
@@ -28,6 +29,6 @@ module FeatureHelpers
     fill_in 'test_test_url', with: test_url
     choose('Product page')
     check 'test_question_ids_1'
-    click_button "Create Test"
+    click_on "create test"
   end
 end
